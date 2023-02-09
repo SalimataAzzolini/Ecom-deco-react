@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserDashboard = () => {
+const UserProfile = () => {
     return (
         <div>
             User dashboard works!   
@@ -8,4 +8,4 @@ const UserDashboard = () => {
     );
 };
 
-export default UserDashboard;
+export default UserProfile;

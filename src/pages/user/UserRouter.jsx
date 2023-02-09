@@ -1,11 +1,27 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { UserLayout, UserDashboard } from '@/pages/user';
+import { UserLayout, UserProfile } from '@/pages/user';
 import {UserAccountEdit } from '@/pages/user/account';
+
+import Error from '@/_utils/Error'
+
 
 const UserRouter = () => {
     return (
-        <div> </div>
+        <div> 
+            <Routes>
+                <Route element={<UserLayout/>}>
+                    <Route index element={<UserProfile/>} />
+                    <Route path="profile" element={<UserProfile/>}/>
+                    <Route path="account" element={<UserAccountEdit/>}/>
+                </Route>
+
+            </Routes>
+
+          
+                  
+
+        </div>
     );
 };
 

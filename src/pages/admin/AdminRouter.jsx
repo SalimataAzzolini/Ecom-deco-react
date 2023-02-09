@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ALayout, Dashboard } from '@/pages/admin'
 import {User, UserAdd, UserEdit} from '@/pages/admin/user';
-import {Cocktail, CocktailEdit} from '@/pages/admin/cocktail';
+import {Category, CategoryEdit} from '@/pages/admin/category';
 
 
 import Error from '@/_utils/Error'
@@ -22,10 +22,10 @@ const AdminRouter = () => {
                     <Route path="add" element={<UserAdd/>}/>
                 </Route>
            
-                <Route path="cocktail">
-                    <Route path="index" element={<Cocktail/>}/>
-                    <Route path="edit" element={<CocktailEdit/>}/>
-            
+                <Route path="category">
+                    <Route path="index" element={<Category/>}/>
+                    <Route path="edit" element={<CategoryEdit/>}/>
+
                 </Route>
 
                 <Route path="*" element={<Error/>}/>

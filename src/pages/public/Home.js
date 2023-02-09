@@ -9,20 +9,26 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const flag = useRef(false)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if(!flag.current){
-            productService.getAllProducts()
-            .then(res => {
-                setProducts(res.data)
+    //     if(!flag.current){
+    //         productService.getAllProducts()
+    //         .then(res => {
+    //             setProducts(res.data)
             
-            })
-            .catch(err => console.log(err))
-        }
+    //         })
+    //         .catch(err => console.log(err))
+    //     }
 
-        flag.current = true
+    //     flag.current = true
 
-    }, []);
+    // }, []);
+
+    fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(res => {
+        setProducts(res)
+    })
 
 
     return (

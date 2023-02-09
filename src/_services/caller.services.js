@@ -6,8 +6,7 @@ const Axios = axios.create({
   baseURL: "http://127.0.0.1:8000",
 });
 
-// Attention ici aussi utilisation de Axios majuscule avec le parametrage url
-// Intercepteur pour la mise en place du token dans la requête
+//Intercepteur pour la mise en place du token dans la requête
 Axios.interceptors.request.use((request) => {
   //Si on est logge alors dans l entete de la requete j'injecte le token
   if (accountService.isLogged()) {

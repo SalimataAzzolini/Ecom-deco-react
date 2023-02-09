@@ -12,8 +12,7 @@ const ALayout = () => {
                 <div id='side-menu'> <SideMenu/> </div>
                 <div id='admin_body'> <Outlet/> </div>
             </div>
-            
-        
+
         </div>
     );
 };

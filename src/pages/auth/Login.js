@@ -32,25 +32,27 @@ const Login = () => {
     body: JSON.stringify(credentials),
   };
 
-  /*  async function onSubmit(e) {
-    e.preventDefault();
+  //  async function onSubmit(e) {
+  //   e.preventDefault();
 
-    let saveToken = (token) => {
-      localStorage.setItem("token", token);
-    };
+  //   let saveToken = (token) => {
+  //     localStorage.setItem("token", token);
+  //   };
   
-    await fetch("http://127.0.0.1:8000/api/login", options)
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          saveToken(res.token);
-          navigate("/admin", { replace: true });
-        } else {
-          console.log("erreur");
-        }
-      })
-      .catch((error) => console.log(error));
-  } */
+  //   await fetch("http://127.0.0.1:8000/api/login", options)
+  //     .then((res) => {
+  //       return res.json();
+  //       // console.log(res);
+  //       // if (res.status === 200) {
+  //       //   saveToken(res.token);
+  //       //   navigate("/admin", { replace: true });
+  //       // } else {
+  //       //   console.log("erreur");
+  //       // }
+  //     })
+  //     .then((data) => console.log(data))
+  //     .catch((error) => console.log(error));
+  // } 
 
   const onSubmit = (e) => {
     e.preventDefault();

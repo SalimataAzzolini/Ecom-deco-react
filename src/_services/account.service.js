@@ -1,7 +1,7 @@
 import Axios from "./caller.services";
 
 let login = (credentials) => {
-  return Axios.post("/api/login", credentials);
+  return Axios.post("api/login/admin", credentials);
 };
 
 let saveToken = (token) => {

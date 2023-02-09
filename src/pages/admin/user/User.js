@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 /* import { useQuery } from "react-query"; */
-import { useNavigate, Link } from "react-router-dom"; // navigation programatique qui permet de naviguer dans les routes avec id donné
+import { useNavigate, Link } from "react-router-dom";
 import { userService } from "@/_services";
 import "../../admin/admin.css"
 
