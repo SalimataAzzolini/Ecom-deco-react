@@ -1,14 +1,135 @@
-form{
-    width:180px;
+/* #login-form .form{
+    width:170px;
     margin: 0 auto;
     margin-top:150px;
 }
-.group{
+#login-form .group{
     margin-bottom:15px;
 }
-label{
+#login-form label{
     display:block;
 }
-button{
-    width:100%
+#login-form button{
+    width:80%
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+#login-form input {
+  caret-color: red;
+}
+/* 
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ecf0f3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  place-items: center;
+  overflow: hidden;
+  font-family: poppins;
+} */
+
+#login-form .container-form {
+  width: 350px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  margin-top: 30px;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+#login-form .brand-logo {
+  height: 100px;
+  width: 100px;
+  background: url("");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+}
+
+#login-form .brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #B8835F;
+  letter-spacing: 1px;
+}
+
+#login-form .inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+#login-form label, input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#login-form label {
+  margin-bottom: 4px;
+}
+
+#login-form label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+#login-form input::placeholder {
+  color: gray;
+}
+
+#login-form input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+#login-form button {
+  color: white;
+  margin-top: 20px;
+  background: #B8835F;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+#login-form button:hover {
+  box-shadow: none;
+}
+
+#login-form a {
+  position: absolute;
+  font-size: 8px;
+  bottom: 4px;
+  right: 4px;
+  text-decoration: none;
+  color: black;
+  background: #EBCEB5;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+#login-form h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

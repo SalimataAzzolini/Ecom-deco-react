@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { accountService } from "@/_services/";
 
 import "./auth.css";
-/* import axios from 'axios'; */
 
 const Login = () => {
   let navigate = useNavigate();
@@ -17,7 +16,6 @@ const Login = () => {
   });
 
   const onChange = (e) => {
-    /* console.log(e.target.name); console.log(e.target.value); */
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value,
@@ -64,7 +62,7 @@ const Login = () => {
         console.log(res);
         if (res.status === 200) {
           accountService.saveToken(res.data.token);
-          navigate("/admin", { replace: true });
+          navigate("/user", { replace: true });
         } else {
           console.log("erreur...");
         }
@@ -73,34 +71,34 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="group">
-        {/*  on recupere levent e et on passe setPassword */}
-        {/*  <input type='text' name='email' value={email} onChange={e => setEmail(e.target.value)}/> */}
 
-        <label htmlFor="email"> Identifiant </label>
-        <input
-          type="text"
-          name="email"
-          value={credentials.email}
-          onChange={onChange}
-        />
-      </div>
+    <div id="login-form"> 
+    <form className="container-form " onSubmit={onSubmit}>
+    <div className="brand-logo"></div>
+    <div className="brand-title">LOGIN</div>
 
-      <div className="group">
-        <label htmlFor="password"> Mot de passe </label>
-        <input
-          type="text"
-          name="password"
-          value={credentials.password}
-          onChange={onChange}
-        />
-      </div>
+    <div className="inputs">
+      <label>EMAIL</label>
+      <input
+        type="email"
+        placeholder="example@test.com"
+        name="email"
+        value={credentials.email}
+        onChange={onChange}
+      />
+      <label>PASSWORD</label>
+      <input
+        type="password"
+        placeholder="Min 6 charaters long"
+        name="password"
+        value={credentials.password}
+        onChange={onChange}
+      />
+      <button type="submit">LOGIN</button>
+    </div>
 
-      <div className="group">
-        <button className="btn btn-warning"> Connexion</button>
-      </div>
-    </form>
+  </form>
+  </div>
   );
 };
 

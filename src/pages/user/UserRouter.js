@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { UserLayout, UserProfile } from '@/pages/user';
-import {UserAccountEdit } from '@/pages/user/account';
+import { UserLayout, UserProfile, UserProfileEdit } from '@/pages/user';
+
 
 import Error from '@/_utils/Error'
 
@@ -13,7 +13,9 @@ const UserRouter = () => {
                 <Route element={<UserLayout/>}>
                     <Route index element={<UserProfile/>} />
                     <Route path="profile" element={<UserProfile/>}/>
-                    <Route path="account" element={<UserAccountEdit/>}/>
+                    <Route path="profile/edit" element={<UserProfileEdit/>}/>
+
+                    <Route path="*" element={<Error/>}/>   
                 </Route>
 
             </Routes>
