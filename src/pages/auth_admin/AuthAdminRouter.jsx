@@ -7,7 +7,7 @@ const AuthAdminRouter = () => {
     return (
         <Routes>
             <Route index element={<LoginAdmin />} />
-            <Route path="/login/admin" element={<LoginAdmin />} />
+            <Route path="login" element={<LoginAdmin />} />
             <Route path="*" element={<Error />} />
         </Routes>
     );

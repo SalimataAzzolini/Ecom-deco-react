@@ -1,9 +1,10 @@
 import React from 'react';
 
+
 const UserProfile = () => {
     return (
         <div>
-            User dashboard works!   
+            user profile works! 
         </div>
     );
 };

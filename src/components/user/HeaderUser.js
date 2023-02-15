@@ -1,12 +1,22 @@
 import React from 'react';
-
 import { useNavigate } from 'react-router-dom';
+import { Button, Layout, Menu, theme } from 'antd';
 /* import { Link } from 'react-router-dom'; */
 import { accountService } from '@/_services/account.service';
 
+const { Header } = Layout;
+const items1 = ['1', '2', '3'].map((key) => ({
+  key,
+  label: `nav ${key}`,
+}));
+
 const HeaderUser = () => {
 
-  let navigate = useNavigate()
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  let navigate = useNavigate();
 
   // Gestion du bouton de déconnexion
   const logout = () => {
@@ -15,8 +25,11 @@ const HeaderUser = () => {
   }
   return (
     <div>
-      Header User works!
-      <button onClick={logout} type="button" className="btn btn-dark"> Logout</button>
+       <Header className="header-user">
+       <div className="logo" />
+
+        <Button onClick={logout} type="primary">Logout</Button>
+      </Header>
     </div>
   );
 };
