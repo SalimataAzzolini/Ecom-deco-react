@@ -15,6 +15,8 @@ const Login = () => {
     password: "",
   });
 
+  const [userDatas, setUserDatas] = useState({});
+
   const onChange = (e) => {
     setCredentials({
       ...credentials,
@@ -63,9 +65,30 @@ const Login = () => {
         if (res.status === 200) {
           accountService.saveToken(res.data.token);
           navigate("/user", { replace: true });
+          getUserDatas();
+
         } else {
           console.log("erreur...");
         }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const getUserDatas = () => {
+    fetch("http://127.0.0.1:8000/profile/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accountService.getToken()}`,
+        // "Set-Cookie": `token=${accountService.getToken()}`,
+        "Cookie": `token=${accountService.getToken()}`,
+      },
+      body: JSON.stringify(credentials),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setUserDatas(data);
       })
       .catch((error) => console.log(error));
   };

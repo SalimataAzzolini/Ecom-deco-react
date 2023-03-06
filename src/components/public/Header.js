@@ -37,7 +37,7 @@ const Header = () => {
             </li>
             <button className="btn btn-dark">
               {" "}
-              <Link to="/admin">&nbsp; Login </Link>
+              <Link to="/auth/login">&nbsp; Login </Link>
             </button>
           </ul>
         </div>

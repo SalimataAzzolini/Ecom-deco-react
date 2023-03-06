@@ -1,20 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Layout } from 'antd';
 /* import { Link } from 'react-router-dom'; */
 import { accountService } from '@/_services/account.service';
+import './header-user.css';
+
 
 const { Header } = Layout;
-const items1 = ['1', '2', '3'].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
 
 const HeaderUser = () => {
-
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
 
   let navigate = useNavigate();
 
@@ -28,7 +22,7 @@ const HeaderUser = () => {
        <Header className="header-user">
        <div className="logo" />
 
-        <Button onClick={logout} type="primary">Logout</Button>
+        <button onClick={logout} className="logout-btn-user" >Logout</button>
       </Header>
     </div>
   );

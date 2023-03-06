@@ -1,11 +1,11 @@
 import Axios from "./caller.services";
 
 let loginAdmin = (credentials) => {
-  return Axios.post("api/login/admin", credentials);
+  return Axios.post("login/admin", credentials);
 };
 
 let login = (credentials) => {
-  return Axios.post("api/login", credentials);
+  return Axios.post("/login", credentials);
 };
 
 let saveToken = (token) => {
@@ -28,6 +28,10 @@ let getToken = () => {
   return localStorage.getItem("token");
 };
 
+let getUserDatas = () => {
+  return Axios.get("/profile/user");
+};
+
 // Déclaration des serivces pour import
 export const accountService = {
   login,
@@ -35,4 +39,5 @@ export const accountService = {
   logout,
   isLogged,
   getToken,
+  getUserDatas,
 };

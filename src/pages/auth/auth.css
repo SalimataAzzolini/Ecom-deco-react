@@ -49,7 +49,7 @@ body {
 #login-form .brand-logo {
   height: 100px;
   width: 100px;
-  background: url("");
+  /* background: url(""); */
   margin: auto;
   border-radius: 50%;
   box-sizing: border-box;

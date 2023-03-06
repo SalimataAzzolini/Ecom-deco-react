@@ -14,3 +14,69 @@ background: #ffffff;
     gap: 30px;
  
 }
+
+.section-title{
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+.section-flex{
+    margin-top: 15%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap !important;
+}
+.first-section{
+    margin-top: 15%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap !important;
+    background-color: #FFF7F4;
+    padding-top: 9%;
+    padding-bottom: 9%;
+    margin-bottom: 100px;
+
+}
+.grid-left{
+    width: 30%;
+}
+.grid-right{
+    margin-top: 50px;                         
+}
+
+.img-grid1{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+
+}
+
+.phone-home{
+    margin-top: 100px;
+    margin-left: 30%;
+}
+
+.third-section{
+    background-color: #FAF3EB;
+}
+
+
+@media screen and (max-width: 768px) {
+    .section-flex{
+        flex-direction: column;
+    }
+    .grid-left{
+        width: 100%;
+    }
+    .section-title{
+        text-align: center;
+        font-size: 20px;
+    }
+    .phone-home{
+        margin-top: 20px;
+        margin-left: 30%;
+    }
+}
+    

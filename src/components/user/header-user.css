@@ -1,4 +1,23 @@
-#components-layout-demo-top-side .logo {
+.logout-btn-user{
+  width : 70px;
+  background-color : #A26A48;
+  color : white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.logout-btn-user:hover{
+  background-color : white;
+  color : #A26A48;
+  border: #A26A48 1px solid;
+}
+
+
+
+/* #components-layout-demo-top-side .logo {
     float: left;
     width: 120px;
     height: 31px;
@@ -9,4 +28,4 @@
   .ant-row-rtl #components-layout-demo-top-side .logo {
     float: right;
     margin: 16px 0 16px 24px;
-  }
+  } */
