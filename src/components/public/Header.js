@@ -1,19 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./header-public.css";
+import Logo from "@/assets/img/logo.png";
 
 const Header = () => {
   return (
-    <header className="header-public">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="header-public">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light nav-public">
+      <img src={Logo} className="logo"/>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler btn-nav-toggle-public"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
+
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -35,14 +38,18 @@ const Header = () => {
                 Contact
               </Link>
             </li>
-            <button className="btn btn-dark">
-              {" "}
-              <Link to="/auth/login">&nbsp; Login </Link>
-            </button>
+            <li className="link-login" >
+              <Link to="/auth/login">&nbsp; Mon compte </Link>
+            </li>
+
+            <li className="link-basket" >
+              <Link to="">&nbsp; Panier </Link>
+            </li>
+           
           </ul>
         </div>
       </nav>
-    </header>
+    </div>
   );
 };
 

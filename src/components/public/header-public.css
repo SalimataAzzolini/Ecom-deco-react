@@ -1,0 +1,39 @@
+.header-public{
+    height: 75px;
+}
+
+.logo{
+    height: 60px;
+    margin-top: -10px;
+    margin-right: 50px;
+}
+.nav-public{
+    margin-top: 15px;
+}
+.btn-nav-toggle-public{
+    width: 60px;
+}
+
+.link-login a{
+    color : #7a706a;
+    position: absolute;
+    right: 180px;
+    top: 15px;
+}
+
+.link-login:hover a{
+    color: #A26A48;
+    text-decoration: none;
+}
+
+.link-basket a {
+    color : #7a706a;
+    position: absolute;
+    right: 100px;
+    top: 15px;
+}
+
+.link-basket:hover a{
+    color: #A26A48;
+    text-decoration: none;
+}

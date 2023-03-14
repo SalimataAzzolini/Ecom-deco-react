@@ -6,26 +6,16 @@ import Banner1 from '@/assets/img/banner3.png';
 import ImgGrid1 from '@/assets/img/img-grid1-home.png';
 import ImgGrid3 from '@/assets/img/img-grid3-home.png';
 import PhoneHome from '@/assets/img/phone-home.png';
+import ImgGridCategorySalon from '@/assets/img/img-grid-category-salon.png';
+import ImgGridCategoryBed from '@/assets/img/img-grid-category-bed.png';
+import ImgGridCategoryBath from '@/assets/img/img-grid-category-bath.png';
+import ImgHomeLifestyle from '@/assets/img/img-home-lifestyle.png';
 
 const Home = () => {
 
     const [products, setProducts] = useState([]);
-    const flag = useRef(false)
+    const flag = useRef(false);
 
-    // useEffect(() => {
-
-    //     if(!flag.current){
-    //         productService.getAllProducts()
-    //         .then(res => {
-    //             setProducts(res.data)
-            
-    //         })
-    //         .catch(err => console.log(err))
-    //     }
-
-    //     flag.current = true
-
-    // }, []);
 
     return (
 
@@ -84,19 +74,46 @@ const Home = () => {
                     <h3 className='section-title'> Nos Categories </h3>
 
                     <div className='third-section section-flex'>
-                        <div className="col ">
-                         grid1
+                        <div className="col div-grid-cat">
+                            <img src={ImgGridCategorySalon} className="img-grid-category"/>
+                            <h5> Salon </h5>
+                            <a href='' className='link-category'> Découvrir</a>
                         </div>
 
-                        <div className="col ">
-                        grid2
+                        <div className="col div-grid-cat ">
+                            <img src={ImgGridCategoryBed} className="img-grid-category"/>
+                            <h5> Chambre </h5>
+                            <a href='' className='link-category'> Découvrir</a>
                         </div>
-                        <div className="col">
-                        grid3
+                        <div className="col div-grid-cat">
+                            <img src={ImgGridCategoryBath} className="img-grid-category"/>
+                            <h5> Salon </h5>
+                            <a href='' className='link-category'> Salle de bain</a>
                         </div>
                     </div>
 
                 </section>
+
+                <section className='section-home4'>
+                    <h3 className='section-title'> Produits Tendances </h3>
+                    <div className='second-section section-flex'>
+                        <div className="col grid-left">
+                                Prdoduit1
+                        </div>
+
+                        <div className="col grid-right">
+                        Prdoduit2
+                
+                        </div>
+                    </div>
+                </section>
+
+                <section className='section-home5'>
+                   <div className='div-img-lifestyle'> 
+                        <img src={ImgHomeLifestyle} className="img-fluid img-lifestyle" alt="..."/>
+                    </div>
+                </section>
+
 
     
         </div>

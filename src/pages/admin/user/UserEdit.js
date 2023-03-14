@@ -27,8 +27,7 @@ const UserEdit = () => {
         }
     
         return () => flag.current = true
-     // pour ne pas avoir d'erreur linter sur uid
-        // eslint-disable-next-line react-hooks/exhaustive-deps 
+
     }, [])
 
 

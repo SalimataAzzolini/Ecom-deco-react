@@ -11,8 +11,6 @@ const User = () => {
   const [users, setUsers] = useState([]);
   const flag = useRef(false); // flag ref pour eviter les double appels du useEffect
 
-  //const {isLoading, error, data} = useQuery('users', userService.getAllUsers); // on ne va plus use useEffect avec le query et permet de faire qu'une seule appel
-  //const users = data || {'data':[]} // comme est nes plus asynchrone pas de state pour users et il faudra declarer les fonctions dans users services en asynchrone ou tableau vide venant de la reponse daxios
 
   
   // Récupération de la liste des utilisateurs à l'affichage
@@ -26,7 +24,7 @@ const User = () => {
             .catch(err => console.log(err))
     }
 
-    return () => flag.current = true // flag.current = true permet de placer un ref et de nettoyer evite les double appels
+    return () => flag.current = true 
     
 }, [])
 

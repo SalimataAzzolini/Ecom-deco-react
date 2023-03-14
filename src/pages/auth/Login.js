@@ -8,14 +8,14 @@ import "./auth.css";
 const Login = () => {
   let navigate = useNavigate();
 
-  // const [password, setPassword] = useState(''); / A la place de ci-dessus on va se faire un objet */
-
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
 
-  const [userDatas, setUserDatas] = useState({});
+  const [userDatas, setUserDatas] = useState({})
+
+  // const [userDatas, setUserDatas] = useState({});
 
   const onChange = (e) => {
     setCredentials({

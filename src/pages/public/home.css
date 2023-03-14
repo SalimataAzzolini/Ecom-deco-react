@@ -16,14 +16,13 @@ background: #ffffff;
 }
 
 .section-title{
-    margin-bottom: 50px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     font-weight: bold;
 }
 .section-flex{
-    margin-top: 15%;
+    margin-top: 9%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap !important;
@@ -48,8 +47,10 @@ background: #ffffff;
 
 .img-grid1{
     width: 90%;
-    height: 90%;
-    object-fit: cover;
+    height: 100%;
+    /* object-fit: cover; */
+    border-left: white solid 30px;
+    border-bottom: white solid 30px;
 
 }
 
@@ -60,7 +61,43 @@ background: #ffffff;
 
 .third-section{
     background-color: #FAF3EB;
+    padding-top: 60px;
+    padding-bottom: 27px;
 }
+
+.section-home3{
+    margin-top: 10%;
+}
+
+.div-grid-cat h5{
+    margin-top: -19%;
+    margin-left: 15%;
+    text-align: left;
+
+}
+
+.div-grid-cat a {
+    text-align: left;
+    margin-left: -55%;
+}
+
+.section-home4{
+    margin-top: 10%;
+}
+
+.link-category{
+    text-decoration: none;
+    color: #000000;
+}
+
+.link-category:hover{
+    text-decoration: underline;
+    color: #B8835F;
+}
+
+.div-img-lifestyle{
+    margin: 0px 20px;
+} 
 
 
 @media screen and (max-width: 768px) {
@@ -78,5 +115,15 @@ background: #ffffff;
         margin-top: 20px;
         margin-left: 30%;
     }
+    .section-home3 h3{
+        margin-bottom: -25%;
+    }
+    .third-section{
+        padding-top: 10px;
+    }
+    .img-grid-category{
+        margin-top: 25%;
+    }
+
 }
     

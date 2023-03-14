@@ -1,0 +1,26 @@
+import React, {useState, useEffect, useCallback} from "react";
+import { accountService } from "../../_services/account.service";
+
+const useUserDatas = () => {
+    const [userDatas, setUserDatas] = useState({})
+
+    // const getUserDatas = () => {
+    //     fetch("http://127.0.0.1:8000/profile/user", {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //         Authorization: `Bearer ${accountService.getToken()}`,
+    //         // "Set-Cookie": `token=${accountService.getToken()}`,
+    //         "Cookie": `token=${accountService.getToken()}`,
+    //       },
+    //       body: JSON.stringify(credentials),
+    //     })
+    //       .then((res) => res.json())
+    //       .then((data) => {
+    //         console.log(data);
+    //         setUserDatas(data);
+    //       })
+    //       .catch((error) => console.log(error));
+    //   };
+
+}
