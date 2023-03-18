@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { productService } from '@/_services';
-import MyCard from '@/components/public/MyCard';
 import './home.css';
 import Banner1 from '@/assets/img/banner3.png';
 import ImgGrid1 from '@/assets/img/img-grid1-home.png';
@@ -10,6 +9,9 @@ import ImgGridCategorySalon from '@/assets/img/img-grid-category-salon.png';
 import ImgGridCategoryBed from '@/assets/img/img-grid-category-bed.png';
 import ImgGridCategoryBath from '@/assets/img/img-grid-category-bath.png';
 import ImgHomeLifestyle from '@/assets/img/img-home-lifestyle.png';
+import CardSalonProduct from '../../components/public/CardSalonProduct';
+import SalonCategory from './SalonCategory';
+import CardProduct from '../../components/public/CardProduct';
 
 const Home = () => {
 
@@ -60,7 +62,7 @@ const Home = () => {
                         </div>
 
                         <div className="col grid-right">
-                            <h3> Amour déco </h3>
+                            <h3 style={{marginTop : "50px"}}> Amour déco </h3>
                             <p>
                             Mon approche est mobile-first. Mon objectif est de garantir à vos clients une expérience agréable au moment d'explorer votre site.
                             lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, nec aliquet nisl nisl eu nisl. Sed euismo
@@ -72,7 +74,6 @@ const Home = () => {
 
                 <section className='section-home3'>
                     <h3 className='section-title'> Nos Categories </h3>
-
                     <div className='third-section section-flex'>
                         <div className="col div-grid-cat">
                             <img src={ImgGridCategorySalon} className="img-grid-category"/>
@@ -98,12 +99,11 @@ const Home = () => {
                     <h3 className='section-title'> Produits Tendances </h3>
                     <div className='second-section section-flex'>
                         <div className="col grid-left">
-                                Prdoduit1
+                               <CardProduct/>
                         </div>
 
                         <div className="col grid-right">
-                        Prdoduit2
-                
+                        <CardProduct/> 
                         </div>
                     </div>
                 </section>
@@ -114,7 +114,24 @@ const Home = () => {
                     </div>
                 </section>
 
-
+                <section className='section-home6'>
+                    <h3> Devenez adepte </h3>
+                    <div className="wrapper">
+                        <form action="#"  className="card-content">
+                            <div className="">
+                                <div  className="image">
+                                    <i  className="fas fa-envelope"></i>
+                                </div>
+                                <h1>Subscribe</h1>
+                                <p>Subscribe to our newsletter and stay updated.</p>
+                            </div>
+                            <div  className="form-input">
+                                <input type="email" placeholder="Your Email" className='input-newsletter '/>
+                                <button  className="subscribe-btn">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
     
         </div>
     )

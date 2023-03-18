@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Layout } from 'antd';
 /* import { Link } from 'react-router-dom'; */
 import { accountService } from '@/_services/account.service';
-import './header-user.css';
+import './style/header-user.scss';
 
 
 const { Header } = Layout;

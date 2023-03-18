@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 /* import { Link } from 'react-router-dom'; */
-import './header-admin.css';
+import './style/header-admin.scss';
 import { accountService } from '@/_services/account.service';
 
 const Header = () => {

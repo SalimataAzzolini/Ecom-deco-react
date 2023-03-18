@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { FaUserAlt, FaShoppingBag, FaBars, FaTextWidth  } from 'react-icons/fa';
 import {BsSuitHeartFill} from 'react-icons/bs';
-import "./side-menu-user.scss";
+import "./style/side-menu-user.scss";
 
 const SideMenuUser = () => {
   const [isOpen, setIsOpen] = useState(false);

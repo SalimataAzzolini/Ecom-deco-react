@@ -25,9 +25,7 @@ const UserEdit = () => {
                 })
                 .catch(err => console.log(err))
         }
-    
         return () => flag.current = true
-
     }, [])
 
 

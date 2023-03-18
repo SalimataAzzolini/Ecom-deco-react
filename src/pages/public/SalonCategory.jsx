@@ -1,8 +1,6 @@
-import React from 'react';
 import React, {useState, useEffect, useRef} from 'react';
 import { productService } from '@/_services';
-import MyCard from '@/components/public/MyCard';
-import './home.css';
+import CardSalonProduct from '@/components/public/CardSalonProduct';
 
 const SalonCategory = () => {
     const [products, setProducts] = useState([]);
@@ -23,10 +21,21 @@ const SalonCategory = () => {
 
     // }, []);
 
-    fetch('https://fakestoreapi.com/products')
-    .then(res => res.json())
-    .then(res => {
-        setProducts(res)
+    const getProducts = async () => {
+        await fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(res => {
+            console.log(res);
+            setProducts(res)
+        })
+        .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        if(!flag.current){
+            getProducts();
+        }
+        flag.current = true
     })
 
 
@@ -36,7 +45,8 @@ const SalonCategory = () => {
         <div className='card-container'>
             {products.length > 0 && 
                 products.map((product, index) => (
-                    <MyCard key={index} product={product} />
+                    // <MyCard key={index} product={product} />
+                    <CardSalonProduct key={index} product={product} />
             ))}
 
         
