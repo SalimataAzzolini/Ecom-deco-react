@@ -1,19 +1,14 @@
+.sections-home{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
 .home-card {
 background: #ffffff;
 	background-image: linear-gradient( 135deg, #ffffff 10%, #fcfcfc 100%);
 	background-attachment: fixed;	
 	background-size: cover;
 }
-
-/* .card-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1200px;
-    gap: 30px;
- 
-} */
 
 .section-title{
     text-align: center;
@@ -37,6 +32,22 @@ background: #ffffff;
     padding-bottom: 9%;
     margin-bottom: 100px;
 
+}
+
+.rond-amour-deco{
+    background-color: #B8835F;
+    border-radius: 50%;
+    padding: 30px 40px;
+    margin-top : 10%;
+    position: relative;
+    top: 40px;
+    left: 24%;
+
+
+
+}
+.title-amour-deco{
+    margin-top: 15%;
 }
 .grid-left{
     width: 30%;
@@ -103,41 +114,53 @@ background: #ffffff;
 
 
 /* ******* Newsletter Section ******** */
-.wrapper {
-  height: 100vh;
-margin-left: 30%;
+.wrapper-newsletter {
+  display: flex;
+  justify-content: end;
+  background-image: url('/src/assets/img/img-cover-newsletter.png');
+  height: 70vh;
+  margin: 50px 0px 80px;
+
 }
+
+.card-newsletter {
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    /* position: relative;
+    top: 50%;
+    left: 50%; */
+    transform: translate(-50%, 50%);
+    border-radius: 1rem;
+    padding: 4rem .10rem;
+    box-shadow: 1px 1px 2rem rgba(0,0,0,.3);
+    text-align: center;
+}
+
 
 .fas.fa-envelope {
-  color: #fff;
-  font-size: 2rem;
-  background: #333;
-  padding: 1rem;
-  border-radius: 100%;
-  margin: 0 0 1rem 0;
+    color: #fff;
+    background: #333;
+    padding: 1rem;
+    border-radius: 100%;
+    margin: 0 0 1rem 0;
 }
 
-.card-content {
-  max-width: 30rem;
-  background-color: #fff;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border-radius: 1rem;
-  padding: 4rem .5rem;
-  box-shadow: 1px 1px 2rem rgba(0,0,0,.3);
-  text-align: center;
+.card-newsletter h1 {
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
 }
 
-.card-content h1 {
-  text-transform: uppercase;
-  margin: 0 0 1rem 0;
+.card-newsletter p {
+    font-size: .8rem;
+    margin: 0 0 2rem 0;
 }
 
-.card-content p {
-  font-size: .8rem;
-  margin: 0 0 2rem 0;
+.form-input-newsletter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap : 20px;
 }
 
 .input-newsletter {
@@ -157,13 +180,27 @@ margin-left: 30%;
     width: 130px;
   padding: .8rem 2rem;
   border-radius: 5rem;
-  background: linear-gradient(90deg, #ff9966, #ff5e62);
+  background: linear-gradient(90deg, #f4bb9f, #B8835F);
   color: #fff;
   font-size: .7rem;
   border: none;
   outline: none;
   cursor: pointer;
 }
+
+.contact-newsletter{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* .contact-newsletter  dernier élement  */
+.contact-newsletter  h6:last-child{
+   text-decoration: underline;
+}
+
+
 
 
 @media screen and (max-width: 768px) {

@@ -1,25 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { accountService } from "@/_services/";
+import { UserDatasContext } from "@/_contexts/userDatasContext";
 
 import "./auth.css";
 
 const Login = () => {
   let navigate = useNavigate();
+  const  {userDatas, setUserDatas}  = useContext(UserDatasContext);
 
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
 
-  const [userDatas, setUserDatas] = useState({})
-
-  // const [userDatas, setUserDatas] = useState({});
 
   const onChange = (e) => {
     setCredentials({
-      ...credentials,
+      ...credentials, 
       [e.target.name]: e.target.value,
     });
   };
@@ -56,12 +54,11 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-
     console.log(credentials);
     accountService
       .login(credentials)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.status === 200) {
           accountService.saveToken(res.data.token);
           navigate("/user", { replace: true });
@@ -80,7 +77,6 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accountService.getToken()}`,
-        // "Set-Cookie": `token=${accountService.getToken()}`,
         "Cookie": `token=${accountService.getToken()}`,
       },
       body: JSON.stringify(credentials),
@@ -89,11 +85,14 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         setUserDatas(data);
+        // accountService.saveUserDatas(data);
       })
       .catch((error) => console.log(error));
   };
 
+
   return (
+
 
     <div id="login-form"> 
     <form className="container-form " onSubmit={onSubmit}>

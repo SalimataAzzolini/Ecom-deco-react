@@ -18,10 +18,8 @@ const HeaderUser = () => {
       navigate('/')
   }
   return (
-    <div>
-       <Header className="header-user">
-       <div className="logo" />
-
+    <div style={{backgroundColor : "red"}}>
+       <Header className="header-user" style={{backgroundColor : " #A26A48"}}>
         <button onClick={logout} className="logout-btn-user" >Logout</button>
       </Header>
     </div>

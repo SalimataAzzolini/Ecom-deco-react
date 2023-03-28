@@ -1,12 +1,8 @@
 import Axios from './caller.services'
 
-// Si use query mettre la fonction en asynchrone = async () =>....
+
 let getAllUsers = () => {
     return Axios.get('/users');
-    //si use query destructurer et data vient de res.data
-/*     const {data} = await Axios.get('/users') 
-return data;
-*/
 }
 
 let getUser = (uid) => {

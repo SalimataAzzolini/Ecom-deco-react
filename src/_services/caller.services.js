@@ -18,18 +18,17 @@ Axios.interceptors.request.use((request) => {
 
 // Intercepteur de réponse API pour vérification de la session si expirée ou pas
 //Attention ici si on utilise des states ou des stores comme redux ca va le vider comme cest un rafraichissement
-/* Axios.interceptors.response.use(
+ Axios.interceptors.response.use(
   (response) => {
-    return response;
-  },
-  (error) => {
-    if (error.response.status === 401) {
+   return response;
+  },  (error) => {
+   if (error.response.status === 401) {
       accountService.logout();
-      window.location = "/auth/login";
+       window.location = "/auth/login";
     } else {
       return Promise.reject(error);
     }
-  }
-); */
+ }
+);
 
 export default Axios;

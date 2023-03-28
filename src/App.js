@@ -9,23 +9,24 @@ import AuthGuard from "@/_helpers/AuthGuard";
 import UserRouter from "./pages/user/UserRouter";
 import AuthAdminRouter from "./pages/auth_admin/AuthAdminRouter";
 import AuthGuardAdmin from "./_helpers/AuthGuardAdmin";
+import UserDatasProvider from "./_contexts/userDatasContext";
 
 
 function App() {
   return (
-    <div className="App">
+    <UserDatasProvider>
       <BrowserRouter>
       <Routes>
               {/* On accroche un point d entree on met l'etoile derriere pour dire qu il y a des enfants /*/}
           <Route path="/*" element={<PublicRouter />}/>
               {/* On va bloquer la route admin avec authguard et a metre apres elements */}
-          {/* <Route path="/admin/*" 
+          <Route path="/admin/*" 
                  element={ 
                        <AuthGuardAdmin> 
                             <AdminRouter /> 
                        </AuthGuardAdmin> 
                 }
-          /> */}
+          />
 
           <Route path="/user/*" 
                  element={ 
@@ -39,7 +40,7 @@ function App() {
          
         </Routes>
       </BrowserRouter>
-    </div>
+    </UserDatasProvider>
   );
 }
 

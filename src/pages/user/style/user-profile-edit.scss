@@ -1,24 +1,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-/* #login-form input {
+#user-edit-form input {
   caret-color: red;
-} */
+}
 
-#login-form .container-form {
-  width: 350px;
+#user-edit-form .container-form {
+  width: 800px;
   height: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 14%;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
-  background: #ecf0f3;
+  background: #f5f8fa;
   margin-top: 30px;
-  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  box-shadow: 14px 14px 20px #d1cfcb, -14px -14px 20px white;
+  margin-bottom: 50px;
 }
 
-#login-form .brand-logo {
+#user-edit-form .brand-logo {
   height: 100px;
   width: 100px;
   /* background: url(""); */
@@ -28,7 +28,7 @@
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }
 
-#login-form .brand-title {
+#user-edit-form .brand-title {
   margin-top: 10px;
   font-weight: 900;
   font-size: 1.8rem;
@@ -36,46 +36,53 @@
   letter-spacing: 1px;
 }
 
-#login-form .inputs {
+#user-edit-form .container-inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   text-align: left;
   margin-top: 30px;
+  gap: 30px;
+
 }
 
-#login-form label, input, button {
+#user-edit-form label, input, button {
   display: block;
-  width: 100%;
+  width: 40%;
   padding: 0;
   border: none;
   outline: none;
   box-sizing: border-box;
 }
-
-#login-form label {
-  margin-bottom: 4px;
+.div-btn-edit-user{
+    display: flex;
+    justify-content: center;
+    width: 90%;
 }
 
-#login-form label:nth-of-type(2) {
+
+
+#user-edit-form label:nth-of-type(2) {
   margin-top: 12px;
 }
 
-#login-form input::placeholder {
+#user-edit-form input::placeholder {
   color: gray;
 }
 
-#login-form input {
+#user-edit-form input {
   background: #ecf0f3;
-  width: 270px;
   padding: 10px;
   padding-left: 20px;
   height: 50px;
   font-size: 14px;
   border-radius: 50px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  margin-bottom: 20px;
 }
 
-#login-form button {
+#user-edit-form button {
   color: white;
-  width: 270px;
   margin-top: 20px;
   background: #B8835F;
   height: 40px;
@@ -86,11 +93,11 @@
   transition: 0.5s;
 }
 
-#login-form button:hover {
+#user-edit-form button:hover {
   box-shadow: none;
 }
 
-#login-form a {
+#user-edit-form a {
   position: absolute;
   font-size: 8px;
   bottom: 4px;
@@ -102,8 +109,24 @@
   padding: 2px;
 }
 
-#login-form h1 {
+#user-edit-form h1 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@media screen and (max-width: 700px) {
+    #user-edit-form .container-form {
+        margin-top: -20px;
+        width: 400px;
+        height: 700px;
+
+    }
+    #user-edit-form .container-inputs {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #user-edit-form label, input, button {
+        width: 100%;
+    }
 }

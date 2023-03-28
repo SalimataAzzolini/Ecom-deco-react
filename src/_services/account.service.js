@@ -28,9 +28,14 @@ let getToken = () => {
   return localStorage.getItem("token");
 };
 
-let getUserDatas = () => {
-  return Axios.get("/profile/user");
+let saveUserDatas = (userDatas) => {
+  localStorage.setItem("userDatas", userDatas);
+  
 };
+
+let userEditProfil = (userDatas) => {
+  return Axios.put("/profile/edit/", userDatas);
+}
 
 // Déclaration des serivces pour import
 export const accountService = {
@@ -39,5 +44,5 @@ export const accountService = {
   logout,
   isLogged,
   getToken,
-  getUserDatas,
+  userEditProfil
 };

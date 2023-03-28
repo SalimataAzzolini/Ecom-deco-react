@@ -12,6 +12,8 @@ import ImgHomeLifestyle from '@/assets/img/img-home-lifestyle.png';
 import CardSalonProduct from '../../components/public/CardSalonProduct';
 import SalonCategory from './SalonCategory';
 import CardProduct from '../../components/public/CardProduct';
+import ImgCoverNesletter from '@/assets/img/img-cover-newsletter.png';
+import FooterHome from '../../components/public/FooterHome';
 
 const Home = () => {
 
@@ -38,13 +40,14 @@ const Home = () => {
                     </div>
                 </div> */}
                 
-                <section className='first-section-home'> 
+                <section className='first-section-home '> 
                     <div className="first-section section-flex">
                         <div className="col grid-left">
                             <img src={ImgGrid1} className="img-grid1"/>
                         </div>
                         <div className="col grid-right">
-                            <h3> Amour déco </h3>
+                            <span className='rond-amour-deco'> </span>
+                            <h3 className='title-amour-deco'> Amour déco </h3>
                             <p>
                             Mon approche est mobile-first. Mon objectif est de garantir à vos clients une expérience agréable au moment d'explorer votre site.
                             lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, nec aliquet nisl nisl eu nisl. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, nec aliquet nisl nisl eu nisl.
@@ -114,24 +117,32 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section className='section-home6'>
-                    <h3> Devenez adepte </h3>
-                    <div className="wrapper">
-                        <form action="#"  className="card-content">
+                <section className='section-home6 sections-home'>
+                    <h1> Devenez adepte </h1>
+                    <div className="wrapper-newsletter">
+                        <form action="#"  className="card-newsletter">
                             <div className="">
                                 <div  className="image">
-                                    <i  className="fas fa-envelope"></i>
+                                   {/* <BsFillEnvelopePaperHeartFill/> */}
+                                    {/* <i  className="fas fa-envelope"></i> */}
                                 </div>
-                                <h1>Subscribe</h1>
-                                <p>Subscribe to our newsletter and stay updated.</p>
+                                <h4>Subscribe</h4>
+                                <p>Inscrivez-vous à notre newsletter et restez connecté.</p>
                             </div>
-                            <div  className="form-input">
+                            <div  className="form-input-newsletter">
                                 <input type="email" placeholder="Your Email" className='input-newsletter '/>
                                 <button  className="subscribe-btn">Subscribe</button>
                             </div>
                         </form>
                     </div>
+                    <div className='contact-newsletter'>
+                        <h6> @mooddecolive</h6>
+                        <h6> 04 23 45 67 89 </h6>
+                        <h6>bonjour@ecomdecomood.fr</h6>
+                    </div>
                 </section>
+
+                <FooterHome/>
     
         </div>
     )
