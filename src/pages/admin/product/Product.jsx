@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Cocktail = () => {
+const Product = () => {
     return (
         <div>
-            Liste cocktail
+            list product works !
         </div>
     );
 };
 
-export default Cocktail;
+export default Product;

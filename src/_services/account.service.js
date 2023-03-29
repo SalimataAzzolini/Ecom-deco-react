@@ -1,8 +1,6 @@
 import Axios from "./caller.services";
+// import jwt from 'jsonwebtoken';
 
-let loginAdmin = (credentials) => {
-  return Axios.post("login/admin", credentials);
-};
 
 let login = (credentials) => {
   return Axios.post("/login", credentials);
@@ -28,21 +26,27 @@ let getToken = () => {
   return localStorage.getItem("token");
 };
 
-let saveUserDatas = (userDatas) => {
-  localStorage.setItem("userDatas", userDatas);
-  
-};
-
 let userEditProfil = (userDatas) => {
   return Axios.put("/profile/edit/", userDatas);
 }
 
-// Déclaration des serivces pour import
+// Login user Admin avec vérification du token et role admin
+let loginAdmin = (credentials) => {
+  return Axios.post("/login/admin", credentials);
+};
+
+let isAdminLogged = () => {
+
+
+};
+
+// Déclaration des services pour import
 export const accountService = {
   login,
   saveToken,
   logout,
   isLogged,
   getToken,
-  userEditProfil
+  userEditProfil,
+  loginAdmin
 };

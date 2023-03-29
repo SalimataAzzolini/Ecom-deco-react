@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import { productService } from '@/_services';
-import './home.css';
+import './style/home.css';
 import Banner1 from '@/assets/img/banner3.png';
 import ImgGrid1 from '@/assets/img/img-grid1-home.png';
 import ImgGrid3 from '@/assets/img/img-grid3-home.png';

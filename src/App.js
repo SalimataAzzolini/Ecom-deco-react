@@ -1,6 +1,3 @@
-// import logo from './logo.svg';
-import "./App.css";
-
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import PublicRouter from "@/pages/public/PublicRouter";
 import AdminRouter from "@/pages/admin/AdminRouter";
@@ -19,7 +16,7 @@ function App() {
       <Routes>
               {/* On accroche un point d entree on met l'etoile derriere pour dire qu il y a des enfants /*/}
           <Route path="/*" element={<PublicRouter />}/>
-              {/* On va bloquer la route admin avec authguard et a metre apres elements */}
+
           <Route path="/admin/*" 
                  element={ 
                        <AuthGuardAdmin> 
