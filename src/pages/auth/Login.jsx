@@ -77,7 +77,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accountService.getToken()}`,
-        "Cookie": `token=${accountService.getToken()}`,
+        // "Cookie": `token=${accountService.getToken()}`,
       },
       body: JSON.stringify(credentials),
     })

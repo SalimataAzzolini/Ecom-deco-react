@@ -1,10 +1,11 @@
-import Reac, {useState} from 'react';
+import {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import { accountService } from "@/_services/";
 
 const LoginAdmin = () => {
 
     let navigate = useNavigate();
+
 
     const [credentials, setCredentials] = useState({
         email: "",
@@ -22,18 +23,16 @@ const LoginAdmin = () => {
         accountService
         .loginAdmin(credentials)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         if (res.status === 200) {
-          accountService.saveToken(res.data.token);
-          navigate("/admin", { replace: true });
+          accountService.saveToken(res.data.token); 
+          navigate("/admin/dashboard", { replace: true });
         } else {
           console.log("erreur...");
         }
       })
       .catch((error) => console.log(error));
   };
-
-
 
 
     return (

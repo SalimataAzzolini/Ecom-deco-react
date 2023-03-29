@@ -1,5 +1,5 @@
 import Axios from "./caller.services";
-// import jwt from 'jsonwebtoken';
+import jwt_decode from "jwt-decode";
 
 
 let login = (credentials) => {
@@ -30,13 +30,14 @@ let userEditProfil = (userDatas) => {
   return Axios.put("/profile/edit/", userDatas);
 }
 
-// Login user Admin avec vérification du token et role admin
 let loginAdmin = (credentials) => {
   return Axios.post("/login/admin", credentials);
 };
 
-let isAdminLogged = () => {
-
+let isAdmin = () => {
+  let token = localStorage.getItem("token");
+  const decoded = jwt_decode(token);
+  return decoded.roles.includes("ROLE_ADMIN");
 
 };
 
@@ -48,5 +49,7 @@ export const accountService = {
   isLogged,
   getToken,
   userEditProfil,
-  loginAdmin
+  loginAdmin,
+  isAdmin
+
 };

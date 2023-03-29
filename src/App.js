@@ -14,7 +14,6 @@ function App() {
     <UserDatasProvider>
       <BrowserRouter>
       <Routes>
-              {/* On accroche un point d entree on met l'etoile derriere pour dire qu il y a des enfants /*/}
           <Route path="/*" element={<PublicRouter />}/>
 
           <Route path="/admin/*" 
