@@ -14,16 +14,16 @@ const SideMenu = () => {
                 <li>
                     User
                     <ul>
-                        <li><Link to="/admin/dashboard/user/index">Liste user</Link></li>
-                        <li><Link to="/admin/dashboard/user/add">Ajouter user</Link></li>
+                        <li><Link to="/admin/user/index">Liste user</Link></li>
+                        <li><Link to="/admin/user/add">Ajouter user</Link></li>
                         
                     </ul>
                 </li>
                 <li>
                     Produit
                     <ul>
-                        <li><Link to="/admin/dashboard/product/index">Liste produit</Link></li>
-                        <li><Link to="/admin/dashboard/product/edit">Ajouter ou editer un produit</Link></li>
+                        <li><Link to="/admin/product/index">Liste produit</Link></li>
+                        <li><Link to="/admin/product/edit">Ajouter ou editer un produit</Link></li>
                     </ul>
                 </li>
            </ul>
