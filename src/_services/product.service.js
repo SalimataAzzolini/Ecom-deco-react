@@ -1,35 +1,35 @@
 import Axios from "./caller.services";
 
 let getAllProducts = () => {
-    return Axios.get('/api/products')
+    return Axios.get('/products')
 }
 
 /**
  * Récupération d'un produit
  */
-let getProduct = (cid) => {
-    return Axios.get('/api/products/'+cid)
+let getProduct = (pid) => {
+    return Axios.get('/products/'+pid)
 }
 
 /**
  * Ajout d'un products
  */
 let addProduct = (product) => {
-    return Axios.post('/api/products', product)
+    return Axios.post('/products/create/', product)
 }
 
 /**
  * Mise à jour d'un products
  */
 let updateProduct = (product) => {
-    return Axios.patch('/api/products/'+product.id, product)
+    return Axios.patch('/products/'+product.id+'/edit', product)
 }
 
 /**
  * Suppression d'un products
  */
-let deleteProduct = (cid) => {
-    return Axios.delete('/api/products/'+cid)
+let deleteProduct = (pid) => {
+    return Axios.delete('/api/products/'+pid+'/delete')
 }
 
 // Déclaration des services pour import

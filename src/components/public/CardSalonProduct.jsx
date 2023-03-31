@@ -15,66 +15,39 @@ const CardSalonProduct = ({product}) => {
             {/* <!-- Start	Product details --> */}
     
             <div className="product-image">
-              <img
-                src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg"
-                alt="Omar Dsoky"
-              />
-    
+
+              {product.images && product.images
+              .slice(0, 1)
+              .map((image, index) => (
+                <img src={image.link} alt="product" key={index}/>
+              ))
+                
+              }
+              <img src={product.images.link} alt="" />
+      
+
+
               {/* <!-- 	product Information--> */}
               <div className="info">
                 <h2>The Description</h2>
-                <ul>
-                  <li>
-                    <strong>Sun Needs: </strong>Full Sun
-                  </li>
-                  <li>
-                    <strong>Soil Needs: </strong>Damp
-                  </li>
-                  <li>
-                    <strong>Zones: </strong>9 - 11
-                  </li>
-                  <li>
-                    <strong>Height: </strong>2 - 3 feet
-                  </li>
-                  <li>
-                    <strong>Blooms in: </strong>MidSummer - MidFall
-                  </li>
-                  <li>
-                    <strong>Features: </strong>Tolerates heat
-                  </li>
-                </ul>
+                <p> {product.description}</p>
               </div>
             </div>
             <div className="product-details">
               {/* 	<!-- 	Product Name --> */}
-              <h1>Biru Putaran</h1>
-          
-             
-              {/* <!-- 		the Product rating --> */}
-              <span className="hint-star star">
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star" aria-hidden="true"></i>
-                <i className="fa fa-star-half-o" aria-hidden="true"></i>
-                <i className="fa fa-star-o" aria-hidden="true"></i>
-              </span>
+              <h1>{product.name}</h1>
+        
     
               <p className="information">
-                Especially good for container gardening, the Angelonia will keep
-            
+                Juste for you
               </p>
     
               <div className="control">
                 
-              <Link to={`/service/${product.id}`}> 
-                <button className="btn">
+              <Link to={`/product/${product.id}`}> 
+                <button className="btn" style={{width : "150px", height : "45px"}}>
                   <span className="price"> {product.price}</span>
-    
-                {/*   <span className="shopping-cart">
-                  <FontAwesomeIcon icon="fa-solid fa-tag" />   
-                  </span> */}
-    
-                  <span className="buy">Voir plus</span>
+                  <span className="buy">Voir</span>
                 </button>
                 </Link>
               </div>

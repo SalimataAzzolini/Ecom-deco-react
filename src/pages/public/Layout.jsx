@@ -1,13 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '@/components/public/Header';
+import HeaderPublic from '@/components/public/HeaderPublic';
+import FooterHome from '@/components/public/FooterHome';
 
 const layout = () => {
     return (
         <div>
-            <Header/>
-        {/*     Toutes les routes qui sont enfants layout dans le router s'afficheront dans outlet */}
+            <HeaderPublic/>
             <Outlet/> 
+            <FooterHome/>
 
           
         </div>

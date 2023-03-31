@@ -10,7 +10,7 @@ import ImgGridCategoryBed from '@/assets/img/img-grid-category-bed.png';
 import ImgGridCategoryBath from '@/assets/img/img-grid-category-bath.png';
 import ImgHomeLifestyle from '@/assets/img/img-home-lifestyle.png';
 import CardSalonProduct from '../../components/public/CardSalonProduct';
-import SalonCategory from './SalonCategory';
+import Salon from './Salon';
 import CardProduct from '../../components/public/CardProduct';
 import ImgCoverNesletter from '@/assets/img/img-cover-newsletter.png';
 import FooterHome from '../../components/public/FooterHome';
@@ -141,8 +141,6 @@ const Home = () => {
                         <h6>bonjour@ecomdecomood.fr</h6>
                     </div>
                 </section>
-
-                <FooterHome/>
     
         </div>
     )

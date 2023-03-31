@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style/header-public.scss";
 import Logo from "@/assets/img/logo.png";
 
-const Header = () => {
+const HeaderPublic = () => {
   return (
     <div className="header-public">
       <nav className="navbar navbar-expand-lg navbar-light bg-light nav-public">
@@ -30,7 +30,12 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <Link to="/service" className="nav-link">
-                Service
+                Category
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/service" className="nav-link">
+                Concept
               </Link>
             </li>
             <li className="nav-item">
@@ -53,4 +58,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderPublic;

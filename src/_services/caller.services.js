@@ -17,7 +17,7 @@ Axios.interceptors.request.use((request) => {
 });
 
 // Intercepteur de réponse API pour vérification de la session si expirée ou pas
-//Attention ici si on utilise des states ou des stores comme redux ca va le vider comme cest un rafraichissement
+//Attention ici si  utilise des states ou des stores comme redux ca va le vider comme cest un rafraichissement
  Axios.interceptors.response.use(
   (response) => {
    return response;
