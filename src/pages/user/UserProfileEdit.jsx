@@ -51,6 +51,7 @@ const UserProfileEdit = () => {
             name="firstname"
             value={userDatas.firstname}
             onChange={onChange}
+            className="input-user-edit"
           
           />
              <input
@@ -58,31 +59,35 @@ const UserProfileEdit = () => {
             name="lastname"
             value={userDatas.lastname}
             onChange={onChange}
+            className="input-user-edit"
           />
           <input
             type="text"
             name="address"
             value={userDatas.address}
             onChange={onChange}
-     
+            className="input-user-edit"
           />
              <input
             type="number"
             name="zipcode"
             value={userDatas.zipcode}
             onChange={onChange}
+            className="input-user-edit"
           />
              <input
             type="city"
             name="city"
             value={userDatas.city}
             onChange={onChange}
+            className="input-user-edit"
           />
              <input
             type="email"
             name="email"
             value={userDatas.email}
             onChange={onChange}
+            className="input-user-edit"
           />
 
           <h6 style={{marginTop : "10px"}}> Changer de mot de passe : </h6>
@@ -92,6 +97,7 @@ const UserProfileEdit = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="input-user-edit"
           />
           <div className='div-btn-edit-user'>
             <button className='btn-user-edit'>Enregistrer</button>

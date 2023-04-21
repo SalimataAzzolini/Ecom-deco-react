@@ -1,29 +1,26 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-
+/* .login{
+  
+} */
 #login-form{
-  background: linear-gradient(90deg, #ffefe5, #FFF7F4);	
-  padding: 70px 0;
-  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
 }
-#login-form .container-form {
-  width: 450px;
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto;
+#login-form .container-form-login {
+  /* margin: auto; */
   border-radius: 20px;
-  padding: 40px;
+  padding: 5% 10% 5% 5%;
   box-sizing: border-box;
   background: #ffffff;
-  margin-top: 30px;
   box-shadow: 14px 14px 20px #dcd7d5, -14px -14px 30px #FFF7F4;
 }
 
 #login-form .brand-logo {
   height: 100px;
   width: 100px;
-  /* background: url(""); */
   margin: auto;
   border-radius: 50%;
   box-sizing: border-box;
@@ -46,15 +43,15 @@
   letter-spacing: 1px;
 }
 
-#login-form .inputs {
+#login-form .inputs-login-form {
   text-align: left;
   margin-top: 30px;
+
 }
 
-#login-form label, input, button {
+#login-form label, .input-login-form, .btn-login-form {
   display: block;
-  width: 100%;
-  padding: 0;
+  /* padding: 0; */
   border: none;
   outline: none;
   box-sizing: border-box;
@@ -68,27 +65,23 @@
   margin-top: 12px;
 }
 
-#login-form input::placeholder {
+#login-form .input-login-form::placeholder {
   color: gray;
 }
 
-#login-form input {
+#login-form .input-login-form {
   background: #ecf0f3;
-  width: 350px;
-  padding: 10px;
-  padding-left: 20px;
-  height: 50px;
+  padding: 5% 40%;
   font-size: 14px;
   border-radius: 50px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
-#login-form button {
+#login-form .btn-login-form {
   color: white;
-  width: 350px;
-  margin-top: 20px;
+  margin-top: 15%;
   background: #B8835F;
-  height: 40px;
+  padding: 3% 57%;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 900;
@@ -97,7 +90,7 @@
   margin-bottom: 55px;
 }
 
-#login-form button:hover {
+#login-form .btn-login-form:hover {
   box-shadow: none;
 }
 #login-form h1 {
@@ -106,11 +99,11 @@
   left: 0;
 }
 
-.container-form a {
+.container-form-login a {
   text-decoration: none;
   color: black;
 }
-.container-form a:hover {
+.container-form-login a:hover {
   color: #B8835F;
   text-decoration: none;
 }
@@ -118,4 +111,25 @@
 .link-register{
   text-decoration: underline !important;
   margin-left: 40px;
+}
+
+/************Media Query ************/
+
+@media screen and (max-width: 768px) {
+
+  #login-form{
+    padding: 2% 7%;
+  }
+  #login-form .container-form-login {
+    padding: 5% 8% 5% 13%;
+  }
+
+  #login-form .input-login-form{
+    padding: 4% 15%;
+  }
+  #login-form .btn-login-form{
+    padding: 2% 35%;
+  }
+
+
 }

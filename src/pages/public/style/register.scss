@@ -1,39 +1,58 @@
+.register{
+   background-image: url("../../../assets/img/background-login5.png");
+    background-size: cover;
+    padding-bottom: 5%;
+}
+
+.container-register{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+
+}
+
 .container-form-register {
-    position: relative;
-    width: 350px;
-    height: 700px;
-    border-radius: 20px;
-    padding: 40px;
-    box-sizing: border-box;
-    background: #ecf0f3;
-    margin-top: 30px;
-    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  border-radius: 20px;
+  padding: 20px 75px 50px 75px;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: 14px 14px 20px #dcd7d5, -14px -14px 30px #FFF7F4;
+ 
   }
   
 .container-form-register  .brand-logo {
-    height: 100px;
-    width: 100px;
-    background: url("");
-    margin: auto;
-    border-radius: 50%;
-    box-sizing: border-box;
-    box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  height: 100px;
+  width: 100px;
+  /* background: url(""); */
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  }
+
+.container-form-register  .brand-logo img {
+    width:60px;
+    height:60px;
   }
   
   .container-form-register   .brand-title {
     margin-top: 10px;
     font-weight: 900;
     font-size: 1.8rem;
-    color: #1DA1F2;
+    color: #B8835F;
     letter-spacing: 1px;
   }
   
-  .container-form-register .inputs {
+  .container-form-register .inputs-register {
     text-align: left;
     margin-top: 30px;
   }
   
-  .container-form-register label, input, button {
+  .container-form-register label, .big-input-register, .btn-register {
     display: block;
     width: 100%;
     padding: 0;
@@ -44,6 +63,7 @@
   
   .container-form-register label {
     margin-bottom: 4px;
+    margin-top: 10px;
   }
   
   .container-form-register  label:nth-of-type(2) {
@@ -53,22 +73,36 @@
   .container-form-register input::placeholder {
     color: gray;
   }
-  
-  .container-form-register input {
+  .div-inputs-register{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
+  .container-form-register .all-input-register {
     background: #ecf0f3;
-    padding: 10px;
+    margin-top: 5px;
+    padding: 10px 60px;
     padding-left: 20px;
     height: 50px;
     font-size: 14px;
     border-radius: 50px;
     box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
   }
+
+  .container-form-register .input-register{
+    width: 240px;
+    border: none;
+  }
   
-  .container-form-register  button {
+  .container-form-register  .btn-register{
     color: white;
     margin-top: 20px;
-    background: #1DA1F2;
+    background: #B8835F;
     height: 40px;
+    width: 500px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 900;
@@ -76,7 +110,7 @@
     transition: 0.5s;
   }
   
-  .container-form-register button:hover {
+  .container-form-register .btn-register:hover {
     box-shadow: none;
   }
   
@@ -97,3 +131,32 @@
     top: 0;
     left: 0;
   }
+
+/************Media Query ************/
+
+@media screen and (max-width: 768px) {
+  .container-register{
+    margin-top: 30px;
+  }
+  .container-form-register input{
+    width: 300px;
+  }
+
+  .container-form-register .btn-register{
+    width: 300px;
+}
+
+.div-inputs-register{
+  flex-direction: column;
+  gap: 10px;
+  // margin-top: 5px;
+  // margin-bottom: 20px;
+}
+
+.container-form-register .input-register{
+  width: 300px;
+}
+
+
+
+}

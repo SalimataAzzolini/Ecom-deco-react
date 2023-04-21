@@ -1,9 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-#user-edit-form input {
-  caret-color: red;
-}
 
 #user-edit-form .container-form {
   width: 800px;
@@ -46,7 +43,7 @@
 
 }
 
-#user-edit-form label, input, button {
+#user-edit-form label, .input-user-edit, .btn-user-edit {
   display: block;
   width: 40%;
   padding: 0;
@@ -66,11 +63,11 @@
   margin-top: 12px;
 }
 
-#user-edit-form input::placeholder {
+#user-edit-form .input-user-edit::placeholder {
   color: gray;
 }
 
-#user-edit-form input {
+#user-edit-form .input-user-edit {
   background: #ecf0f3;
   padding: 10px;
   padding-left: 20px;
@@ -81,7 +78,7 @@
   margin-bottom: 20px;
 }
 
-#user-edit-form button {
+#user-edit-form .button-user-edit {
   color: white;
   margin-top: 20px;
   background: #B8835F;
@@ -93,7 +90,7 @@
   transition: 0.5s;
 }
 
-#user-edit-form button:hover {
+#user-edit-form  .button-user-edit:hover {
   box-shadow: none;
 }
 
@@ -126,7 +123,7 @@
         flex-direction: column;
         gap: 10px;
     }
-    #user-edit-form label, input, button {
+    #user-edit-form label, .input-user-edit, .btn-user-edit {
         width: 100%;
     }
 }
