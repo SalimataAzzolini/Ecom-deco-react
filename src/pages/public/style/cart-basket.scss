@@ -1,0 +1,212 @@
+.card-basket-container{
+    background-color:#FFF7F4 ;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+}
+
+.container-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    background-color: white;
+    flex : 2;
+    padding: 50px;
+    box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	overflow: hidden;
+
+}
+
+
+.product-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    box-shadow: 0 15px 30px 1px rgba(216, 216, 216, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	overflow: hidden;
+    padding: 20px;
+    // border: solid 1px #E5E2E2;
+}
+.product-item-img{
+    width: 120px;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	overflow: hidden;
+    padding: 3px;
+
+}
+
+.item-quantity{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+ 
+}
+
+.item-quantity p{
+    margin-top: 10px;
+    font-size: 18px;
+
+}
+
+.icons-quantity{
+    display: flex;
+    flex-direction: column;
+    gap : -5px;
+}
+
+.icon-quantity{
+    width: 17px !important;
+    height: 10px;
+    cursor: pointer;
+}
+
+.item-price{
+    margin-top: 10px;
+}
+
+// ********** COLUMN TOTAL ************
+
+.block-container-total{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex: 1;
+
+}
+.container-total{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background-color: white;
+    // flex: 1;
+    padding: 50px;
+    box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	overflow: hidden;
+}
+
+.total-quantity{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 1px #dedcdc;
+    padding: 0 5px;
+}
+
+.total-price{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.total-price-element{
+    font-weight: bold;
+}
+
+.container-btn-basket{
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn-basket{
+    text-align: center;
+    width: 15rem;
+    background-color: #A26A48;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.btn-basket:hover{
+  
+    color: white;
+    text-decoration: none;
+   
+}
+
+
+.container-reduction{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+	background: rgba(255, 255, 255, 0.90);
+	overflow: hidden;
+}
+
+.btn-reduction{
+    border-radius: 5px;
+}
+
+//************Media Query ************
+@media screen and (max-width: 768px) {
+    .card-basket-container{
+        flex-direction: column;
+        padding: 5px;
+        background-color: white;
+        gap : 10px;
+    }
+    .container-items{
+        box-shadow: none;
+        padding: none;
+    }
+    .product-item{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .product-item-img{
+        width: 180px;
+    }
+    .item-quantity-price{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    // ********** COLUMN TOTAL ************
+    .container-total{
+        margin-top: -5rem;
+        margin-left: 20px;
+        margin-right: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .total-quantity{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .total-price{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .container-reduction{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .btn-reduction{
+        width: 100%;
+    }
+    .container-btn-basket{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .btn-basket{
+        width: 100%;
+    }
+}

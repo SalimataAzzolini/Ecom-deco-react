@@ -1,10 +1,30 @@
+.header-user{
+ display: flex;
+ flex-direction: row;
+ justify-content: end;
+ gap: 30px;
+ position: absolute;
+ top: 20px;
+ right: 50px;
+}
+
+.link-basket-user{
+  background-color: white;
+  color: #98603e;
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.link-basket-user:hover{
+  color: #A26A48;
+  text-decoration: none;
+
+}
+
 .logout-btn-user{
-  width : 70px;
+  width : 100px;
   background-color : #A26A48;
   color : white;
-  position: absolute;
-  top: 10px;
-  right: 10px;
   border-radius: 5px;
   padding: 5px;
 }
@@ -15,19 +35,3 @@
   border: #A26A48 1px solid;
 }
 
-.header-user{
-  background-color: #A26A48;
-}
-
-/* #components-layout-demo-top-side .logo {
-    float: left;
-    width: 120px;
-    height: 31px;
-    margin: 16px 24px 16px 0;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  .ant-row-rtl #components-layout-demo-top-side .logo {
-    float: right;
-    margin: 16px 0 16px 24px;
-  } */

@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { accountService } from "@/_services/";
 import { UserDatasContext } from "@/_contexts/userDatasContext";
+import HeaderPublic from "@/components/public/HeaderPublic";
+import FooterHome from "@/components/public/FooterHome";
+import Logo from "@/assets/img/logo.png";
 
 import "./auth.css";
 
@@ -22,35 +25,7 @@ const Login = () => {
     });
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  };
 
-  //  async function onSubmit(e) {
-  //   e.preventDefault();
-
-  //   let saveToken = (token) => {
-  //     localStorage.setItem("token", token);
-  //   };
-  
-  //   await fetch("http://127.0.0.1:8000/api/login", options)
-  //     .then((res) => {
-  //       return res.json();
-  //       // console.log(res);
-  //       // if (res.status === 200) {
-  //       //   saveToken(res.token);
-  //       //   navigate("/admin", { replace: true });
-  //       // } else {
-  //       //   console.log("erreur");
-  //       // }
-  //     })
-  //     .then((data) => console.log(data))
-  //     .catch((error) => console.log(error));
-  // } 
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -85,7 +60,6 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         setUserDatas(data);
-        // accountService.saveUserDatas(data);
       })
       .catch((error) => console.log(error));
   };
@@ -93,10 +67,14 @@ const Login = () => {
 
   return (
 
+    <div> 
+      <HeaderPublic />
 
     <div id="login-form"> 
     <form className="container-form " onSubmit={onSubmit}>
-    <div className="brand-logo"></div>
+    <div className="brand-logo">
+      <img src={Logo} alt="logo" />
+    </div>
     <div className="brand-title">LOGIN</div>
 
     <div className="inputs">
@@ -117,9 +95,17 @@ const Login = () => {
         onChange={onChange}
       />
       <button type="submit">LOGIN</button>
+      <a href="http://127.0.0.1:8000/reset-password/reset-password" className="link-password-forget"> Mot de passe oublié ?
+      </a>
+      <p> Pas encore de compte ? 
+        <Link to="/register" className="link-register"> S'enrégister
+        </Link>
+      </p>
     </div>
 
   </form>
+  </div>
+  <FooterHome />
   </div>
   );
 };

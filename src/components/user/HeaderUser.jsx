@@ -1,6 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button, Layout } from 'antd';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 /* import { Link } from 'react-router-dom'; */
 import { accountService } from '@/_services/account.service';
 import './style/header-user.scss';
@@ -18,10 +19,12 @@ const HeaderUser = () => {
       navigate('/')
   }
   return (
-    <div style={{backgroundColor : "red"}}>
-       <Header className="header-user" style={{backgroundColor : " #A26A48"}}>
-        <button onClick={logout} className="logout-btn-user" >Logout</button>
-      </Header>
+      <div className="header-user">
+     
+          <Link to='/basket' className='link-basket-user'>Panier
+              <ShoppingBasketIcon className="basket-icon"/>
+          </Link>
+          <button onClick={logout} className="logout-btn-user" >Déconexion</button>
     </div>
   );
 };

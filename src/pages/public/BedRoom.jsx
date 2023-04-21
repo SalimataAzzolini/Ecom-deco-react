@@ -1,23 +1,20 @@
-import { useSelector} from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import CardSalonProduct from '@/components/public/CardSalonProduct';
 import { productService } from '@/_services';
 
 
-const Salon = () => {
-
+const BedRoom = () => {
     const flag = useRef(false);
     const [products, setProducts] = useState();
-    const [salonProducts, setSalonProducts] = useState();
-    
-
+    const [bedRoomProducts, setBedRoomProducts] = useState();
+ 
     
     useEffect(() => {
 
         if(!flag.current){
             productService.getAllProducts()
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 setProducts(res.data);
 
             })
@@ -30,22 +27,21 @@ const Salon = () => {
 
     useEffect(() => {
         if(products){
-            setSalonProducts(products.filter(product => product.category === 'salon'));
+            setBedRoomProducts(products.filter(product => product.category === 'chambre'));
         }
     }, [products])
+
 
   
     return (
 
         <div className='product-card-container'>
-            {salonProducts && 
-                salonProducts.map((product, index) => (
+            {bedRoomProducts && 
+                bedRoomProducts.map((product, index) => (
                     <CardSalonProduct key={index} product={product} />
             ))}
         </div>
     )
-
 };
 
-export default Salon;
-
+export default BedRoom;

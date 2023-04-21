@@ -1,21 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-/* #login-form input {
-  caret-color: red;
-} */
 
+#login-form{
+  background: linear-gradient(90deg, #ffefe5, #FFF7F4);	
+  padding: 70px 0;
+  height: 100vh;
+}
 #login-form .container-form {
-  width: 350px;
+  width: 450px;
   height: 600px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
   padding: 40px;
   box-sizing: border-box;
-  background: #ecf0f3;
+  background: #ffffff;
   margin-top: 30px;
-  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  box-shadow: 14px 14px 20px #dcd7d5, -14px -14px 30px #FFF7F4;
 }
 
 #login-form .brand-logo {
@@ -26,6 +28,14 @@
   border-radius: 50%;
   box-sizing: border-box;
   box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+#login-form .brand-logo img {
+  width:60px;
+  height:60px;
 }
 
 #login-form .brand-title {
@@ -64,7 +74,7 @@
 
 #login-form input {
   background: #ecf0f3;
-  width: 270px;
+  width: 350px;
   padding: 10px;
   padding-left: 20px;
   height: 50px;
@@ -75,7 +85,7 @@
 
 #login-form button {
   color: white;
-  width: 270px;
+  width: 350px;
   margin-top: 20px;
   background: #B8835F;
   height: 40px;
@@ -84,26 +94,28 @@
   font-weight: 900;
   box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
   transition: 0.5s;
+  margin-bottom: 55px;
 }
 
 #login-form button:hover {
   box-shadow: none;
 }
-
-#login-form a {
-  position: absolute;
-  font-size: 8px;
-  bottom: 4px;
-  right: 4px;
-  text-decoration: none;
-  color: black;
-  background: #EBCEB5;
-  border-radius: 10px;
-  padding: 2px;
-}
-
 #login-form h1 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.container-form a {
+  text-decoration: none;
+  color: black;
+}
+.container-form a:hover {
+  color: #B8835F;
+  text-decoration: none;
+}
+
+.link-register{
+  text-decoration: underline !important;
+  margin-left: 40px;
 }

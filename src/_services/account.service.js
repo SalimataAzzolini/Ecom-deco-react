@@ -1,6 +1,9 @@
 import Axios from "./caller.services";
 import jwt_decode from "jwt-decode";
 
+let register = (credentials) => {
+  return Axios.post("/register", credentials);
+};
 
 let login = (credentials) => {
   return Axios.post("/login", credentials);
@@ -43,6 +46,7 @@ let isAdmin = () => {
 
 // Déclaration des services pour import
 export const accountService = {
+  register,
   login,
   saveToken,
   logout,

@@ -15,9 +15,9 @@ import CardProduct from '../../components/public/CardProduct';
 import ImgCoverNesletter from '@/assets/img/img-cover-newsletter.png';
 import FooterHome from '../../components/public/FooterHome';
 
+
 const Home = () => {
 
-    const [products, setProducts] = useState([]);
     const flag = useRef(false);
 
 
