@@ -2,15 +2,15 @@
     display: flex;
 }
 
-#side-menu{
+/* #side-menu{
     flex-grow:1;
   border-right: solid blue 2px;
-}
-#admin_body{
+} */
+/* #admin_body{
     flex-grow:6;
     text-align: left;
     margin-left: 20px;
-}
+} */
 
 .del-btn{
     cursor: pointer;

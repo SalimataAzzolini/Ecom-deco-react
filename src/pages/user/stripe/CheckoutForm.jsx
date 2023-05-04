@@ -1,10 +1,12 @@
-import {useContext} from 'react';
+import {useContext, useEffect} from 'react';
 import axios from 'axios';
 import { CardElement, useStripe,useElements  } from '@stripe/react-stripe-js';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 import { UserDatasContext } from "@/_contexts/userDatasContext";
+import { accountService } from '@/_services/account.service';
 
 
 const CheckoutForm = () => {
@@ -19,7 +21,15 @@ const CheckoutForm = () => {
         return referenceNumber;
     }
     const reference = generateOrderReference();
-    const user = userDatas.id;
+    const user = userDatas.email;
+    
+    // let userEmail = "";
+    // //Faire le user avec le localstorage
+    // if(localStorage.getItem('userDatas') !== null){
+    //     const userDatas = localStorage.getItem('userDatas');
+    //     userEmail = json.parse(userDatas).email;
+    // }
+    
 
     const cartItems = useSelector(state => state.cart.cartItems);
     const cartTotalQuantity = useSelector(state => state.cart.cartTotalQuantity);
@@ -28,19 +38,29 @@ const CheckoutForm = () => {
     cartTotalAmount = cartTotalAmount.toFixed(2);
  
     const amount = cartTotalAmount * 100;
+   
+    //Elements pour acces aux infos de payment
+    const stripe = useStripe();
+    const elements = useElements();
+
+    // Vérifier si l'utilisateur est connecté
+      useEffect(() => {
+        if (!accountService.isLogged) {
+            navigate('/auth/login');
+        }
+    }, [userDatas, navigate]);
 
     //Creation d'une commande
-    const order = {
+       const order = {
         reference: reference,
         user: user,
         products: cartItems,
         quantity: cartTotalQuantity,
         price: amount / 100,
-    }
-   
-    //Elements pour acces aux infos de payment
-    const stripe = useStripe();
-    const elements = useElements();
+    };
+
+    console.log(order);
+    console.log(amount);
 
 
     const handleSubmit = async (e) => {
@@ -54,14 +74,20 @@ const CheckoutForm = () => {
                 console.log("Token generated!", paymentMethod);
 
                 const {id} = paymentMethod;
+                //Ajouter header authorisation
                 const response = await axios.post('http://127.0.0.1:8000/payment/checkout', {
                     amount: amount,
-                    id : id
-                });
+                    id : id,
+                    user : user,
+                    order : order
+                },
+                );
+
+                console.log(response);
           
                 if(response.status === 200){
-                    const response = await axios.post('http://127.0.0.1:8000/order/create', order);
-                    console.log(response);
+                    // const response = await axios.post('http://127.0.0.1:8000/order/create', order);
+                    // console.log(response);
                     navigate("/user/profile/orders", { replace: true });
                 }
 
@@ -77,7 +103,7 @@ const CheckoutForm = () => {
             <form onSubmit={handleSubmit}
             style={{
                 maxWidth: 500,
-                margin: '0 auto',
+                margin: '3rem auto',
                 padding: '1rem',
                 border: '1px solid #ccc',
                 borderRadius: '5px'
@@ -90,7 +116,16 @@ const CheckoutForm = () => {
                     }}
 
                 />
-                <button type="submit">Pay</button>
+                <Button 
+                type="submit"
+                variant="contained"
+                color="success"
+                disabled={!stripe}
+                style={{margin: '1rem auto ',}}
+
+                >
+                    Payer
+                </Button>
             </form>
             
         </div>

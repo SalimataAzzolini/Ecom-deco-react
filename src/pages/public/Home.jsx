@@ -14,6 +14,7 @@ import Salon from './Salon';
 import CardProduct from '../../components/public/CardProduct';
 import ImgCoverNesletter from '@/assets/img/img-cover-newsletter.png';
 import FooterHome from '../../components/public/FooterHome';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -26,20 +27,7 @@ const Home = () => {
        < div className='home-container'>
 
             <img src={Banner1} className="img-fluid" alt="..."/>
-
-                {/* <div className="first-section">
-                    <div className="grid1-first-section grid-first">
-                    <img src={ImgGrid1} className="img-grid1"/>
-                    </div>
-                    <div className="grid-first">
-                        <h3> Amour déco </h3>
-                        <p>
-                        Mon approche est mobile-first. Mon objectif est de garantir à vos clients une expérience agréable au moment d'explorer votre site.
-                        </p>
-                        <a href='/test' className='link-grid1'> DÉCOUVRIR LE CONCEPT </a>
-                    </div>
-                </div> */}
-                
+        {/*************  SECTION 1 LE CONCEPT  ***********/}
                 <section className='first-section-home '> 
                     <div className="first-section section-flex">
                         <div className="col grid-left">
@@ -57,6 +45,7 @@ const Home = () => {
                     </div>
                 </section>
 
+        {/*************  SECTION 2 L'UNIVERS  ***********/}
                 <section className='section2-home'>
                    <h3 className='section-title'> Une marque d’exception pour une expérience unique</h3>
                     <div className='second-section section-flex'>
@@ -74,28 +63,33 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-
+        {/*************  SECTIONS CATEGORIES ***********/}
                 <section className='section-home3'>
                     <h3 className='section-title'> Nos Categories </h3>
                     <div className='third-section section-flex'>
                         <div className="col div-grid-cat">
                             <img src={ImgGridCategorySalon} className="img-grid-category"/>
-                            <h5> Salon </h5>
-                            <a href='' className='link-category'> Découvrir</a>
+                            <div className="div-cat-h-a">
+                                <h5> Salon </h5>
+                                <Link to={'/category/salon'} className='link-category'> Découvrir</Link>
+                            </div>
                         </div>
 
                         <div className="col div-grid-cat ">
                             <img src={ImgGridCategoryBed} className="img-grid-category"/>
-                            <h5> Chambre </h5>
-                            <a href='' className='link-category'> Découvrir</a>
+                            <div className="div-cat-h-a">
+                                <h5> Chambre </h5>
+                                <Link to={"/category/bedroom"} className='link-category'> Découvrir</Link>
+                            </div>
                         </div>
                         <div className="col div-grid-cat">
                             <img src={ImgGridCategoryBath} className="img-grid-category"/>
-                            <h5> Salon </h5>
-                            <a href='' className='link-category'> Salle de bain</a>
+                            <div className="div-cat-h-a">
+                                <h5> Salle de bain </h5>
+                                <Link to={"/category/bathroom"} className='link-category'> Découvrir</Link>
+                            </div>
                         </div>
                     </div>
-
                 </section>
 
                 <section className='section-home4'>

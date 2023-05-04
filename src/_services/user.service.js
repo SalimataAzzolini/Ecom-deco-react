@@ -2,7 +2,7 @@ import Axios from './caller.services'
 
 
 let getAllUsers = () => {
-    return Axios.get('/users');
+    return Axios.get('/dashboard/users');
 }
 
 let getUser = (uid) => {

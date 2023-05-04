@@ -60,6 +60,7 @@ const Login = () => {
       .then((data) => {
         console.log(data);
         setUserDatas(data);
+        localStorage.setItem("userDatas", JSON.stringify(data));
       })
       .catch((error) => console.log(error));
   };

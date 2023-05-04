@@ -2,13 +2,16 @@
     height: 75px;
 }
 
-.logo{
+.logo-header-public{
     height: 60px;
     margin-top: -10px;
     margin-right: 50px;
 }
 .nav-public{
     margin-top: 15px;
+    height: 80px;
+    background-color: white !important;
+ 
 }
 .btn-nav-toggle-public{
     width: 60px;
@@ -37,4 +40,41 @@
 .basket-icon{
     margin-left: 7px;
     margin-top: -4px;
+}
+
+//MEDAI QUERY
+@media (max-width: 768px) {
+    .header-public{
+        height: 60px;
+    }
+    .logo{
+        height: 50px;
+        margin-top: -10px;
+        margin-right: 50px;
+    }
+    .btn-nav-toggle-public{
+        width: 60px;
+    }
+    // .all-nav-link{
+    //     color: #554c46 !important;
+    //     font-size: 19px !important;
+    // }
+    // .all-nav-link:hover{
+    //     color: #A26A48 !important;
+    //     text-decoration: none;
+    // }
+    // .link-login a{
+    //     position: absolute;
+    //     right: 180px;
+    //     top: 15px;
+    // }
+    // .link-basket a {
+    //     position: absolute;
+    //     right: 70px;
+    //     top: 15px;
+    // }
+    // .basket-icon{
+    //     margin-left: 7px;
+    //     margin-top: -4px;
+    // }
 }

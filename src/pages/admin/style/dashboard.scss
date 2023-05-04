@@ -1,0 +1,85 @@
+.container-dashboard{
+    margin-top: 100px;
+    margin-left: 30px;
+}
+
+.container-dashboard h2{
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: rgb(51, 51, 51);
+}
+
+
+.container-cards-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-left: 50px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+.card-admin{
+    width: 400px;
+    height: 280px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+   justify-content: center;
+   text-align: center;
+    padding: 10px 20px 20px 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+}
+
+.title-card-admin{
+    font-size: 56px;
+}
+
+.subtitle-card-admin{
+    font-size: 26px;
+  margin-top: -20px;
+}
+
+.icon-card-admin{
+    font-size: 36px !important;
+    margin: auto;
+}
+.card-admin1{
+    background-color: #c59271;
+}
+.card-admin2{
+    background-color: #ffe6ac
+}
+
+.card-admin3{
+    background-color: #e7d1fc
+}
+
+//MEDIA QUERY
+
+@media screen and (max-width: 768px) {
+    .container-cards-admin{
+        margin-left: 0;
+        justify-content: center;
+    }
+    .card-admin{
+        width: 250px;
+        height: 170px;
+        justify-content: center;
+    }
+
+    .title-card-admin{
+        font-size: 30px;
+    }
+    .subtitle-card-admin{
+        font-size: 20px;
+    }
+    .icon-card-admin{
+        font-size: 20px !important;
+    }
+}

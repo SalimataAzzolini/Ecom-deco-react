@@ -21,8 +21,8 @@ const HeaderPublic = () => {
 
   return (
     <div className="header-public">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light nav-public">
-      <img src={Logo} className="logo"/>
+      <nav className="navbar navbar-expand-lg navbar-light  nav-public">
+      <img src={Logo} className="logo-header-public"/>
         <button
           className="navbar-toggler btn-nav-toggle-public"
           type="button"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ImgMiroirBain from '@/assets/img/miroir-bain.webp';
 
 const CardProduct = () => {
     return (
@@ -8,14 +9,12 @@ const CardProduct = () => {
             {/* <!-- Start	Product details --> */}
     
             <div className="product-image">
-              <img
-                src="https://sc01.alicdn.com/kf/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3/200006212/HTB1Cic9HFXXXXbZXpXXq6xXFXXX3.jpg"
-                alt="Omar Dsoky"
-              />
+              <img src={ImgMiroirBain} alt="" />
+               
     
               {/* <!-- 	product Information--> */}
               <div className="info">
-                <h2>The Description</h2>
+                <h2> Description</h2>
                 <ul>
                   <li>
                     <strong>Sun Needs: </strong>Full Sun
@@ -40,7 +39,7 @@ const CardProduct = () => {
             </div>
             <div className="product-details">
               {/* 	<!-- 	Product Name --> */}
-              <h1>Biru Putaran</h1>
+              <h1>Miroir Tyssaya</h1>
           
              
               {/* <!-- 		the Product rating --> */}
@@ -53,7 +52,7 @@ const CardProduct = () => {
               </span>
     
               <p className="information">
-                Especially good for container gardening, the Angelonia will keep
+                Spécial pour les chambres à coucher, les salons et les salles de bain
             
               </p>
     

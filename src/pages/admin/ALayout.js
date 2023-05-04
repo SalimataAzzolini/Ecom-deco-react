@@ -8,11 +8,12 @@ import './admin.css';
 const ALayout = () => {
     return (
         <div className='ALayout'>
-            <Header/>
             <div id='admin'>
                 <div id='side-menu'> <SideMenuAdmin/> </div>
+                <div> 
+                <Header/>
                 <div id='admin_body'> <Outlet/> </div>
-                {/* <UserAdd/> */}
+                </div>
             </div>
 
         </div>
