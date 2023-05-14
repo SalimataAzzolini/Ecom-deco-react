@@ -25,21 +25,22 @@ const SideMenu = () => {
             name:"Dashboard",
             icon:<FaTh/>
         },
-    
         {
-            path:"/analytics",
-            name:"Analytics",
-            icon:<FaRegChartBar/>
-        },
-        {
-            path:"/commandes",
+            path:"/admin/order/list",
             name:"Commandes",
             icon:<FaShoppingCart/>
            
         },
+    
         {
-            path:"/product",
-            name:"Product",
+            path:"/admin/user/list",
+            name:"Clients",
+            icon:<FaRegChartBar/>
+        },
+       
+        {
+            path:"/admin/product/list",
+            name:"Produits",
             icon:<FaShoppingBag/>
  
         },
@@ -85,31 +86,6 @@ const SideMenu = () => {
         
      </div>
     );
-    // return (
-    //     <div className='SideMenu'>
-    //          <ul>
-    //             <li><Link to="/">Accueil</Link></li>
-    //             <li>&nbsp;</li>
-
-    //             <li><Link to="/admin/dashboard">Dashboard</Link></li>
-    //             <li>
-    //                 User
-    //                 <ul>
-    //                     <li><Link to="/admin/user/index">Liste user</Link></li>
-    //                     <li><Link to="/admin/user/add">Ajouter user</Link></li>
-                        
-    //                 </ul>
-    //             </li>
-    //             <li>
-    //                 Produit
-    //                 <ul>
-    //                     <li><Link to="/admin/product/index">Liste produit</Link></li>
-    //                     <li><Link to="/admin/product/edit">Ajouter ou editer un produit</Link></li>
-    //                 </ul>
-    //             </li>
-    //        </ul>
-    //     </div>
-    // );
 };
 
 export default SideMenu;

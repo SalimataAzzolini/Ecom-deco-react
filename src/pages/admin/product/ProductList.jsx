@@ -4,6 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { useNavigate, Link } from "react-router-dom";
 import {productService} from "@/_services";
+import "./style/product-list.scss";
 
 const ProductList = () => {
 
@@ -25,30 +26,7 @@ const ProductList = () => {
 
     }, [])
 
-    //Contenu d'un produit
-    // {
-	// 	"id": 10,
-	// 	"name": "Miroir Tyssaya",
-	// 	"price": 29.99,
-	// 	"description": " Lot de 2 miroirs de salle de bain ",
-	// 	"stock": 60,
-	// 	"category": "bain",
-	// 	"images": [
-	// 		{
-	// 			"id": 4,
-	// 			"name": "img-miroir1",
-	// 			"link": "https:\/\/ecom-deco.s3.eu-west-3.amazonaws.com\/images-website\/miroir1-2-bain.webp",
-	// 			"product": "\/api\/products\/10"
-	// 		},
-	// 		{
-	// 			"id": 5,
-	// 			"name": "miroir tyssaya 2",
-	// 			"link": "https:\/\/ecom-deco.s3.eu-west-3.amazonaws.com\/images-website\/miroir-bain.webp",
-	// 			"product": "\/api\/products\/10"
-	// 		}
-	// 	]
-	// },
-
+ 
     const deleteProduct = (productId) => {
         productService.deleteProduct(productId)
             .then(res => {
@@ -61,9 +39,8 @@ const ProductList = () => {
 
     return (
         <div className="container-product-list">
-            {/* //Faire un tableau des produits avec les infos et ajouter une icone mui pour supprimer et une icone  modifier qui redirige vers la page d'edition /admin/product/edit/:id
-             */}
-            <TableContainer component={Paper}>
+            <h1 className="title-product-list" style={{marginBottom : "20px", textAlign : "center", fontFamily :  "Great Vibes"}}>Liste des produits</h1>
+            <TableContainer component={Paper} className="table-product-admin">
                 <Table sx={{ minWidth: 900 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>

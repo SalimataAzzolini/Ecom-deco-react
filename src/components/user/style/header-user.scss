@@ -10,7 +10,7 @@
 
 .link-basket-user{
   background-color: white;
-  color: #98603e;
+  color: #401d09;
   margin-top: 5px;
   font-size: 18px;
 }
@@ -20,12 +20,16 @@
   text-decoration: none;
 
 }
-
+.basket-icon-user{
+  margin-left: 7px;
+  top: -2rem !important;
+}
 .logout-btn-user{
   width : 100px;
-  background-color : #A26A48;
-  color : white;
+  background-color :white;
+  color : #401d09;
   border-radius: 5px;
+  border: #401d09 1px solid;
   padding: 5px;
 }
 
@@ -33,5 +37,25 @@
   background-color : white;
   color : #A26A48;
   border: #A26A48 1px solid;
+}
+
+
+// MEDIA QUERY
+@media screen and (max-width: 700px) {
+
+    .link-basket-user{
+        font-size: 14px;
+        margin-right: -2rem;
+    }
+    .logout-btn-user{
+       display: none;
+    }
+    .basket-icon-user{
+        width: 18px !important;
+        height: 20px !important;
+        margin-left: 5px;
+        margin-top: -4px;
+    }
+
 }
 

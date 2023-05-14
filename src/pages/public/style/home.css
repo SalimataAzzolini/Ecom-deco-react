@@ -1,3 +1,4 @@
+
 .img-fluid{
     width: 100%;
     /* height: 100%;
@@ -26,6 +27,13 @@ background: #ffffff;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    text-align: center;
+
+}
+
+.section-flex p{
+    font-size: 18px;
+    margin: 2rem 4rem 4rem 4rem;
 
 }
 .first-section{
@@ -34,8 +42,8 @@ background: #ffffff;
     flex-direction: row;
     flex-wrap: wrap !important;
     background-color: #FFF7F4;
-    padding-top: 9%;
-    padding-bottom: 9%;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
     margin-bottom: 100px;
 
 }
@@ -49,11 +57,10 @@ background: #ffffff;
     top: 40px;
     left: 24%;
 
-
-
 }
 .title-amour-deco{
     margin-top: 15%;
+    /* font-size: 24px !important; */
 }
 .grid-left{
     width: 30%;
@@ -61,6 +68,19 @@ background: #ffffff;
 /* .grid-right{
     margin-top: 50px;                         
 } */
+
+.link-concept-home{
+    color: #434343;
+    border: solid;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.link-concept-home:hover{
+    color: #B8835F;
+    border: solid #B8835F;
+    text-decoration: none;
+}
 
 .img-grid1{
     width: 90%;
@@ -94,15 +114,10 @@ background: #ffffff;
 
 .div-cat-h-a{
     margin-top: -15%;
-    margin-left: -20%;
     display: flex;
     justify-content: space-around;
 }
 
-.div-cat-h-a a {
-    margin-left: -6%;
-   
-} 
 
 .section-home4{
     margin-top: 10%;
@@ -118,9 +133,16 @@ background: #ffffff;
     color: #B8835F;
 }
 
-.div-img-lifestyle{
-    margin: 50px 20px;
+
+.section-home6 h1{
+    text-align: center;
+    font-size: 3rem;
 }
+.div-img-lifestyle{
+    margin: 50px 0px;
+}
+
+
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
 
@@ -218,12 +240,27 @@ background: #ffffff;
     .section-flex{
         flex-direction: column;
     }
+    .section-flex p{
+        font-size: 12px;
+        margin: 2rem;
+
+    }
+    .link-concept-home{
+       color: #434343;
+        border: solid;
+        padding: 5px 10px  
+    }
+   
     .grid-left{
         width: 100%;
     }
     .section-title{
         text-align: center;
         font-size: 20px;
+    }
+    .rond-amour-deco{
+        padding: 10px 20px;
+        left: 6%;
     }
     .phone-home{
         margin-top: 20px;
@@ -238,9 +275,48 @@ background: #ffffff;
         padding-top: 10px;
         padding-left: 14px;
     }
+
+    .div-cat-h-a{
+        margin-top: -3.7rem;
+        justify-content: space-between;
+        margin-left: 3rem;
+        font-size: 12px;
+    }
+    .div-cat-h-a h5{
+        font-size: 14px;
+    }
     .img-grid-category{
         margin-top: 25%;
         width: 320px;
+    }
+
+    .section-home6 h1{
+        font-size: 1.4rem;
+    }
+    /* .card-newsletter{
+        width: 340px;
+        height: 270px;
+        transform: translate(-8%, 50%);
+    } */
+    .card-newsletter {
+        width: 300px;
+        height: 250px;
+        transform: translate(-8%, 50%);
+    }
+
+    .card-newsletter h4{
+        margin-bottom: 1rem;
+    }
+
+    .card-newsletter p {
+        font-size: .7rem;
+        margin: 0 1rem 2rem 1rem;
+    }
+
+    .subscribe-btn {
+        width: 90px; 
+        padding: 0.8rem 1rem
+
     }
 
 }

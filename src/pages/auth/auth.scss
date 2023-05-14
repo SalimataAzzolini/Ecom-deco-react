@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-/* .login{
-  
-} */
+.login{
+  background-image: url("../../assets/img/background-login5.png");
+    background-size: cover;
+    padding-bottom: 5%;
+}
 #login-form{
   display: flex;
   justify-content: center;
@@ -123,12 +125,26 @@
   #login-form .container-form-login {
     padding: 5% 8% 5% 13%;
   }
+  #login-form .brand-title{
+    font-size: 1.5rem;
+  }
 
   #login-form .input-login-form{
     padding: 4% 15%;
+    font-size: 12px;
   }
   #login-form .btn-login-form{
     padding: 2% 35%;
+    font-size: 12px;
+  }
+  .container-form-login a{
+    font-size: 12px;
+  }
+  .container-form-login p{
+    font-size: 12px;
+  }
+  .label-login-form{
+    font-size: 12px;
   }
 
 

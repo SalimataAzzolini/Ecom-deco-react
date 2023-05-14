@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout, Home, SingleProduct,
          Contact, Salon, BedRoom, BathRoom,
-         Category, CartBasket, Register } from "@/pages/public";
+         Category, CartBasket, Register, Concept } from "@/pages/public";
 
 import Error from "@/_utils/Error";
 
@@ -20,6 +20,7 @@ const PublicRouter = () => {
         <Route path="/category/bedroom" element={<BedRoom />} />
         <Route path="/category/bathroom" element={<BathRoom />} />
         <Route path="/basket" element={<CartBasket />} />
+        <Route path="/concept" element={<Concept />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Register />} />
 

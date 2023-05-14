@@ -1,7 +1,14 @@
-#admin{
+.admin-layout{
     display: flex;
 }
 
+/* .admin-header-body{
+   display: block;
+} */
+
+.admin-body{
+    margin-top: 4%;
+}
 /* #side-menu{
     flex-grow:1;
   border-right: solid blue 2px;
@@ -12,6 +19,3 @@
     margin-left: 20px;
 } */
 
-.del-btn{
-    cursor: pointer;
-}

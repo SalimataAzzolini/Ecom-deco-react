@@ -11,7 +11,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            //Vérifier si l'item est déjà dans le panier sI oui on augmente la quantité et on ne duplique pas l'item
+
             const item = state.cartItems.find((item) => item.id === action.payload.id);
             if (item) {
                 item.quantity++;

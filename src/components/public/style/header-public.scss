@@ -9,7 +9,7 @@
 }
 .nav-public{
     margin-top: 15px;
-    height: 80px;
+    //height: 80px;
     background-color: white !important;
  
 }
@@ -18,26 +18,30 @@
 }
 .all-nav-link{
     color: #554c46 !important;
-    font-size: 19px !important;
+    font-size: 1.2rem !important;
 }
 .all-nav-link:hover{
     color: #A26A48 !important;
     text-decoration: none;
 }
+
+.nav-link{
+    margin-right: 20px;
+}
 .link-login a{
     position: absolute;
-    right: 180px;
+    right: 70px;
     top: 15px;
 }
 
 
 .link-basket a {
     position: absolute;
-    right: 70px;
+    right: 220px;
     top: 15px;
 }
 
-.basket-icon{
+.basket-icon-public{
     margin-left: 7px;
     margin-top: -4px;
 }
@@ -53,28 +57,23 @@
         margin-right: 50px;
     }
     .btn-nav-toggle-public{
-        width: 60px;
+        width: 44px !important;
+        height: 40px !important;
     }
-    // .all-nav-link{
-    //     color: #554c46 !important;
-    //     font-size: 19px !important;
-    // }
-    // .all-nav-link:hover{
-    //     color: #A26A48 !important;
-    //     text-decoration: none;
-    // }
-    // .link-login a{
-    //     position: absolute;
-    //     right: 180px;
-    //     top: 15px;
-    // }
-    // .link-basket a {
-    //     position: absolute;
-    //     right: 70px;
-    //     top: 15px;
-    // }
-    // .basket-icon{
-    //     margin-left: 7px;
-    //     margin-top: -4px;
-    // }
+    .all-nav-link{
+        font-size: 14px !important;
+    }
+    .css-i4bv87-MuiSvgIcon-root{
+       font-size: 1rem !important;
+    }
+    .navbar-toggler-icon{
+        margin-left: -5px !important;
+    }
+    .link-basket a {
+        right: 165px;
+        top: 20px;
+    }
+    .link-login a{
+        top: 20px;
+    }
 }

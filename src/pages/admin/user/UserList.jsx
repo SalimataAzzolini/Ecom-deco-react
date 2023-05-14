@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { userService } from "@/_services";
-import "../../admin/admin.css"
 import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 import "../style/user-list.scss"
 
 const UserList = () => {
@@ -10,6 +10,7 @@ const UserList = () => {
     let navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const flag = useRef(false);
+
   
     useEffect(() => {
         if(flag.current === false){
@@ -25,6 +26,15 @@ const UserList = () => {
       
     }, [])
 
+    const delUser = (userId) => {
+        userService.deleteUser(userId)
+            .then(res => {
+                console.log(res);
+                setUsers(users.filter(user => user.id !== userId))
+            })
+            .catch(err => console.log(err))
+    }
+
     return (
         <div className="container-user-list">
         <TableContainer component={Paper}>
@@ -38,6 +48,7 @@ const UserList = () => {
                         <TableCell align="center">Address</TableCell>
                         <TableCell align="center">City</TableCell>
                         <TableCell align="center">Zipcode</TableCell>
+                        <TableCell align="center">Actions</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -55,6 +66,10 @@ const UserList = () => {
                             <TableCell align="center">{user.address}</TableCell>
                             <TableCell align="center">{user.city}</TableCell>
                             <TableCell align="center">{user.zipcode}</TableCell>
+                            <TableCell align="center">
+                                <DeleteIcon onClick={() => delUser(user.id)} style={{cursor : "pointer", color : '#FA8072'}}/>
+                            </TableCell>
+
                         </TableRow>
                     ))}
                 </TableBody>

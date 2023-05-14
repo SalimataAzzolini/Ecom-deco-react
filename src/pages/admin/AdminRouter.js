@@ -4,6 +4,7 @@ import { ALayout, Dashboard } from '@/pages/admin'
 import {User, UserEdit,  UserAdd, UserList} from '@/pages/admin/user';
 import {Category, CategoryEdit} from '@/pages/admin/category';
 import {ProductList, ProductEdit} from '@/pages/admin/product';
+import {OrderList } from '@/pages/admin/order';
 
 import Error from '@/_utils/Error'
 
@@ -15,6 +16,7 @@ const AdminRouter = () => {
             <Route element={<ALayout/>}>
                 <Route index element={<Dashboard/>} /> 
                 <Route path='dashboard' element={<Dashboard/>}/>
+
                 <Route path="user">
                     <Route path="list" element={<UserList/>}/>
                     {/* /uid pour id user route uniauememt dispo au clic edit user*/}
@@ -23,13 +25,17 @@ const AdminRouter = () => {
                 </Route>
            
                 <Route path="category">
-                    <Route path="index" element={<Category/>}/>
+                    <Route path="list" element={<Category/>}/>
                     <Route path="edit" element={<CategoryEdit/>}/>
                 </Route>
 
                 <Route path="product">
-                    <Route path="index" element={<ProductList/>}/>
+                    <Route path="list" element={<ProductList/>}/>
                     <Route path="edit/:pid" element={<ProductEdit/>}/>
+                </Route>
+
+                <Route path="order">
+                    <Route path="list" element={<OrderList/>}/>
                 </Route>
 
                 <Route path="*" element={<Error/>}/>

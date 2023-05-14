@@ -6,7 +6,7 @@ import HeaderPublic from "@/components/public/HeaderPublic";
 import FooterHome from "@/components/public/FooterHome";
 import Logo from "@/assets/img/logo.png";
 
-import "./auth.css";
+import "./auth.scss";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -24,7 +24,6 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
-
 
 
   const onSubmit = (e) => {
@@ -79,7 +78,7 @@ const Login = () => {
     <div className="brand-title">LOGIN</div>
 
     <div className="inputs-login-form">
-      <label>EMAIL</label>
+      <label className="label-login-form">EMAIL</label>
       <input
         type="email"
         placeholder="example@test.com"
@@ -88,7 +87,7 @@ const Login = () => {
         onChange={onChange}
         className="input-login-form"
       />
-      <label>PASSWORD</label>
+      <label className="label-login-form">PASSWORD</label>
       <input
         type="password"
         placeholder="Min 6 charaters long"

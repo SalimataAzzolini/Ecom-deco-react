@@ -1,0 +1,19 @@
+.container-product-list{
+  
+  margin-left: 10%;
+
+}
+
+.table-product-admin{
+    width: 75rem !important;
+}
+
+// MEDIA QUERY
+@media screen and (max-width: 700px) {
+    .container-product-list{
+        margin-left: 0;
+    }
+    .table-product-admin{
+        width: 100% !important;
+    }
+}

@@ -22,7 +22,9 @@ const HeaderPublic = () => {
   return (
     <div className="header-public">
       <nav className="navbar navbar-expand-lg navbar-light  nav-public">
-      <img src={Logo} className="logo-header-public"/>
+        <Link to="/home" className="">
+            <img src={Logo} className="logo-header-public"/>
+        </Link>
         <button
           className="navbar-toggler btn-nav-toggle-public"
           type="button"
@@ -49,7 +51,7 @@ const HeaderPublic = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/service" className="nav-link all-nav-link">
+              <Link to="/concept" className="nav-link all-nav-link">
                 Concept
               </Link>
             </li>
@@ -58,6 +60,13 @@ const HeaderPublic = () => {
                 Contact
               </Link>
             </li>
+
+
+            <li className="link-basket" >
+              <Link to="/basket" className="all-nav-link">&nbsp; Panier 
+                <ShoppingBasketIcon className="basket-icon-public"/> </Link>
+            </li>
+            
             <li className="link-login">
               {/* //Si l'utilisateur n'est pas connecté, il sera redirigé vers la page de connexion */}
              
@@ -69,11 +78,6 @@ const HeaderPublic = () => {
 
              }
                 
-            </li>
-
-            <li className="link-basket" >
-              <Link to="/basket" className="all-nav-link">&nbsp; Panier 
-                <ShoppingBasketIcon className="basket-icon"/> </Link>
             </li>
            
           </ul>

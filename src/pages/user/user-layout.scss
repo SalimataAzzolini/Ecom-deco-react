@@ -1,13 +1,23 @@
 #user-layout{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 5rem;
     
 }
 
 #user-body{
     margin-top: 50px;
-    margin-left: -30px;
 }
+
+// MEDIA QUERY
+@media screen and (max-width: 700px) {
+    #user-layout{
+        gap: .5rem;
+    }
+    #user-body{
+        margin-top: 10px;
+        margin-left: 0;
+    }
+}
+
 

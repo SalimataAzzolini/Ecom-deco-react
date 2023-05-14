@@ -20,7 +20,7 @@ let updateUser = (user) => {
 }
 
 let deleteUser = (uid) => {
-    return Axios.delete('/users/'+uid)
+    return Axios.delete('/api/users/'+uid)
 }
 
 // Décaraltion des esrvices pour import

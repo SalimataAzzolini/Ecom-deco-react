@@ -21,14 +21,13 @@ const CheckoutForm = () => {
         return referenceNumber;
     }
     const reference = generateOrderReference();
-    const user = userDatas.email;
-    
-    // let userEmail = "";
-    // //Faire le user avec le localstorage
-    // if(localStorage.getItem('userDatas') !== null){
-    //     const userDatas = localStorage.getItem('userDatas');
-    //     userEmail = json.parse(userDatas).email;
-    // }
+    let user = "";
+ 
+    if(localStorage.getItem('userDatas') !== null){
+        const userDatas = localStorage.getItem('userDatas');
+        user = JSON.parse(userDatas).email;
+        console.log(user);
+    }
     
 
     const cartItems = useSelector(state => state.cart.cartItems);
@@ -57,11 +56,10 @@ const CheckoutForm = () => {
         products: cartItems,
         quantity: cartTotalQuantity,
         price: amount / 100,
+        // status: "pending",
     };
 
     console.log(order);
-    console.log(amount);
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();

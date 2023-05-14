@@ -33,10 +33,10 @@ const Register = () => {
         .then(res => {
             console.log(res);
             if(res.status === 200){
-                setMessage("You are registered");
+                setMessage("Vous êtes bien enregistré");
                 navigate("/auth/login", { replace: true });
             } else {
-                setMessage("An error occured");
+                setMessage("Une erreur est survenue");
             }
         })
         .catch(err => console.log(err))

@@ -40,7 +40,7 @@ const Home = () => {
                             Mon approche est mobile-first. Mon objectif est de garantir à vos clients une expérience agréable au moment d'explorer votre site.
                             lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, nec aliquet nisl nisl eu nisl. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, nec aliquet nisl nisl eu nisl.
                             </p>
-                            <a href='/test' className='link-grid1'> DÉCOUVRIR LE CONCEPT </a>
+                            <Link to='/concept' className='link-concept-home'> DÉCOUVRIR LE CONCEPT </Link>
                         </div>
                     </div>
                 </section>
@@ -91,7 +91,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-
+        {/*************  SECTIONS PRODUITS TENDANCES ***********/}
                 <section className='section-home4'>
                     <h3 className='section-title'> Produits Tendances </h3>
                     <div className='second-section section-flex'>
@@ -104,9 +104,10 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
-
+        {/*************  SECTIONS BANNIERE LIFESTYLE ***********/}
                 <section className='section-home5'>
-                   <div className='div-img-lifestyle'> 
+                   <div className='div-img-lifestyle'>
+                        <span className='rond-concept-1'> </span>
                         <img src={ImgHomeLifestyle} className="img-fluid img-lifestyle" alt="..."/>
                     </div>
                 </section>
@@ -120,12 +121,12 @@ const Home = () => {
                                    {/* <BsFillEnvelopePaperHeartFill/> */}
                                     {/* <i  className="fas fa-envelope"></i> */}
                                 </div>
-                                <h4>Subscribe</h4>
+                                <h4>Suscrire</h4>
                                 <p>Inscrivez-vous à notre newsletter et restez connecté.</p>
                             </div>
                             <div  className="form-input-newsletter">
-                                <input type="email" placeholder="Your Email" className='input-newsletter '/>
-                                <button  className="subscribe-btn">Subscribe</button>
+                                <input type="email" placeholder="Votre mail" className='input-newsletter '/>
+                                <button  className="subscribe-btn">Suscrire</button>
                             </div>
                         </form>
                     </div>
