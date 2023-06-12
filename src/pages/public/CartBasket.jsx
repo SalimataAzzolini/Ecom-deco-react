@@ -11,16 +11,21 @@ import { Link } from 'react-router-dom';
 
 const CartBasket = () => {
 
-    const cartItems = useSelector(state => state.cart.cartItems);
-    let cartTotalAmount = useSelector(state => state.cart.cartTotalAmount);
-    cartTotalAmount = cartTotalAmount.toFixed(2);
-    const cartTotalQuantity = useSelector(state => state.cart.cartTotalQuantity);
+    // let cartItems = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartItems : null;
+    // cartItems = cartItems ? JSON.parse(cartItems) : null;
+    // let cartTotalAmount = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartTotalAmount : null;
+    // let cartTotalQuantity = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartTotalQuantity : null;
+
+    let cartItems = useSelector(state => state.cart.cartItems);
     console.log(cartItems);
+    let cartTotalAmount = useSelector(state => state.cart.cartTotalAmount);
+    let cartTotalQuantity = useSelector(state => state.cart.cartTotalQuantity);
+    cartTotalAmount = cartTotalAmount.toFixed(2);
 
     const dispatch = useDispatch(); 
 
     const handleQuantityAdd = (item) => {
-        dispatch(addToCart(item));
+         dispatch(addToCart(item));
     }
 
     const handleQuantityRemove = (item) => {
@@ -33,7 +38,7 @@ const CartBasket = () => {
 
 
     return (
-        <div className='card-basket-container'>
+           <div className='card-basket-container'>
             {/* Container items left  */}
             <div className='container-items'>
                 {cartItems ? cartItems.map((item, index) => (
@@ -62,13 +67,9 @@ const CartBasket = () => {
                             </div>
                         </div> 
                             <p className='item-price'> {item.price} €</p>
-                  
-
                             <DeleteIcon
                              onClick={() => handleDeleteItem(item)}
                             />
-               
-                    
                     </div>
                 )
                 ) : (
@@ -78,7 +79,6 @@ const CartBasket = () => {
 
                 )}
             </div>
-
 
             {/* Container items right */}
             <div className="block-container-total">
@@ -110,11 +110,7 @@ const CartBasket = () => {
                         />
                         <button className='btn-reduction'>Valider</button>
                 </div>
-
-
-
             </div>
-
         </div>
     );
 };

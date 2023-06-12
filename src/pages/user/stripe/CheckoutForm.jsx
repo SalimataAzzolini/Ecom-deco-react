@@ -14,6 +14,7 @@ const CheckoutForm = () => {
     let navigate = useNavigate();
     const { userDatas, setUserDatas } = useContext(UserDatasContext);
 
+
     const generateOrderReference = () => {
         const REF_PREFIX = "REF";
         const randomNumber = Math.floor(Math.random() * 100000000);
@@ -37,6 +38,7 @@ const CheckoutForm = () => {
     cartTotalAmount = cartTotalAmount.toFixed(2);
  
     const amount = cartTotalAmount * 100;
+ 
    
     //Elements pour acces aux infos de payment
     const stripe = useStripe();
@@ -64,8 +66,8 @@ const CheckoutForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card', //type de payment
-            card: elements.getElement(CardElement) //recupere les infos de la carte
+            type: 'card', 
+            card: elements.getElement(CardElement) 
         });
         if(!error){
             try {

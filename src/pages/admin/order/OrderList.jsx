@@ -20,9 +20,17 @@ const OrderList = () => {
         return `${jour}/${mois}/${annee}`;
     }
 
+    const token = localStorage.getItem('token');
+
     useEffect(() => {
         if(flag.current === false){
-            orderService.getAllOrders()
+
+            const config = {
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            };
+            orderService.getAllOrders(config)
                 .then(res => {
                     console.log(res.data);
                     setOrders(res.data)
@@ -33,7 +41,6 @@ const OrderList = () => {
         return () => flag.current = true
 
     }, [])
-
 
     // const onStatusChange = (e, orderId) => {
     //     const status = e.target.value;

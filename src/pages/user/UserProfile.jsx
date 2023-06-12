@@ -15,19 +15,21 @@ import { UserDatasContext } from "@/_contexts/userDatasContext";
 import './style/user-profil.scss';
 
 
-
-
 const UserProfile = () => {
 
-    // const { userDatas, setUserDatas } = useContext(UserDatasContext);
+    const userDatas = localStorage.getItem('userDatas');
+    const userDatasParsed = JSON.parse(userDatas);//permet de convertir la chaine de caractère en objet
+    const userName = userDatasParsed.firstname;
     return (
         <div>
+
+            <h2 className='title-hello-user'> Bonjour {userName} </h2>
 
             <div className="container-card-user"> 
             
             <Card className="card-user-profil">
                 <CardMedia
-                    sx={{ height: 220 }}
+                   className='img-card-user-profil'
                     image={ImgProfilUser}
                     title="green iguana"
                 />
@@ -39,7 +41,7 @@ const UserProfile = () => {
             </Card>
             <Card className="card-user-profil">
                 <CardMedia
-                    sx={{ height: 220 }}
+                          className='img-card-user-profil'
                     image={ImgShoppingUser}
                     title="green iguana"
                 />
@@ -51,13 +53,13 @@ const UserProfile = () => {
             </Card>
             <Card className="card-user-profil">
                 <CardMedia
-                    sx={{ height: 220 }}
+                    className='img-card-user-profil'
                     image={ImgPostUser}
                     title="green iguana"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                     <Link to={""} className="link-card-user"> Mon posts</Link> 
+                     <Link to={""} className="link-card-user"> Mes posts</Link> 
                     </Typography>
                 </CardContent>
             </Card>
@@ -65,7 +67,7 @@ const UserProfile = () => {
 
             <Card className="card-user-profil">
                 <CardMedia
-                    sx={{ height: 220 }}
+                    className='img-card-user-profil'
                     image={ImgFavorisUser}
                     title="green iguana"
                 />

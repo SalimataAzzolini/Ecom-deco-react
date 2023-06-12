@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { UserLayout, UserProfile, UserProfileEdit,UserOrders, UserFavoris, StripeContainer  } from '@/pages/user';
-import Error from '@/_utils/Error'
+import Error from '@/_utils/Error';
 
 
 

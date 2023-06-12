@@ -28,7 +28,6 @@ const SingleProduct = () => {
 
 };
   
-
     const flag = useRef(false);
 
     let {cid} = useParams();
@@ -52,6 +51,17 @@ const SingleProduct = () => {
 
     const handleAddToCart = (product) => {
       dispatch(addToCart(product));
+    }
+
+    //Fonction pour ajouter un produit en favoris dans le local storage
+    const handleAddToFavorite = (product) => {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+      let exist = favorites.find(favorite => favorite.id === product.id);
+      if(!exist) {
+        favorites.push(product);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
     }
 
 
@@ -97,7 +107,9 @@ const SingleProduct = () => {
               backgroundColor: "white",
               marginTop: "2rem",
               color: "#A26A48",
-              }}>
+              }}
+              onClick={() => handleAddToFavorite(product)}
+              >
               <FavoriteBorder />
             </IconButton>
 

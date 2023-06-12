@@ -24,7 +24,9 @@ const HeaderUser = () => {
           <Link to='/basket' className='link-basket-user'>Panier
               <ShoppingBasketIcon className="basket-icon-user"/>
           </Link>
+
           <button onClick={logout} className="logout-btn-user" >Déconexion</button>
+          
     </div>
   );
 };

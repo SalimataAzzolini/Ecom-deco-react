@@ -17,6 +17,25 @@ const Login = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const errors = {};
+  
+    if (!credentials.email) {
+      errors.email = "Veuillez entrer votre adresse e-mail.";
+    }
+  
+    if (!credentials.password) {
+      errors.password = "Veuillez entrer votre mot de passe.";
+    }
+  
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+  
+
+
 
   const onChange = (e) => {
     setCredentials({
@@ -28,7 +47,8 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(credentials);
+
+    if (!validateForm()) return;
     accountService
       .login(credentials)
       .then((res) => {
@@ -87,6 +107,8 @@ const Login = () => {
         onChange={onChange}
         className="input-login-form"
       />
+
+      {errors.email && <div className="error-message">{errors.email}</div>}
       <label className="label-login-form">PASSWORD</label>
       <input
         type="password"
@@ -96,6 +118,9 @@ const Login = () => {
         onChange={onChange}
         className="input-login-form"
       />
+      {errors.password && <div className="error-message">{errors.password}</div>}
+
+      
       <button type="submit"
       className="btn-login-form"
       >LOGIN</button>
