@@ -17,7 +17,6 @@ const CartBasket = () => {
     // let cartTotalQuantity = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartTotalQuantity : null;
 
     let cartItems = useSelector(state => state.cart.cartItems);
-    console.log(cartItems);
     let cartTotalAmount = useSelector(state => state.cart.cartTotalAmount);
     let cartTotalQuantity = useSelector(state => state.cart.cartTotalQuantity);
     cartTotalAmount = cartTotalAmount.toFixed(2);

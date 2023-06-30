@@ -20,22 +20,17 @@ const Login = () => {
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
-    const errors = {};
-  
-    if (!credentials.email) {
-      errors.email = "Veuillez entrer votre adresse e-mail.";
-    }
-  
-    if (!credentials.password) {
-      errors.password = "Veuillez entrer votre mot de passe.";
-    }
-  
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
+      const errors = {};
+      if (!credentials.email) {
+        errors.email = "Veuillez entrer votre adresse e-mail.";
+      }
+      if (!credentials.password) {
+        errors.password = "Veuillez entrer votre mot de passe.";
+      }
+      setErrors(errors);
+      return Object.keys(errors).length === 0;
   };
   
-
-
 
   const onChange = (e) => {
     setCredentials({

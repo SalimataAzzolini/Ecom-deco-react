@@ -21,7 +21,9 @@ margin : 0px 0px 50px 30px;
   height: 90px;
   margin-bottom: 30px;
 }
-
+.link_text{
+  font-size: 14px;
+}
 .link-sidebar-user{
   font-size: 14px;
   color: #2e1803;
@@ -68,7 +70,9 @@ margin : 0px 0px 50px 30px;
   display: none;
 }
 @media screen and (max-width: 768px) {
-  
+  .link-sidebar-user{
+    font-size: 12px;
+  }
 
   
 }

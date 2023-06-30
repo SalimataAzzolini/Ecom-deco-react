@@ -30,12 +30,12 @@ const SideMenuUser = () => {
   
       {
           path:"/user/profile/edit",
-          name:"Edit Profile",
+          name:"Informations",
           icon:<FaUserEdit/>
       },
       {
           path:"/user/profile/orders",
-          name:"Orders User",
+          name:"Commandes",
           icon:<FaShoppingBag/>
          
       },

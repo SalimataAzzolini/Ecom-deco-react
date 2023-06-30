@@ -5,6 +5,8 @@ import { useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 
+
+
 import { UserDatasContext } from "@/_contexts/userDatasContext";
 import { accountService } from '@/_services/account.service';
 
@@ -23,14 +25,21 @@ const CheckoutForm = () => {
     }
     const reference = generateOrderReference();
     let user = "";
+    let userName = "";
+    let userAddress = "";
+    let userZipCode = "";
+    let userCity = "";
  
     if(localStorage.getItem('userDatas') !== null){
         const userDatas = localStorage.getItem('userDatas');
         user = JSON.parse(userDatas).email;
+        userName = JSON.parse(userDatas).firstname;
+        userAddress = JSON.parse(userDatas).address;
+        userZipCode = JSON.parse(userDatas).zipcode;
+        userCity = JSON.parse(userDatas).city;
         console.log(user);
     }
     
-
     const cartItems = useSelector(state => state.cart.cartItems);
     const cartTotalQuantity = useSelector(state => state.cart.cartTotalQuantity);
 
@@ -58,46 +67,58 @@ const CheckoutForm = () => {
         products: cartItems,
         quantity: cartTotalQuantity,
         price: amount / 100,
-        // status: "pending",
     };
-
-    console.log(order);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card', 
-            card: elements.getElement(CardElement) 
+      
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+          type: 'card',
+          card: elements.getElement(CardElement),
+          billing_details: {
+            name: userName,
+            address: {
+              line1: userAddress,
+              postal_code: userZipCode,
+              city: userCity,
+            },
+          },
         });
-        if(!error){
-            try {
-                console.log("Token generated!", paymentMethod);
-
-                const {id} = paymentMethod;
-                //Ajouter header authorisation
-                const response = await axios.post('http://127.0.0.1:8000/payment/checkout', {
-                    amount: amount,
-                    id : id,
-                    user : user,
-                    order : order
-                },
-                );
-
-                console.log(response);
-          
-                if(response.status === 200){
-                    // const response = await axios.post('http://127.0.0.1:8000/order/create', order);
-                    // console.log(response);
-                    navigate("/user/profile/orders", { replace: true });
-                }
-
-            } catch (error) {
-                console.log('Error', error);
+      
+        if (!error) {
+          try {
+            console.log("Token generated!", paymentMethod);
+            const { id } = paymentMethod;
+            const payload = JSON.stringify({ amount: amount, id: id, user: user, order: order });
+            const secretKey = 'whsec_z4dKyAmrG3JuAFwr8GBpax4PKsELbZh3'; // Remplacez par votre clé secrète du webhook Stripe
+            //const signature = await stripe.createSignature(payload, secretKey);
+      
+            const response = await axios.post('http://localhost:8000/payment/checkout', {
+              amount: amount,
+              id: id,
+              user: user,
+              order: order,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${accountService.getToken()}`,
+              }
+            });
+      
+            console.log(response);
+      
+            if (response.status === 200) {
+              navigate("/user/profile/orders", { replace: true });
             }
-        }else{
-            console.log(error.message);
+      
+          } catch (error) {
+            console.log('Error', error);
+          }
+        } else {
+          console.log(error.message);
         }
-    }
+      };
+      
     return (
         <div>
             <form onSubmit={handleSubmit}

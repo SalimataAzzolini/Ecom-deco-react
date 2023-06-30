@@ -11,6 +11,7 @@
     margin-top: 15px;
     //height: 80px;
     background-color: white !important;
+    z-index: 1;
  
 }
 .btn-nav-toggle-public{
@@ -18,7 +19,7 @@
 }
 .all-nav-link{
     color: #554c46 !important;
-    font-size: 1.2rem !important;
+    font-size: 1rem !important;
 }
 .all-nav-link:hover{
     color: #A26A48 !important;

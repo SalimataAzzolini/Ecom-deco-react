@@ -37,6 +37,7 @@ const UserList = () => {
 
     return (
         <div className="container-user-list">
+                    <h1 className="title-product-list" style={{marginBottom : "20px", textAlign : "center", fontFamily :  "Great Vibes"}}>Liste des clients</h1>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 900 }} aria-label="simple table">
                 <TableHead>

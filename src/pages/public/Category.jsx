@@ -6,7 +6,7 @@ import './style/category.scss';
 
 const Category = () => {
 
-    const flag = useRef(false);
+    const flag = useRef(false); 
     const [products, setProducts] = useState();
 
     
@@ -15,7 +15,7 @@ const Category = () => {
         if(!flag.current){
             productService.getAllProducts()
             .then(res => {
-                // console.log(res.data);
+                 console.log(res.data);
                 setProducts(res.data);
 
             })

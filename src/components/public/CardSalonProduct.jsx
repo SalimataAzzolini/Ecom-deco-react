@@ -36,11 +36,11 @@ const CardSalonProduct = ({product}) => {
     
               <div className="control">
                 
-              <Link to={`/product/${product.id}`}> 
-                <button className="btn-product-card" style={{width : "150px", height : "45px"}}>
-                  <span className="price"> {product.price} €</span>
-                  <span className="buy">Voir</span>
-                </button>
+                <Link to={`/product/${product.id}`}> 
+                  <button className="btn-product-card" style={{width : "150px", height : "45px"}}>
+                    <span className="price"> {product.price} €</span>
+                    <span className="buy">Voir</span>
+                  </button>
                 </Link>
               </div>
             </div>

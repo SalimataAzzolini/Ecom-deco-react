@@ -8,5 +8,6 @@ export {default as BedRoom} from './BedRoom'
 export {default as BathRoom} from './BathRoom'
 export {default as CartBasket} from './CartBasket'
 export {default as Register} from './Register'
-export {default as Concept} from './Concept'
+export {default as Concept} from './Concept';
+export {default as ConfirmEmail} from './ConfirmEmail';
 
