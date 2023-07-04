@@ -28,6 +28,8 @@ const LoginAdmin = () => {
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
+          const csrfToken = res.data.csrf;
+          localStorage.setItem("csrfToken", csrfToken);
           accountService.saveToken(res.data.token); 
           navigate("/admin/dashboard", { replace: true });
         } else {

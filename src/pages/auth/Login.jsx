@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { accountService } from "@/_services/";
+import { accountService } from "../../_services";
 import { UserDatasContext } from "@/_contexts/userDatasContext";
 import HeaderPublic from "@/components/public/HeaderPublic";
 import FooterHome from "@/components/public/FooterHome";
@@ -47,8 +47,10 @@ const Login = () => {
     accountService
       .login(credentials)
       .then((res) => {
-        // console.log(res);
+        console.log(res.headers);
         if (res.status === 200) {
+          const csrfToken = res.headers['csrf_token']; 
+          console.log(csrfToken);
           accountService.saveToken(res.data.token);
           navigate("/user", { replace: true });
           getUserDatas();
