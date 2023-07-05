@@ -2,11 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { accountService } from "../../_services";
 import { UserDatasContext } from "../../_contexts/userDatasContext";
-// import HeaderPublic from "../../components/public/HeaderPublic";
-// import FooterHome from "../../components/public/FooterHome";
-// import Logo from "../../assets/img/logo.png";
+import HeaderPublic from "../../components/public/HeaderPublic";
+import FooterHome from "../../components/public/FooterHome";
+import Logo from "../../assets/img/logo.png";
 
-// import "./auth.scss";
+import "./auth.scss";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -82,12 +82,12 @@ const Login = () => {
   return (
 
     <div> 
-      {/* <HeaderPublic /> */}
+      <HeaderPublic />
     <div className="login">
     <div id="login-form"> 
     <form className="container-form-login" onSubmit={onSubmit}>
     <div className="brand-logo">
-      {/* <img src={Logo} alt="logo" /> */}
+      <img src={Logo} alt="logo" />
     </div>
     <div className="brand-title">CONNEXION</div>
 
@@ -134,7 +134,7 @@ const Login = () => {
 
   </form>
   </div>
-  {/* <FooterHome /> */}
+  <FooterHome />
   </div>
   </div>
   );
