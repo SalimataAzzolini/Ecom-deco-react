@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useDispatch} from 'react-redux';
 import Slider from "react-slick";
 import { FaFacebook, FaTwitter, FaInstagram, FaPinterest } from 'react-icons/fa';
 import IconButton from '@mui/joy/IconButton';
@@ -6,41 +7,62 @@ import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import { useParams } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Button from '@mui/joy/Button';
-import { productService } from '@/_services';
+import { Link } from 'react-router-dom';
 import './style/single-product.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import { productService } from '@/_services';
+import { addToCart } from '@/_features/cartSlice';
+
 
 const SingleProduct = () => {
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    slickArrow: false,
+
+};
+  
     const flag = useRef(false);
 
     let {cid} = useParams();
 
     const [product, setProduct] = useState({});
+    const dispatch = useDispatch(); 
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        slickArrow: false,
-
-    };
-      
     
     useEffect(() => {
         productService.getProduct(cid)
         .then(res => {
-            console.log(res.data);
-            setProduct(res.data)
+            //console.log(res.data);
+            setProduct(res.data);
+
         })
         .catch(err => console.log(err))
 
         flag.current = true
     }, []);
+
+
+    const handleAddToCart = (product) => {
+      dispatch(addToCart(product));
+    }
+
+    //Fonction pour ajouter un produit en favoris dans le local storage
+    const handleAddToFavorite = (product) => {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+      let exist = favorites.find(favorite => favorite.id === product.id);
+      if(!exist) {
+        favorites.push(product);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
+    }
 
 
 
@@ -65,11 +87,14 @@ const SingleProduct = () => {
             <span> </span>
 
             <Button className='btn-add-to-cart' 
-                style={{
+              style={{
                     width: "10rem", 
                     backgroundColor: "#A26A48",
                     bordeRadius: "none",
-                    marginTop: "2rem"}}>
+                    marginTop: "2rem"}}
+                
+                onClick={() => handleAddToCart(product)}
+            >
                <ShoppingCartIcon className='icon-btn-add-to-cart'  />
                Ajouter
             </Button>
@@ -82,7 +107,9 @@ const SingleProduct = () => {
               backgroundColor: "white",
               marginTop: "2rem",
               color: "#A26A48",
-              }}>
+              }}
+              onClick={() => handleAddToFavorite(product)}
+              >
               <FavoriteBorder />
             </IconButton>
 

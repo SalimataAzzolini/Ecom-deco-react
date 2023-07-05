@@ -1,56 +1,94 @@
-import React from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FaUserAlt, FaShoppingBag, FaBars, FaTextWidth, FaUserEdit  } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaUserAlt, FaShoppingBag, FaBars, FaTextWidth, FaUserEdit, FaSignOutAlt,  FaThList } from 'react-icons/fa';
+// import {FaTh, FaRegChartBar, FaCommentAlt, FaThList,FaShoppingCart }from "react-icons/fa";
 import {BsSuitHeartFill} from 'react-icons/bs';
 import "./style/side-menu-user.scss";
-import Logo from '@/assets/img/logo.png';
+import LogoUser from '@/assets/img/logo.png';
+import { accountService } from '@/_services/account.service';
+
 
 const SideMenuUser = () => {
-  const [isOpen, setIsOpen] = useState(false);
 
-  function toggleSidebar() {
-    setIsOpen(!isOpen);
+  let navigate = useNavigate();
+
+    // Gestion du bouton de déconnexion
+    const logout = () => {
+      accountService.logout()
+      navigate('/')
   }
 
+  const[isOpen ,setIsOpen] = useState(true);
+  const toggle = () => setIsOpen (!isOpen);
+
+  const menuItem=[
+      {
+          path:"/user/profile",
+          name:"Profile",
+          icon:<FaUserAlt/>
+      },
+  
+      {
+          path:"/user/profile/edit",
+          name:"Informations",
+          icon:<FaUserEdit/>
+      },
+      {
+          path:"/user/profile/orders",
+          name:"Commandes",
+          icon:<FaShoppingBag/>
+         
+      },
+      {
+          path:"/user/profile/favoris",
+          name:"Favoris",
+          icon:<BsSuitHeartFill/>
+
+      },
+      {
+          path:"/Blog",
+          name:"Blog",
+          icon:<FaThList/>
+      }
+  ]
+
     return (
-    <div className="sidebar-container">
-      <button className="sidebar-toggle" onClick={toggleSidebar}>
-        <FaBars/> Menu
-      </button>
-      <div className={`sidebar-menu ${isOpen ? "open" : ""}` }>
-        <Link to={"/"} className="link-side-bar-logo">
-        <img src={Logo} alt="logo" className="logo-side-menu-user"/>
-        </Link>
-        <ul>
-          <li>
-            <Link to={"/user/profile"} className='link-side-bar'>
-                <FaUserAlt/> Mon compte
-            </Link>
-          </li>
-          <li>
-            <Link to={"/user/profile/edit"} className='link-side-bar'>
-                <FaUserEdit/> Mes informations
-            </Link>
-          </li>
-          <li>
-            <Link to={"/user/profile/orders"} className='link-side-bar'>
-              <FaShoppingBag/> Mes commandes 
-            </Link>
-          </li>
-          <li>
-            <Link to={"/user/profile/favoris"}  className='link-side-bar'>
-              <BsSuitHeartFill/> Mes favoris
-              </Link>
-            </li>
-           <li>
-              <Link className='link-side-bar'>
-              <FaTextWidth/> Mes posts</Link>
-           </li>
-          <button className="btn-close-side-bar" onClick={toggleSidebar}> x </button>
-        </ul>
-      </div>
-    </div>
+        <div className="container-sidemenu-admin">
+        <div style={{width: isOpen ? "310px" : "50px"}} className="sidebar-user">
+            <div className="top_section">
+                <h1 style={{display: isOpen ? "block" : "none"}}>
+                    <Link to="/" className="link-logo-admin">
+                    <img src={LogoUser} alt="logo" className='logo-side-menu-user'/>
+                    </Link>
+                </h1>
+                <div style={{marginLeft: isOpen ? "50%" : "0px"}} className="bars-admin">
+                    
+                    <FaBars onClick={toggle}
+                    style={{marginTop : isOpen ? "-10px" : "10px",
+                    fontSize:  "25px",
+                    marginLeft: isOpen ? "10px" : "0px",
+                    marginTop : "15px"
+                    }}
+                    className='icon-bars-admin'
+                    />
+
+                </div>
+            </div>
+            {
+                menuItem.map((item, index)=>(
+                    <NavLink to={item.path} key={index} className="link-sidebar-user" activeclassname="active">
+                        <div className="icon">{item.icon}</div>
+                        <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                    </NavLink>
+                ))
+            }
+            <Link to={'/'} onClick={logout} className="link-sidebar-user-logout">
+               <FaSignOutAlt className="icon"/>
+               <span style={{display: isOpen ? "block" : "none"}} > Se déconnecter</span>
+                </Link>
+        </div>
+        
+     </div>
     );
 };
 

@@ -1,3 +1,38 @@
-.navbar {
-    background-color: white !important;
+.container-header-admin{
+    margin-top: 50px;
+   
+}
+
+.search-bar-admin{
+   margin-left: 70%;
+
+}
+
+.search-input-admin{
+    border: 1px solid rgb(216, 216, 216);
+    padding: 30px 20px;
+    border-radius: 5px;
+    height: 50px;
+    width: 600px;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 400;
+    outline: none;
+}
+
+//  MEDIA QUERY
+
+@media screen and (max-width: 768px) {
+    .container-header-admin{
+        margin-top: 10px;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+    }
+    .search-bar-admin{
+        margin-left: 0;
+    }
+    .search-input-admin{
+       display: none;
+}
 }

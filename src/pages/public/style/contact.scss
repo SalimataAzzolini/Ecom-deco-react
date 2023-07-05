@@ -1,0 +1,122 @@
+@import '@/_utils/constants';
+
+.container-contact{
+    background-image: url('../../../assets/img/cover-contact.png');
+    padding: 12rem 10rem 18rem;
+}
+
+.container-contact-form{
+    // background-color: #fff;
+    padding: 5rem 4rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group{
+    display: block;
+    font-size: 1.5rem;
+}
+
+
+.label-input-contact{
+    display: flex;
+    gap: 4rem;
+}
+
+.label-input-name-contact{
+    display: flex;
+    flex-direction: column;
+}
+
+.label-input-email-contact{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-contact{
+    font-size: 1.2rem;
+    width: 460px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+}
+.label-input-textarea-contact{
+    margin-top: 2rem;
+}
+
+.textarea-contact{
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    resize: none;
+    height: 10rem;
+}
+
+.btn-contact-form{
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.img-flower-contact{
+    float: right;
+    margin-top: -16.6rem;
+    // width: 60rem;
+    // height: 40rem;
+}
+
+//Media Queries
+@media screen and (max-width: 1024px){
+    .container-contact{
+        padding: 5rem 0rem;
+    }
+    .container-contact-form{
+        padding: 4rem 2rem 12rem;
+        width: 90%;
+    }
+    .form-group{
+        font-size: 1rem;
+    }
+    .label-input-contact{
+        flex-direction: column;
+        gap: 0;
+    }
+    // .label-input-name-contact{
+
+    // }
+    .input-contact{
+        width: 100%;
+        padding: .5rem;
+        margin: .5rem 0;
+        font-size: 12px;
+    }
+    .textarea-contact{
+        width: 100%;
+        padding: .5rem;
+        margin: .5rem 0;
+        font-size: 12px;
+    }
+
+    .btn-contact-form{
+        padding: .5rem 1rem;
+        font-size: .8rem;
+    }
+    .img-flower-contact{
+        width: 18rem;
+        height: 20rem;
+    }
+ 
+}

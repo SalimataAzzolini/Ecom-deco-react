@@ -2,7 +2,7 @@ import Axios from './caller.services'
 
 
 let getAllUsers = () => {
-    return Axios.get('/users');
+    return Axios.get('/dashboard/users');
 }
 
 let getUser = (uid) => {
@@ -20,7 +20,7 @@ let updateUser = (user) => {
 }
 
 let deleteUser = (uid) => {
-    return Axios.delete('/users/'+uid)
+    return Axios.delete('/api/users/'+uid)
 }
 
 // Décaraltion des esrvices pour import

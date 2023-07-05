@@ -1,9 +1,10 @@
 import React from 'react';
+import './style/user-orders.scss'
 
 const UserOrders = () => {
     return (
         <div>
-            <h4>User Orders works !</h4>
+            <h4 className='title-user-order'>Mes commandes !</h4>
         </div>
     );
 };

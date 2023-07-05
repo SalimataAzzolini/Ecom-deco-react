@@ -1,8 +1,59 @@
-li{
-    list-style: none;
+.container-sidemenu-admin{
+    display:flex;
+}
+// main{
+//     width: 100%;
+//     padding: 20px;
+// }
+.sidebar-admin{
+    background: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(43, 43, 43);
+    height: 100vh;
+    width: 350px;
+    border-right: solid 1.4px #d1d1d1;
+    padding-right: 1px;
+    transition: all 0.5s;
+}
+.top_section{
+    display: flex;
+    align-items:center;
+    padding:20px 15px;
+}
+.logo-side-admin{
+    width: 60px;
+    margin-top: 25px;
+    cursor: pointer;
 }
 
-li a {
-    text-decoration: none;
-    color: rgb(19, 19, 75);
+.icon-bars-admin{
+  
+    cursor: pointer;
+}
+.bars{
+    display: flex;
+    margin-top: -40%;
+}
+.link{
+    display: flex;
+    color: rgb(75, 75, 75);
+    padding: 10px 15px;
+    gap: 15px;
+    transition: all 0.5s;
+}
+.link:hover{
+    background: #fbf0e5;
+    color: #000;
+    transition: all 0.5s;
+}
+.active{
+    background: #fbf0e5;
+    color: #000;
+}
+
+.link_text{
+    font-size: 16px;
+}
+.icon-side-menu-admin{
+    font-size: 14px;
 }

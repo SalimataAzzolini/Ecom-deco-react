@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+.login{
+  background-image: url("../../assets/img/background-login5.png");
+    background-size: cover;
+    padding-bottom: 5%;
+}
+#login-form{
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+#login-form .container-form-login {
+  /* margin: auto; */
+  border-radius: 20px;
+  padding: 5% 10% 5% 5%;
+  box-sizing: border-box;
+  background: #ffffff;
+  box-shadow: 14px 14px 20px #dcd7d5, -14px -14px 30px #FFF7F4;
+}
+
+#login-form .brand-logo {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+#login-form .brand-logo img {
+  width:60px;
+  height:60px;
+}
+
+#login-form .brand-title {
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #B8835F;
+  letter-spacing: 1px;
+}
+
+#login-form .inputs-login-form {
+  text-align: left;
+  margin-top: 30px;
+  padding: 5px 2rem;
+
+}
+
+#login-form label, .input-login-form, .btn-login-form {
+  display: block;
+  /* padding: 0; */
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#login-form label {
+  margin-bottom: 4px;
+}
+
+#login-form label:nth-of-type(2) {
+  margin-top: 12px;
+}
+
+#login-form .input-login-form::placeholder {
+  color: gray;
+}
+
+#login-form .input-login-form {
+  background: #ecf0f3;
+  padding: 5% 30%;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+#login-form .btn-login-form {
+  color: white;
+  margin-top: 15%;
+  background: #B8835F;
+  padding: 3% 46%;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+  margin-bottom: 55px;
+}
+
+#login-form .btn-login-form:hover {
+  box-shadow: none;
+}
+#login-form h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.container-form-login a {
+  text-decoration: none;
+  color: black;
+}
+.container-form-login a:hover {
+  color: #B8835F;
+  text-decoration: none;
+}
+
+.link-register{
+  text-decoration: underline !important;
+  margin-left: 40px;
+}
+
+
+.error-message{
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  color: #ec1818;
+
+}
+
+/************Media Query ************/
+
+@media screen and (max-width: 768px) {
+
+  #login-form{
+    padding: 2% 7%;
+  }
+  #login-form .container-form-login {
+    padding: 5% 8% 5% 13%;
+  }
+  #login-form .brand-title{
+    font-size: 1.5rem;
+  }
+
+  #login-form .input-login-form{
+    padding: 4% 15%;
+    font-size: 12px;
+  }
+  #login-form .btn-login-form{
+    padding: 2% 35%;
+    font-size: 12px;
+  }
+  .container-form-login a{
+    font-size: 12px;
+  }
+  .container-form-login p{
+    font-size: 12px;
+  }
+  .label-login-form{
+    font-size: 12px;
+  }
+
+  .error-message{
+    font-size: 12px;
+  }
+
+
+}

@@ -1,21 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
 
-#user-edit-form input {
-  caret-color: red;
-}
 
 #user-edit-form .container-form {
-  width: 800px;
-  height: 600px;
-  margin-left: 14%;
-  border-radius: 20px;
-  padding: 40px;
+  margin: 4rem 15rem 1rem;
+  border-radius: 0px;
+  border-top: #B8835F 10px solid;
+  border-bottom: #B8835F 6px solid;
+  padding: 4rem 0rem 4rem 4rem;
   box-sizing: border-box;
-  background: #f5f8fa;
-  margin-top: 30px;
+  background: #ffffff;
   box-shadow: 14px 14px 20px #d1cfcb, -14px -14px 20px white;
-  margin-bottom: 50px;
 }
 
 #user-edit-form .brand-logo {
@@ -46,7 +41,7 @@
 
 }
 
-#user-edit-form label, input, button {
+#user-edit-form label, .input-user-edit, .btn-user-edit {
   display: block;
   width: 40%;
   padding: 0;
@@ -66,11 +61,11 @@
   margin-top: 12px;
 }
 
-#user-edit-form input::placeholder {
+#user-edit-form .input-user-edit::placeholder {
   color: gray;
 }
 
-#user-edit-form input {
+#user-edit-form .input-user-edit {
   background: #ecf0f3;
   padding: 10px;
   padding-left: 20px;
@@ -81,7 +76,7 @@
   margin-bottom: 20px;
 }
 
-#user-edit-form button {
+#user-edit-form .btn-user-edit {
   color: white;
   margin-top: 20px;
   background: #B8835F;
@@ -93,7 +88,7 @@
   transition: 0.5s;
 }
 
-#user-edit-form button:hover {
+#user-edit-form  .btn-user-edit:hover {
   box-shadow: none;
 }
 
@@ -117,16 +112,20 @@
 
 @media screen and (max-width: 700px) {
     #user-edit-form .container-form {
-        margin-top: -20px;
-        width: 400px;
-        height: 700px;
+        margin : 4rem 1rem 1rem;
+        padding: 2rem 2rem;
+       
 
     }
     #user-edit-form .container-inputs {
         flex-direction: column;
         gap: 10px;
     }
-    #user-edit-form label, input, button {
+    #user-edit-form label, .input-user-edit, .btn-user-edit {
         width: 100%;
+    }
+    #user-edit-form .input-user-edit{
+      padding: .3rem 6rem;
+      height: 40px;
     }
 }

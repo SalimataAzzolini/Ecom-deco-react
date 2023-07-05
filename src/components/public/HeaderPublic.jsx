@@ -1,13 +1,30 @@
-import React from "react";
+import {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import "./style/header-public.scss";
 import Logo from "@/assets/img/logo.png";
 
+
+
 const HeaderPublic = () => {
+
+  //Vérification de l'authentification de l'utilisateur
+   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if(token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+
   return (
     <div className="header-public">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light nav-public">
-      <img src={Logo} className="logo"/>
+      <nav className="navbar navbar-expand-lg navbar-light  nav-public">
+        <Link to="/home" className="">
+            <img src={Logo} className="logo-header-public"/>
+        </Link>
         <button
           className="navbar-toggler btn-nav-toggle-public"
           type="button"
@@ -24,31 +41,43 @@ const HeaderPublic = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto" id="ul-nav">
             <li className="nav-item">
-              <Link to="/home" className="nav-link">
+              <Link to="/home" className="nav-link all-nav-link">
                 Accueil
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/service" className="nav-link">
+              <Link to="/category" className="nav-link all-nav-link">
                 Category
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/service" className="nav-link">
+              <Link to="/concept" className="nav-link all-nav-link">
                 Concept
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link">
+              <Link to="/contact" className="nav-link all-nav-link">
                 Contact
               </Link>
             </li>
-            <li className="link-login" >
-              <Link to="/auth/login">&nbsp; Mon compte </Link>
-            </li>
+
 
             <li className="link-basket" >
-              <Link to="">&nbsp; Panier </Link>
+              <Link to="/basket" className="all-nav-link">&nbsp; Panier 
+                <ShoppingBasketIcon className="basket-icon-public"/> </Link>
+            </li>
+            
+            <li className="link-login">
+              {/* //Si l'utilisateur n'est pas connecté, il sera redirigé vers la page de connexion */}
+             
+             {
+                isAuthenticated ?
+                <Link to="/user" className="all-nav-link">Mon compte</Link>
+                :
+                <Link to="/auth/login" className="all-nav-link">Connexion</Link>
+
+             }
+                
             </li>
            
           </ul>

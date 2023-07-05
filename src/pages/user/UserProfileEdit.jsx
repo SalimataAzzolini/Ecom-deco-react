@@ -7,28 +7,69 @@ import "./style/user-profile-edit.scss";
 
 const UserProfileEdit = () => {
 
-  const { userDatas, setUserDatas } = useContext(UserDatasContext);
+  const userDatas = localStorage.getItem('userDatas');
+  const userDatasParsed = JSON.parse(userDatas);
+
+  
+  const [firstname, setFirstname] = useState(userDatasParsed.firstname);
+  const [lastname, setLastname] = useState(userDatasParsed.lastname);
+  const [email, setEmail] = useState(userDatasParsed.email);
+  const [address, setAddress] = useState(userDatasParsed.address);
+  const [city, setCity] = useState(userDatasParsed.city);
+  const [zipCode, setZipCode] = useState(userDatasParsed.zipcode);
+
+
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
   // console.log(userDatas);
 
   const onChange = (e) => {
-    setUserDatas({...userDatas, [e.target.name]: e.target.value});
+    const { name, value } = e.target;
+    switch (name) {
+      case "firstname":
+        setFirstname(value);
+        break;
+      case "lastname":
+        setLastname(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "address":
+        setAddress(value);
+        break;
+      case "city":
+        setCity(value);
+        break;
+      case "zip":
+        setZipCode(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+    }
   }
 
 
   const onSubmit = (e) => {
     e.preventDefault();
+    userDatasParsed.password = password;
+    userDatasParsed.firstname = firstname;
+    userDatasParsed.lastname = lastname;
+    userDatasParsed.email = email;
+    userDatasParsed.address = address;
+    userDatasParsed.city = city;
+    userDatasParsed.zipCode = zipCode;
+
     
-    userDatas.password = password;
     fetch("http://127.0.0.1:8000/profile/edit", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accountService.getToken()}`,
       },
-      body: JSON.stringify(userDatas),
+      body: JSON.stringify(userDatasParsed),
     })
     .then((res) => res.json())
     .then((data) => {
@@ -42,47 +83,52 @@ const UserProfileEdit = () => {
     return ( 
         
       <div id="user-edit-form"> 
-      {message && <div className="alert alert-success">{message}</div>}
+        {message && <div className="alert alert-success">{message}</div>}
         <form className="container-form" onSubmit={onSubmit} >
         <div className="brand-title"> INFOS</div>
         <div className="container-inputs">
           <input
             type="text"
             name="firstname"
-            value={userDatas.firstname}
+            value={firstname}
             onChange={onChange}
+            className="input-user-edit"
           
           />
              <input
             type="text"
             name="lastname"
-            value={userDatas.lastname}
+            value={lastname}
             onChange={onChange}
+            className="input-user-edit"
           />
           <input
             type="text"
             name="address"
-            value={userDatas.address}
+            value={address}
             onChange={onChange}
-     
+            className="input-user-edit"
           />
              <input
             type="number"
             name="zipcode"
-            value={userDatas.zipcode}
+            value={zipCode}
             onChange={onChange}
+            className="input-user-edit"
           />
              <input
             type="city"
             name="city"
-            value={userDatas.city}
+            value={city}
             onChange={onChange}
+            className="input-user-edit"
           />
              <input
             type="email"
             name="email"
-            value={userDatas.email}
+            value={email}
             onChange={onChange}
+            className="input-user-edit"
           />
 
           <h6 style={{marginTop : "10px"}}> Changer de mot de passe : </h6>
@@ -92,13 +138,15 @@ const UserProfileEdit = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="input-user-edit"
           />
           <div className='div-btn-edit-user'>
             <button className='btn-user-edit'>Enregistrer</button>
             </div>
         </div>
 
-      </form>
+        </form>
+
       </div>
     );
 }

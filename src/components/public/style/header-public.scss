@@ -2,38 +2,79 @@
     height: 75px;
 }
 
-.logo{
+.logo-header-public{
     height: 60px;
     margin-top: -10px;
     margin-right: 50px;
 }
 .nav-public{
     margin-top: 15px;
+    //height: 80px;
+    background-color: white !important;
+    z-index: 1;
+ 
 }
 .btn-nav-toggle-public{
     width: 60px;
 }
+.all-nav-link{
+    color: #554c46 !important;
+    font-size: 1rem !important;
+}
+.all-nav-link:hover{
+    color: #A26A48 !important;
+    text-decoration: none;
+}
 
+.nav-link{
+    margin-right: 20px;
+}
 .link-login a{
-    color : #7a706a;
     position: absolute;
-    right: 180px;
+    right: 70px;
     top: 15px;
 }
 
-.link-login:hover a{
-    color: #A26A48;
-    text-decoration: none;
-}
 
 .link-basket a {
-    color : #7a706a;
     position: absolute;
-    right: 100px;
+    right: 220px;
     top: 15px;
 }
 
-.link-basket:hover a{
-    color: #A26A48;
-    text-decoration: none;
+.basket-icon-public{
+    margin-left: 7px;
+    margin-top: -4px;
+}
+
+//MEDAI QUERY
+@media (max-width: 768px) {
+    .header-public{
+        height: 60px;
+    }
+    .logo{
+        height: 50px;
+        margin-top: -10px;
+        margin-right: 50px;
+    }
+    .btn-nav-toggle-public{
+        width: 44px !important;
+        height: 40px !important;
+    }
+    .all-nav-link{
+        font-size: 14px !important;
+    }
+    .css-i4bv87-MuiSvgIcon-root{
+       font-size: 1rem !important;
+    }
+    .navbar-toggler-icon{
+        margin-left: -5px !important;
+    }
+    .link-basket a {
+        right: 165px;
+        top: 20px;
+    }
+    .link-login a{
+        top: 20px;
+    }
 }

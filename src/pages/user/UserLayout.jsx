@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import  HeaderUser from '@/components/user/HeaderUser';
+import HeaderPublic from '@/components/public/HeaderPublic';
 import SideMenuUser from '@/components/user/SideMenuUser';
 import './user-layout.scss'
 
@@ -10,7 +11,7 @@ const UserLayout = () => {
             <div id='user-layout'>
                 <div id='user-side-menu'> <SideMenuUser/> </div>
                 <div id='user-body'>
-                    <HeaderUser />
+                    <HeaderUser/>
                     <Outlet/> 
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { UserLayout, UserProfile, UserProfileEdit,UserOrders, UserFavoris  } from '@/pages/user';
-import Error from '@/_utils/Error'
+import { UserLayout, UserProfile, UserProfileEdit,UserOrders, UserFavoris, StripeContainer  } from '@/pages/user';
+import Error from '@/_utils/Error';
 
 
 
@@ -16,9 +16,9 @@ const UserRouter = () => {
                     <Route path="profile/edit" element={<UserProfileEdit/>}/>
                     <Route path="profile/orders" element={<UserOrders/>}/>
                     <Route path="profile/favoris" element={<UserFavoris/>}/>
-
                     <Route path="*" element={<Error/>}/>   
                 </Route>
+                <Route path="/checkout" element={<StripeContainer/>}/>
 
             </Routes>
 

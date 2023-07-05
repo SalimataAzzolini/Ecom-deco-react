@@ -29,7 +29,7 @@ let updateProduct = (product) => {
  * Suppression d'un products
  */
 let deleteProduct = (pid) => {
-    return Axios.delete('/api/products/'+pid+'/delete')
+    return Axios.delete('/products/'+pid+'/delete')
 }
 
 // Déclaration des services pour import
