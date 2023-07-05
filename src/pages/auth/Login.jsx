@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { accountService } from "../../_services";
-import { UserDatasContext } from "@/_contexts/userDatasContext";
-import HeaderPublic from "@/components/public/HeaderPublic";
-import FooterHome from "@/components/public/FooterHome";
-import Logo from "@/assets/img/logo.png";
+import { UserDatasContext } from "../../_contexts/userDatasContext";
+// import HeaderPublic from "../../components/public/HeaderPublic";
+// import FooterHome from "../../components/public/FooterHome";
+// import Logo from "../../assets/img/logo.png";
 
-import "./auth.scss";
+// import "./auth.scss";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -45,12 +45,9 @@ const Login = () => {
 
     if (!validateForm()) return;
     accountService
-      .login(credentials)
+      .loginUser(credentials)
       .then((res) => {
-        console.log(res.headers);
         if (res.status === 200) {
-          const csrfToken = res.headers['csrf_token']; 
-          console.log(csrfToken);
           accountService.saveToken(res.data.token);
           navigate("/user", { replace: true });
           getUserDatas();
@@ -85,17 +82,19 @@ const Login = () => {
   return (
 
     <div> 
-      <HeaderPublic />
+      {/* <HeaderPublic /> */}
     <div className="login">
     <div id="login-form"> 
     <form className="container-form-login" onSubmit={onSubmit}>
     <div className="brand-logo">
-      <img src={Logo} alt="logo" />
+      {/* <img src={Logo} alt="logo" /> */}
     </div>
-    <div className="brand-title">LOGIN</div>
+    <div className="brand-title">CONNEXION</div>
 
     <div className="inputs-login-form">
-      <label className="label-login-form">EMAIL</label>
+      <label className="label-login-form"
+        htmlFor="email-input" 
+      >EMAIL</label>
       <input
         type="email"
         placeholder="example@test.com"
@@ -103,10 +102,13 @@ const Login = () => {
         value={credentials.email}
         onChange={onChange}
         className="input-login-form"
+        id="email-input" // Ajout de l'attribut id pour le test
       />
 
       {errors.email && <div className="error-message">{errors.email}</div>}
-      <label className="label-login-form">PASSWORD</label>
+      <label className="label-login-form"
+        htmlFor="password-input"
+      >PASSWORD</label>
       <input
         type="password"
         placeholder="Min 6 charaters long"
@@ -114,6 +116,7 @@ const Login = () => {
         value={credentials.password}
         onChange={onChange}
         className="input-login-form"
+        id="password-input" // Ajout de l'attribut id pour le test
       />
       {errors.password && <div className="error-message">{errors.password}</div>}
 
@@ -131,7 +134,7 @@ const Login = () => {
 
   </form>
   </div>
-  <FooterHome />
+  {/* <FooterHome /> */}
   </div>
   </div>
   );

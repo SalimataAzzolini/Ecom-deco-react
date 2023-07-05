@@ -5,7 +5,7 @@ let register = (credentials) => {
   return Axios.post("/register", credentials);
 };
 
-let login = (credentials) => {
+let loginUser = (credentials) => {
   return Axios.post("/login", credentials);
 };
 
@@ -47,7 +47,7 @@ let isAdmin = () => {
 // Déclaration des services pour import
 export const accountService = {
   register,
-  login,
+  loginUser,
   saveToken,
   logout,
   isLogged,
