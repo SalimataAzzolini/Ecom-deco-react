@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { accountService } from "../../_services";
-import { UserDatasContext } from "../../_contexts/userDatasContext";
+// import { UserDatasContext } from "../../_contexts/userDatasContext";
 import HeaderPublic from "../../components/public/HeaderPublic";
 import FooterHome from "../../components/public/FooterHome";
 import Logo from "../../assets/img/logo.png";
@@ -10,7 +10,7 @@ import "./auth.scss";
 
 const Login = () => {
   let navigate = useNavigate();
-  const  {userDatas, setUserDatas}  = useContext(UserDatasContext);
+  // const  {userDatas, setUserDatas}  = useContext(UserDatasContext);
 
   const [credentials, setCredentials] = useState({
     email: "",
@@ -47,8 +47,10 @@ const Login = () => {
     accountService
       .loginUser(credentials)
       .then((res) => {
+        console.log(res.headers);
         if (res.status === 200) {
           accountService.saveToken(res.data.token);
+          accountService.saveCsrfToken(res.data.csrf_token);
           navigate("/user", { replace: true });
           getUserDatas();
 
@@ -65,14 +67,13 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accountService.getToken()}`,
-        // "Cookie": `token=${accountService.getToken()}`,
       },
       body: JSON.stringify(credentials),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setUserDatas(data);
+        // setUserDatas(data);
         localStorage.setItem("userDatas", JSON.stringify(data));
       })
       .catch((error) => console.log(error));

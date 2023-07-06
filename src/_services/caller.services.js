@@ -6,10 +6,11 @@ const Axios = axios.create({
     baseURL: "http://127.0.0.1:8000",
 });
 
-//Intercepteur pour la mise en place du token dans la requête
+//Intercepteur pour la mise en place du token et du X-csrf dans la requête
 Axios.interceptors.request.use((request) => {
     if (accountService.isLogged()) {
         request.headers.Authorization = "Bearer " + accountService.getToken();
+        request.headers["X-CSRF-Token"] = accountService.getCsrfToken();
   }
   return request;
 });

@@ -1,16 +1,15 @@
 module.exports = {
-    // ...autres configurations Jest
-  
-    testEnvironment: "jsdom",
+ 
+    testEnvironment: "jsdom", // Environnement de test
   
     transform: {
       "^.+\\.(js|jsx)$": "babel-jest",
-      "^.+\\.mjs$": "babel-jest"
+      "^.+\\.mjs$": "babel-jest" 
     },
   
     // Configuration du transformateur pour les imports ESM
     transformIgnorePatterns: [
-      "/node_modules/(?!(axios)/)" // Ajoutez d'autres modules si nécessaire
+      "/node_modules/(?!(axios)/)" 
     ]
   };
   
