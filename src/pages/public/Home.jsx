@@ -10,16 +10,30 @@ import ImgGridCategoryBed from '@/assets/img/img-grid-category-bed.png';
 import ImgGridCategoryBath from '@/assets/img/img-grid-category-bath.png';
 import ImgHomeLifestyle from '@/assets/img/img-home-lifestyle.png';
 import CardSalonProduct from '../../components/public/CardSalonProduct';
-import Salon from './Salon';
-import CardProduct from '../../components/public/CardProduct';
-import ImgCoverNesletter from '@/assets/img/img-cover-newsletter.png';
-import FooterHome from '../../components/public/FooterHome';
 import { Link } from 'react-router-dom';
 
 
 const Home = () => {
 
     const flag = useRef(false);
+    const [products, setProducts] = useState();
+
+        
+    useEffect(() => {
+
+        if(!flag.current){
+            productService.getAllProducts()
+            .then(res => {
+                console.log(res.data);
+                setProducts(res.data);
+
+            })
+            .catch(err => console.log(err))
+        }
+
+        flag.current = true
+
+    }, [])
 
 
     return (
@@ -94,14 +108,14 @@ const Home = () => {
         {/*************  SECTIONS PRODUITS TENDANCES ***********/}
                 <section className='section-home4'>
                     <h3 className='section-title'> Produits Tendances </h3>
-                    <div className='second-section section-flex'>
-                        <div className="col grid-left">
-                               <CardProduct/>
-                        </div>
 
-                        <div className="col grid-right">
-                        <CardProduct/> 
-                        </div>
+                    <div className='product-card-container'>
+                        {products && 
+                        products
+                        .slice(0, 2)
+                        .map((product, index) => (
+                            <CardSalonProduct key={index} product={product} />
+                        ))}
                     </div>
                 </section>
         {/*************  SECTIONS BANNIERE LIFESTYLE ***********/}
@@ -136,6 +150,7 @@ const Home = () => {
                         <h6>bonjour@ecomdecomood.fr</h6>
                     </div>
                 </section>
+
     
         </div>
     )

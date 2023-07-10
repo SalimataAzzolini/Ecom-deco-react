@@ -73,7 +73,13 @@
 }
 
 /*responsive*/
-@media(max-width: 767px){
+@media(max-width: 750px){
+
+	.container-footer .row {
+		display: flex;
+		flex-wrap: wrap;
+		width: 300px;
+	}
   .footer-col{
     width: 50%;
     margin-bottom: 30px;

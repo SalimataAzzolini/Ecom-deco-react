@@ -47,6 +47,17 @@
     margin-top: -4px;
 }
 
+.navbar-nav .dropdown-menu{
+    border: none;
+    margin-left: -2rem;
+    padding: 1rem  4rem 1rem 1.2rem;
+    color: #554c46;
+    font-size: 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(189, 189, 189, 0.1);
+
+}
+
+
 //MEDAI QUERY
 @media (max-width: 768px) {
     .header-public{
@@ -76,5 +87,8 @@
     }
     .link-login a{
         top: 20px;
+    }
+    .navbar-nav .dropdown-menu{
+        font-size: 14px;
     }
 }

@@ -1,20 +1,22 @@
-import React from 'react';
+import {useNavigate} from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaPinterest } from 'react-icons/fa';
 import "./style/footer-home.scss";
 
 const FooterHome = () => {
+
+	const navigate = useNavigate();
     return (
  <div>
 
-	{/* <footer className="footer">
+	<footer className="footer">
 		<div className="container-footer">
 			<div className="row">
 				<div className="footer-col">
 					<h4>Home Décor</h4>
 					<ul>
-						<li><a href="#">A propos</a></li>
-						<li><a href="#">Le concept</a></li>
-						<li><a href="#">Programme de fidélité</a></li>
+						<li><a href="#" onClick={() => navigate('/')}>Accueil</a></li>
+						<li><a href="#" onClick={() => navigate('/concept')}>Le concept</a></li>
+						<li><a href="#">FAQ</a></li>
 					</ul>
 				</div>
 				<div className="footer-col">
@@ -28,9 +30,9 @@ const FooterHome = () => {
 				<div className="footer-col">
 					<h4>Guide</h4>
 					<ul>
-						<li><a href="#">FAQ</a></li>
 						<li><a href="#">Clik and Collect</a></li>
-						<li><a href="#">Retour / Echange</a></li>
+						<li><a href="#">Mentions Légales</a></li>
+						<li><a href="#">Politiques de Confidentialités</a></li>
 					</ul>
 				</div>
 
@@ -45,7 +47,7 @@ const FooterHome = () => {
 				</div>
 			</div>
 		</div>
-	</footer> */}
+	</footer>
 </div>
     );
 };
