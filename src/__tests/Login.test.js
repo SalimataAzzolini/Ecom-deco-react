@@ -52,7 +52,7 @@ describe("Test du composant Login", () => {
       });
     });
 
-    expect(mockNavigate).toHaveBeenCalledWith("/user", { replace: true });
+    expect(mockNavigate).toHaveBeenCalledWith("/user/login", { replace: true });
 
     await waitFor(() => {
       expect(mockSetUserDatas).toHaveBeenCalled();
