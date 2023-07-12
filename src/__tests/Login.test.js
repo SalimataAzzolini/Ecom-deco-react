@@ -1,108 +1,42 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import Login from "../pages/auth/Login";
+import { validateFormLogin } from "../pages/auth/Login";
 
-test("Test sur la page de connexion", () => {
-  const { queryAllByText } = render(
-    <MemoryRouter>
-      <Login />
-    </MemoryRouter>
-  );
+describe('validateFormLogin', () => {
+  it('should return true when form is valid', () => {
+    const credentials = {
+      email: 'test@example.com',
+      password: 'password123',
+    };
 
-  // Vérifier si le texte "LOGIN" est présent dans la page de connexion
-  const loginButtons = queryAllByText("LOGIN");
-  expect(loginButtons).toHaveLength(1);
+    const isValid = validateFormLogin(credentials);
 
-});
+    expect(isValid).toBe(true);
+  });
 
-//Test de la soumission du formulaire de connexion
-test("Soumission du formulaire de connexion", () => {
-  const { getByLabelText, getByText } = render(
-    <MemoryRouter>
-      <Login />
-    </MemoryRouter>
-  );
+  it('should return false when form is invalid', () => {
+    const credentials = {
+      email: '',
+      password: '',
+    };
 
-  // Récupérer les inputs
-  const emailInput = getByLabelText("EMAIL");
-  const passwordInput = getByLabelText("PASSWORD");
+    const isValid = validateFormLogin(credentials);
 
-  // Simuler la saisie de l'utilisateur
-  emailInput.value = "test@gmail.com@gmail.com"; 
-  passwordInput.value = "password123";
+    expect(isValid).toBe(false);
+  });
 
-  // Récupérer le bouton de connexion
-  const loginButton = getByText("LOGIN");
+  it('should set errors when form is invalid', () => {
+    const credentials = {
+      email: '',
+      password: '',
+    };
 
-  // Simuler le clic sur le bouton de connexion
-  loginButton.click();
+    validateFormLogin(credentials);
 
-  // Vérifier si le bouton de connexion a été cliqué
-  expect(loginButton).toHaveBeenClicked();
+    // Vérifier que les erreurs sont correctement définies
+    expect(credentials.errors).toEqual({
+      email: "Veuillez entrer votre adresse e-mail.",
+      password: "Veuillez entrer votre mot de passe.",
+    });
+  });
 });
 
 
-
-
-// import React from "react";
-// import { render, fireEvent, waitFor, act } from "@testing-library/react";
-// import { MemoryRouter } from "react-router-dom";
-// import Login from "../pages/auth/Login";
-// import { accountService } from "../_services/account.service";
-// import { act as domAct } from "react-dom/test-utils";
-
-// jest.mock("../_services/account.service", () => ({
-//   accountService: {
-//     loginUser: jest.fn().mockResolvedValue({ token: "testToken" }),
-//   },
-// }));
-
-// describe("Test du composant Login", () => {
-//   test("Soumission du formulaire de connexion", async () => {
-//     const mockNavigate = jest.fn();
-//     const mockSetUserDatas = jest.fn();
-
-//     jest.mock("react-router-dom", () => ({
-//       ...jest.requireActual("react-router-dom"),
-//       useNavigate: () => mockNavigate,
-//     }));
-
-//     jest.mock("../_contexts/userDatasContext", () => ({
-//       UserDatasContext: {
-//         Consumer: ({ children }) =>
-//           children({ setUserDatas: mockSetUserDatas }),
-//       },
-//     }));
-
-//     const { getByLabelText, getByText } = render(
-//       <MemoryRouter>
-//         <Login />
-//       </MemoryRouter>
-//     );
-
-//     const emailInput = getByLabelText("EMAIL");
-//     const passwordInput = getByLabelText("PASSWORD");
-//     fireEvent.change(emailInput, { target: { value: "test@example.com" } });
-//     fireEvent.change(passwordInput, { target: { value: "password123" } });
-
-//     const loginButton = getByText("LOGIN");
-
-//     domAct(() => {
-//       fireEvent.click(loginButton);
-//     });
-
-//     await waitFor(() => {
-//       expect(accountService.loginUser).toHaveBeenCalledWith({
-//         email: "test@example.com",
-//         password: "password123",
-//       });
-//     });
-
-//     expect(mockNavigate).toHaveBeenCalledWith("/user", { replace: true });
-
-//     await waitFor(() => {
-//       expect(mockSetUserDatas).toHaveBeenCalled();
-//     });
-//   });
-// });

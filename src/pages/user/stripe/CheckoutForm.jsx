@@ -1,11 +1,11 @@
-import {useContext, useEffect} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import { CardElement, useStripe,useElements  } from '@stripe/react-stripe-js';
 import { useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+import { Button, TextField, InputLabel } from '@mui/material';
 
-import { UserDatasContext } from "@/_contexts/userDatasContext";
+
 import { accountService } from '@/_services/account.service';
 
 
@@ -13,6 +13,9 @@ const CheckoutForm = () => {
 
     let navigate = useNavigate();
     //const { userDatas, setUserDatas } = useContext(UserDatasContext);
+    const [cardholderName, setCardholderName] = useState('');
+
+
 
     const generateOrderReference = () => {
         const REF_PREFIX = "REF";
@@ -73,7 +76,7 @@ const CheckoutForm = () => {
           type: 'card',
           card: elements.getElement(CardElement),
           billing_details: {
-            name: userName,
+            name: cardholderName,
             address: {
               line1: userAddress,
               postal_code: userZipCode,
@@ -87,9 +90,7 @@ const CheckoutForm = () => {
             console.log("Token generated!", paymentMethod);
             const { id } = paymentMethod;
             const payload = JSON.stringify({ amount: amount, id: id, user: user, order: order });
-            const secretKey = process.env.STRIPE_SECRET_KEY;
-            const signature = await stripe.createSignature(payload, secretKey);
-            
+  
             const response = await axios.post('http://localhost:8000/payment/checkout', {
               amount: amount,
               id: id,
@@ -99,7 +100,7 @@ const CheckoutForm = () => {
             {
               headers: {
                 Authorization: `Bearer ${accountService.getToken()}`,
-                'Stripe-Signature': signature,
+    
               }
             });
       
@@ -129,18 +130,33 @@ const CheckoutForm = () => {
             }}
             
             >
+              <h6
+               style={{textAlign: 'center', marginBottom: '1rem'}}
+              > - Paiement par carte -</h6>
+              <div>
+              <InputLabel htmlFor="cardholder-name">Informations de la carte</InputLabel>
                 <CardElement
                     options={{
                         hidePostalCode: true,
                     }}
-
                 />
+              </div>
+              <div
+              style={{marginTop: '2rem'}} >
+                  <InputLabel htmlFor="cardholder-name">Nom du titulaire de la carte</InputLabel>
+                  <TextField
+                    id="cardholder-name"
+                    value={cardholderName}
+                    onChange={(e) => setCardholderName(e.target.value)}
+                    style={{width: '100%', marginBottom: '1rem', height: '2rem'}}
+                  />
+              </div>
                 <Button 
                 type="submit"
                 variant="contained"
                 color="success"
                 disabled={!stripe}
-                style={{margin: '1rem auto ',}}
+                style={{margin: '1rem auto ', width: '100%',}}
 
                 >
                     Payer

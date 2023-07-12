@@ -19,7 +19,7 @@ const Login = () => {
 
   const [errors, setErrors] = useState({});
 
-  const validateForm = () => {
+  const validateFormLogin = () => {
       const errors = {};
       if (!credentials.email) {
         errors.email = "Veuillez entrer votre adresse e-mail.";
@@ -43,7 +43,7 @@ const Login = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    if (!validateFormLogin()) return;
     accountService
       .loginUser(credentials)
       .then((res) => {
@@ -103,7 +103,7 @@ const Login = () => {
         value={credentials.email}
         onChange={onChange}
         className="input-login-form"
-        id="email-input" // Ajout de l'attribut id pour le test
+        id="email-input" 
       />
 
       {errors.email && <div className="error-message">{errors.email}</div>}
@@ -117,7 +117,7 @@ const Login = () => {
         value={credentials.password}
         onChange={onChange}
         className="input-login-form"
-        id="password-input" // Ajout de l'attribut id pour le test
+        id="password-input"
       />
       {errors.password && <div className="error-message">{errors.password}</div>}
 
