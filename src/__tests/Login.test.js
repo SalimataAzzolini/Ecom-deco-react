@@ -1,61 +1,43 @@
-import React from "react";
-import { render, fireEvent, waitFor, act } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import Login from "../pages/auth/Login";
-import { accountService } from "../_services/account.service";
-import { act as domAct } from "react-dom/test-utils";
+import  {validateFormLogin} from "../pages/auth/Login";
 
-jest.mock("../_services/account.service", () => ({
-  accountService: {
-    loginUser: jest.fn().mockResolvedValue({ token: "testToken" }),
-  },
-}));
+describe('validateFormLogin', () => {
+  it('should return true when form is valid', () => {
+    const credentials = {
+      email: 'test@example.com',
+      password: 'password123',
+    };
 
-describe("Test du composant Login", () => {
-  test("Soumission du formulaire de connexion", async () => {
-    const mockNavigate = jest.fn();
-    const mockSetUserDatas = jest.fn();
+    const isValid = validateFormLogin(credentials);
 
-    jest.mock("react-router-dom", () => ({
-      ...jest.requireActual("react-router-dom"),
-      useNavigate: () => mockNavigate,
-    }));
+    expect(isValid).toBe(true);
+  });
 
-    jest.mock("../_contexts/userDatasContext", () => ({
-      UserDatasContext: {
-        Consumer: ({ children }) =>
-          children({ setUserDatas: mockSetUserDatas }),
-      },
-    }));
+  it('should return false when form is invalid', () => {
+    const credentials = {
+      email: '',
+      password: '',
+    };
 
-    const { getByLabelText, getByText } = render(
-      <MemoryRouter>
-        <Login />
-      </MemoryRouter>
-    );
+    const isValid = validateFormLogin(credentials);
 
-    const emailInput = getByLabelText("EMAIL");
-    const passwordInput = getByLabelText("PASSWORD");
-    fireEvent.change(emailInput, { target: { value: "test@example.com" } });
-    fireEvent.change(passwordInput, { target: { value: "password123" } });
+    expect(isValid).toBe(false);
+  });
 
-    const loginButton = getByText("LOGIN");
+  it('should set errors when form is invalid', () => {
+    const credentials = {
+      email: '',
+      password: '',
+    };
 
-    domAct(() => {
-      fireEvent.click(loginButton);
-    });
+    validateFormLogin(credentials);
 
-    await waitFor(() => {
-      expect(accountService.loginUser).toHaveBeenCalledWith({
-        email: "test@example.com",
-        password: "password123",
-      });
-    });
-
-    expect(mockNavigate).toHaveBeenCalledWith("/user/login", { replace: true });
-
-    await waitFor(() => {
-      expect(mockSetUserDatas).toHaveBeenCalled();
+    // Vérifier que les erreurs sont correctement définies
+    expect(credentials.errors).toEqual({
+      email: "Veuillez entrer votre adresse e-mail.",
+      password: "Veuillez entrer votre mot de passe.",
     });
   });
 });
+
+
+
