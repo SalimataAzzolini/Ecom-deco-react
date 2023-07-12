@@ -12,8 +12,7 @@ import { accountService } from '@/_services/account.service';
 const CheckoutForm = () => {
 
     let navigate = useNavigate();
-    const { userDatas, setUserDatas } = useContext(UserDatasContext);
-
+    //const { userDatas, setUserDatas } = useContext(UserDatasContext);
 
     const generateOrderReference = () => {
         const REF_PREFIX = "REF";
@@ -56,7 +55,7 @@ const CheckoutForm = () => {
         if (!accountService.isLogged) {
             navigate('/auth/login');
         }
-    }, [userDatas, navigate]);
+    }, [ navigate]);
 
     //Creation d'une commande
        const order = {
@@ -88,9 +87,9 @@ const CheckoutForm = () => {
             console.log("Token generated!", paymentMethod);
             const { id } = paymentMethod;
             const payload = JSON.stringify({ amount: amount, id: id, user: user, order: order });
-            const secretKey = 'whsec_z4dKyAmrG3JuAFwr8GBpax4PKsELbZh3'; // Remplacez par votre clé secrète du webhook Stripe
-            //const signature = await stripe.createSignature(payload, secretKey);
-      
+            const secretKey = process.env.STRIPE_SECRET_KEY;
+            const signature = await stripe.createSignature(payload, secretKey);
+            
             const response = await axios.post('http://localhost:8000/payment/checkout', {
               amount: amount,
               id: id,
@@ -100,6 +99,7 @@ const CheckoutForm = () => {
             {
               headers: {
                 Authorization: `Bearer ${accountService.getToken()}`,
+                'Stripe-Signature': signature,
               }
             });
       

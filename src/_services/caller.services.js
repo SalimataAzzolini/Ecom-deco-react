@@ -16,7 +16,7 @@ Axios.interceptors.request.use((request) => {
 });
 
 // Intercepteur de réponse API pour vérification de la session si expirée ou pas
-Axios.interceptors.response.use(
+Axios.interceptors.response.use(//ici je déclare une fonction qui va prendre en parametre la réponse de l'api et je la retourne
   (response) => {
       return response;
   },  (error) => {
