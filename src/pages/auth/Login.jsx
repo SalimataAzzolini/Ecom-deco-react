@@ -2,11 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { accountService } from "../../_services";
 import { UserDatasContext } from "../../_contexts/userDatasContext";
-// import HeaderPublic from "../../components/public/HeaderPublic";
-// import FooterHome from "../../components/public/FooterHome";
-// import Logo from "../../assets/img/logo.png";
-// import "./auth.scss";
-
 
 
 export const validateFormLogin = (credentials) => {
