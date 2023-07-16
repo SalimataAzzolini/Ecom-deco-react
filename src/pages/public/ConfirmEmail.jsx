@@ -9,7 +9,7 @@ const ConfirmEmail = () => {
 
     return (
         <div>
-            <Card sx={{ width : 500, margin : 'auto', marginTop : 10}}>
+            <Card sx={{ width : 600, margin : 'auto', marginTop : 10}}>
                 <CardMedia
                     sx={{ height: 140 }}
                     image="/static/images/cards/contemplative-reptile.jpg"
@@ -25,6 +25,11 @@ const ConfirmEmail = () => {
                     Nous vous souhaitons une bonne visite.
                     </Typography>
                 </CardContent>
+                <CardActions>
+                    <Button size="small"
+                    onClick={() => navigate('/')}
+                    >Retour à l'accueil</Button>
+                </CardActions>
                 <CardActions>
                     <Button size="small"
                     onClick={() => navigate('/auth/login')}

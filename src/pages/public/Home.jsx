@@ -40,12 +40,12 @@ const Home = () => {
 
        < div className='home-container'>
 
-            <img src={Banner1} className="img-fluid" alt="..."/>
+            <img src={Banner1} className="img-fluid" alt="banner"/>
         {/*************  SECTION 1 LE CONCEPT  ***********/}
                 <section className='first-section-home '> 
                     <div className="first-section section-flex">
                         <div className="col grid-left">
-                            <img src={ImgGrid1} className="img-grid1"/>
+                            <img src={ImgGrid1} className="img-grid1" alt='img'/>
                         </div>
                         <div className="col grid-right">
                             <span className='rond-amour-deco'> </span>
@@ -64,7 +64,7 @@ const Home = () => {
                    <h3 className='section-title'> Une marque d’exception pour une expérience unique</h3>
                     <div className='second-section section-flex'>
                         <div className="col grid-left">
-                            <img src={ImgGrid3} className="img-grid1"/>
+                            <img src={ImgGrid3} className="img-grid1" alt='img'/>
                         </div>
 
                         <div className="col grid-right">
@@ -73,7 +73,7 @@ const Home = () => {
                             Mon approche est mobile-first. Mon objectif est de garantir à vos clients une expérience agréable au moment d'explorer votre site.
                             lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel tincidunt luctus, nisl nisl aliquet nisl, nec aliquet nisl nisl eu nisl. Sed euismo
                             </p>
-                            <img src={PhoneHome} className="phone-home"/> 
+                            <img src={PhoneHome} className="phone-home" alt='img' /> 
                         </div>
                     </div>
                 </section>
@@ -82,7 +82,7 @@ const Home = () => {
                     <h3 className='section-title'> Nos Categories </h3>
                     <div className='third-section section-flex'>
                         <div className="col div-grid-cat">
-                            <img src={ImgGridCategorySalon} className="img-grid-category"/>
+                            <img src={ImgGridCategorySalon} className="img-grid-category" alt='img'/>
                             <div className="div-cat-h-a">
                                 <h5> Salon </h5>
                                 <Link to={'/category/salon'} className='link-category'> Découvrir</Link>
@@ -90,14 +90,14 @@ const Home = () => {
                         </div>
 
                         <div className="col div-grid-cat ">
-                            <img src={ImgGridCategoryBed} className="img-grid-category"/>
+                            <img src={ImgGridCategoryBed} className="img-grid-category" alt='img'/>
                             <div className="div-cat-h-a">
                                 <h5> Chambre </h5>
                                 <Link to={"/category/bedroom"} className='link-category'> Découvrir</Link>
                             </div>
                         </div>
                         <div className="col div-grid-cat">
-                            <img src={ImgGridCategoryBath} className="img-grid-category"/>
+                            <img src={ImgGridCategoryBath} className="img-grid-category" alt='img'/>
                             <div className="div-cat-h-a">
                                 <h5> Salle de bain </h5>
                                 <Link to={"/category/bathroom"} className='link-category'> Découvrir</Link>
@@ -122,7 +122,7 @@ const Home = () => {
                 <section className='section-home5'>
                    <div className='div-img-lifestyle'>
                         <span className='rond-concept-1'> </span>
-                        <img src={ImgHomeLifestyle} className="img-fluid img-lifestyle" alt="..."/>
+                        <img src={ImgHomeLifestyle} className="img-fluid img-lifestyle" alt="img"/>
                     </div>
                 </section>
 

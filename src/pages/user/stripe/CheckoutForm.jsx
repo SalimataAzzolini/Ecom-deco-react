@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from 'react';
+import { useEffect, useState} from 'react';
 import axios from 'axios';
 import { CardElement, useStripe,useElements  } from '@stripe/react-stripe-js';
 import { useSelector} from 'react-redux';
@@ -25,7 +25,7 @@ const CheckoutForm = () => {
     }
     const reference = generateOrderReference();
     let user = "";
-    let userName = "";
+    //let userName = "";
     let userAddress = "";
     let userZipCode = "";
     let userCity = "";
@@ -33,7 +33,7 @@ const CheckoutForm = () => {
     if(localStorage.getItem('userDatas') !== null){
         const userDatas = localStorage.getItem('userDatas');
         user = JSON.parse(userDatas).email;
-        userName = JSON.parse(userDatas).firstname;
+        //userName = JSON.parse(userDatas).firstname;
         userAddress = JSON.parse(userDatas).address;
         userZipCode = JSON.parse(userDatas).zipcode;
         userCity = JSON.parse(userDatas).city;
@@ -89,7 +89,6 @@ const CheckoutForm = () => {
           try {
             console.log("Token generated!", paymentMethod);
             const { id } = paymentMethod;
-            const payload = JSON.stringify({ amount: amount, id: id, user: user, order: order });
   
             const response = await axios.post('http://localhost:8000/payment/checkout', {
               amount: amount,

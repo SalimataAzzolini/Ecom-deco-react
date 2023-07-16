@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { accountService } from "@/_services/";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './style/register.scss'
 import Logo from "@/assets/img/logo.png";
 
@@ -80,7 +80,7 @@ const Register = () => {
             console.log(res);
             if(res.status === 200){
                 setMessage("Vous êtes bien enregistré");
-                navigate("/auth/login", { replace: true });
+                navigate("/bienvenue", { replace: true });
             } else {
                 setMessage("Une erreur est survenue");
             }

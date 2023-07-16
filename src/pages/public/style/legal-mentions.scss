@@ -1,0 +1,12 @@
+.container-legals-mentions{
+    padding: 3rem 15rem;
+}
+
+
+//Media queries
+@media (max-width: 768px) {
+    .container-legals-mentions{
+        padding: 3rem 3rem;
+        font-size: 12px;
+    }
+}

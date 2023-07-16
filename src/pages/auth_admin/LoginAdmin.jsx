@@ -49,7 +49,7 @@ const LoginAdmin = () => {
     <div className="brand-logo">
       <img src={Logo} alt="logo" />
     </div>
-    <div className="brand-title">LOGIN</div>
+    <div className="brand-title">LOGIN ADMIN</div>
 
     <div className="inputs-login-form">
       <label className="label-login-form">EMAIL</label>
