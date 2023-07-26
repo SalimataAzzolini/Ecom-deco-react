@@ -1,4 +1,7 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import {
     FaTh,
     FaBars,
@@ -8,15 +11,18 @@ import {
     FaShoppingBag,
     FaThList,
     FaShoppingCart,
- 
+
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { accountService } from '@/_services/account.service';
 import LogoAdmin from '@/assets/img/logo.png';
 import './style/side-menu.scss';
 
 const SideMenu = () => {
 
+   
+    let navigate = useNavigate();
     const[isOpen ,setIsOpen] = useState(true);
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
@@ -48,8 +54,20 @@ const SideMenu = () => {
             path:"/Blog",
             name:"Blog",
             icon:<FaThList/>
+        },
+        {
+            path:"/settings-admin",
+            name:"Settings",
+            icon:<SettingsApplicationsIcon style={{marginLeft : '-.1rem', fontSize : '20px'}}/>
         }
-    ]
+
+    ];
+
+    // Gestion du bouton de déconnexion
+    const logout = () => {
+        accountService.logout()
+        navigate('/')
+    }
 
 
     return (
@@ -82,6 +100,12 @@ const SideMenu = () => {
                     </NavLink>
                 ))
             }
+
+            <button onClick={logout} className="button-logout-side-admin" role="button"
+                style={{marginLeft : '3rem', position : 'fixed', bottom : '3rem', left : '-2.4rem', padding : '5px 10px', backgroundColor : 'white', border : 'solid .5px white', display : 'flex'}}> 
+                 <LogoutIcon style={{marginRight : '.5rem'}}/> 
+                 <span style={{display: isOpen ? "block" : "none"}}> Déconnexion</span>
+            </button>
         </div>
         
      </div>

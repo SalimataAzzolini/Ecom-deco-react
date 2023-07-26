@@ -1,0 +1,23 @@
+.container-page-blog{
+    background-image: url("../../../assets/img/cover-blog.png");
+    background-size: cover;
+
+}
+
+.form-post-blog{
+    display: flex;
+    justify-content: center;
+}
+
+
+/************Media Query ************/
+
+@media screen and (max-width: 768px) {
+
+
+    .form-post-blog{
+        flex-wrap: wrap;
+        gap : 10px
+    }
+
+}

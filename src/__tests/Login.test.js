@@ -1,7 +1,7 @@
 import { validateFormLogin } from "../pages/auth/Login";
 
 describe('validateFormLogin', () => {
-  it('should return true when form is valid', () => {
+  it('Retourne true quand le formulaire est valide', () => {
     const credentials = {
       email: 'test@example.com',
       password: 'password123',
@@ -12,7 +12,7 @@ describe('validateFormLogin', () => {
     expect(isValid).toBe(true);
   });
 
-  it('should return false when form is invalid', () => {
+  it('Retourne false quand le formulaire est invalide', () => {
     const credentials = {
       email: '',
       password: '',
@@ -23,7 +23,7 @@ describe('validateFormLogin', () => {
     expect(isValid).toBe(false);
   });
 
-  it('should set errors when form is invalid', () => {
+  it('Définit les erreurs appropriées quand le formulaire est invalide', () => {
     const credentials = {
       email: '',
       password: '',

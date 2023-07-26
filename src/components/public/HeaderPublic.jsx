@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import "./style/header-public.scss";
 import Logo from "@/assets/img/logo.png";
 
+
+
 const HeaderPublic = () => {
+
+  let navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -44,7 +49,7 @@ const HeaderPublic = () => {
                 Accueil
               </Link>
             </li>
-            {/* Transformer ce lien en dropdown */}
+
             <li className="nav-item dropdown">
               <Link
                 className="nav-link dropdown-toggle all-nav-link"
@@ -54,7 +59,7 @@ const HeaderPublic = () => {
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                onClick={closeMenu}
+                onClick={closeMenu }
               >
                 La Boutique
               </Link>

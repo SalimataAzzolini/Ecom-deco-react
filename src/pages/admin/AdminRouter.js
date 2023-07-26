@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ALayout, Dashboard } from '@/pages/admin'
 import {User, UserEdit,  UserAdd, UserList} from '@/pages/admin/user';
 import {Category, CategoryEdit} from '@/pages/admin/category';
-import {ProductList, ProductEdit} from '@/pages/admin/product';
+import {ProductList, ProductEdit, ProductAdd} from '@/pages/admin/product';
 import {OrderList } from '@/pages/admin/order';
 
 import Error from '@/_utils/Error'
@@ -32,6 +32,7 @@ const AdminRouter = () => {
                 <Route path="product">
                     <Route path="list" element={<ProductList/>}/>
                     <Route path="edit/:pid" element={<ProductEdit/>}/>
+                    <Route path="add" element={<ProductAdd/>}/>
                 </Route>
 
                 <Route path="order">

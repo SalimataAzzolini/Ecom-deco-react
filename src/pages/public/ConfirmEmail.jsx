@@ -1,6 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom";
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import './style/confirm-email.scss';
 
 const ConfirmEmail = () => {
 
@@ -8,7 +9,7 @@ const ConfirmEmail = () => {
 
 
     return (
-        <div>
+        <div className='confirm-email'>
             <Card sx={{ width : 600, margin : 'auto', marginTop : 10}}>
                 <CardMedia
                     sx={{ height: 140 }}
