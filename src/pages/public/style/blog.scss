@@ -9,7 +9,14 @@
     justify-content: center;
 }
 
-
+.input-new-post{
+    margin: 2px 4px;
+    padding: 7px 7px;
+    background-color: #ecf0f3;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
 /************Media Query ************/
 
 @media screen and (max-width: 768px) {

@@ -4,9 +4,9 @@ import { CardElement, useStripe,useElements  } from '@stripe/react-stripe-js';
 import { useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button, TextField, InputLabel } from '@mui/material';
-
-
+import ImgCoverPayment from '@/assets/img/cover-payment.png';
 import { accountService } from '@/_services/account.service';
+import '../style/checkout-form.scss'
 
 
 const CheckoutForm = () => {
@@ -25,7 +25,6 @@ const CheckoutForm = () => {
     }
     const reference = generateOrderReference();
     let user = "";
-    //let userName = "";
     let userAddress = "";
     let userZipCode = "";
     let userCity = "";
@@ -33,7 +32,6 @@ const CheckoutForm = () => {
     if(localStorage.getItem('userDatas') !== null){
         const userDatas = localStorage.getItem('userDatas');
         user = JSON.parse(userDatas).email;
-        //userName = JSON.parse(userDatas).firstname;
         userAddress = JSON.parse(userDatas).address;
         userZipCode = JSON.parse(userDatas).zipcode;
         userCity = JSON.parse(userDatas).city;
@@ -118,49 +116,45 @@ const CheckoutForm = () => {
       };
       
     return (
-        <div>
-            <form onSubmit={handleSubmit}
-            style={{
-                maxWidth: 500,
-                margin: '3rem auto',
-                padding: '1rem',
-                border: '1px solid #ccc',
-                borderRadius: '5px'
-            }}
-            
-            >
-              <h6
-               style={{textAlign: 'center', marginBottom: '1rem'}}
-              > - Paiement par carte -</h6>
-              <div>
-              <InputLabel htmlFor="cardholder-name">Informations de la carte</InputLabel>
-                <CardElement
-                    options={{
-                        hidePostalCode: true,
-                    }}
-                />
-              </div>
-              <div
-              style={{marginTop: '2rem'}} >
-                  <InputLabel htmlFor="cardholder-name">Nom du titulaire de la carte</InputLabel>
-                  <TextField
-                    id="cardholder-name"
-                    value={cardholderName}
-                    onChange={(e) => setCardholderName(e.target.value)}
-                    style={{width: '100%', marginBottom: '1rem', height: '2rem'}}
+        <div className='container-cover-form-payment'>
+          <div className='container-img-cover-payment'>
+          <img src={ImgCoverPayment} alt="cover payment" className='img-cover-payment'/>
+          </div>
+          <div className="container-form-checkout"> 
+            <form onSubmit={handleSubmit} className='form-checkout'>
+                <h6
+                style={{textAlign: 'center', marginBottom: '1rem'}}
+                > - Paiement par carte -</h6>
+                <div>
+                <InputLabel htmlFor="cardholder-name">Informations de la carte</InputLabel>
+                  <CardElement
+                      options={{
+                          hidePostalCode: true,
+                      }}
                   />
-              </div>
-                <Button 
-                type="submit"
-                variant="contained"
-                color="success"
-                disabled={!stripe}
-                style={{margin: '1rem auto ', width: '100%',}}
+                </div>
+                <div
+                style={{marginTop: '2rem'}} >
+                    <InputLabel htmlFor="cardholder-name">Nom du titulaire de la carte</InputLabel>
+                    <TextField
+                      id="cardholder-name"
+                      value={cardholderName}
+                      onChange={(e) => setCardholderName(e.target.value)}
+                      style={{width: '100%', marginBottom: '1rem', height: '2rem'}}
+                    />
+                </div>
+                  <Button 
+                  type="submit"
+                  variant="contained"
+                  color="success"
+                  disabled={!stripe}
+                  style={{margin: '1rem auto ', width: '100%',}}
 
-                >
-                    Payer
-                </Button>
+                  >
+                      Payer
+                  </Button>
             </form>
+          </div>
             
         </div>
     );

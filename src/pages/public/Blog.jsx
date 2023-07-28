@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { accountService } from '@/_services';
-
+import { Button } from '@mui/material';
 import CardPost from '@/components/public/CardPost';
 import './style/blog.scss';
 
@@ -73,10 +73,12 @@ const Blog = () => {
             {/* Todo : afficher le formulaire uniquement si user connecté */}
 
             <form onSubmit={onSubmit} className='form-post-blog'>
-                <input type="text" name="title" onChange={onchange} value={post.title} placeholder='title' />
-                <input type="text" name="content" onChange={onchange} value={post.content} placeholder='content' />
-                <input type="file" name="image" onChange={onImageChange} /> 
-                <button type="submit">Submit</button>
+                <input type="text" name="title" onChange={onchange} value={post.title} placeholder='title' className='input-new-post'/>
+                <input type="text" name="content" onChange={onchange} value={post.content} placeholder='content' className='input-new-post' />
+                <input type="file" name="image" onChange={onImageChange}  className='input-new-post'/> 
+                <Button type="submit" variant='contained' className='btn-new-post'
+                sx={{ height: '2.5rem'}}
+                >poster</Button>
             </form>
 
             <CardPost/>
