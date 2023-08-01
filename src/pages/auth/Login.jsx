@@ -80,7 +80,7 @@ const Login = () => {
                           <div className="brand-logo">
                             <img src={Logo} alt="logo" />
                           </div>
-                          <div className="brand-title">CONNEXION</div>
+                          <div className="brand-title">LOGIN</div>
 
                           <div className="inputs-login-form">
                               <label className="label-login-form"
@@ -102,7 +102,7 @@ const Login = () => {
                                 </label>
                                 <input
                                   type="password"
-                                  placeholder="Min 6 charaters long"
+                                  placeholder="Minimum 8 caractères"
                                   name="password"
                                   value={credentials.password}
                                   onChange={onChange}
@@ -111,7 +111,7 @@ const Login = () => {
                                 />
                               {errors.password && <div className="error-message">{errors.password}</div>}
 
-                              <button type="submit" className="btn-login-form" >LOGIN </button>
+                              <button type="submit" className="btn-login-form" >Connexion </button>
                               <a href="http://127.0.0.1:8000/reset-password/reset-password" className="link-password-forget"> Mot de passe oublié ? </a>
                               <p> Pas encore de compte ? 
                                 <Link to="/register" className="link-register"> S'enrégister </Link>

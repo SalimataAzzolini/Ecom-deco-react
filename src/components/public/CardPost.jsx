@@ -44,7 +44,7 @@ const CardPost = () => {
 
         <div className="blog-container">
         <div className="blog-header">
-            <div className="blog-cover">
+            <div className="blog-cover-2">
             <div className="blog-author">
                 <h3>Emil Beye</h3>
             </div>

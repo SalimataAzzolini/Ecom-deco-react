@@ -79,6 +79,7 @@ const Register = () => {
         e.preventDefault();
          
         if (!validateForm()) return;
+        console.log(credentials);
         accountService.register(credentials)
         .then(res => {
             console.log(res);

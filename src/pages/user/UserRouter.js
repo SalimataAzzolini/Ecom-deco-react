@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { UserLayout, UserProfile, UserProfileEdit,UserOrders, UserFavoris, StripeContainer  } from '@/pages/user';
+import { UserLayout, UserProfile, UserProfileEdit,UserOrders, UserFavoris, StripeContainer, ConfirmationOrder  } from '@/pages/user';
 import Error from '@/_utils/Error';
 
 
@@ -19,7 +19,7 @@ const UserRouter = () => {
                     <Route path="*" element={<Error/>}/>   
                 </Route>
                 <Route path="/checkout" element={<StripeContainer/>}/>
-
+                <Route path="/confirmation-order" element={<ConfirmationOrder/>}/>
             </Routes>
 
           

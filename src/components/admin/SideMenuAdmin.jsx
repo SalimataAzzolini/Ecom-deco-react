@@ -51,7 +51,7 @@ const SideMenu = () => {
  
         },
         {
-            path:"/Blog",
+            path:"/blog",
             name:"Blog",
             icon:<FaThList/>
         },

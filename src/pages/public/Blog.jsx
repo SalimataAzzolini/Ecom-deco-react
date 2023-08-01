@@ -3,12 +3,14 @@ import { accountService } from '@/_services';
 import { Button } from '@mui/material';
 import CardPost from '@/components/public/CardPost';
 import './style/blog.scss';
+import axios from 'axios';
 
 
 
 const Blog = () => {
 
     let user = "";
+    const [messageForSave, setMessageForSave] = useState("");
 
     if(localStorage.getItem('userDatas') !== null){
         const userDatas = localStorage.getItem('userDatas');
@@ -48,29 +50,41 @@ const Blog = () => {
         formData.append('author', post.author);
         formData.append('image', post.image);
 
-        fetch('http://localhost:8000/posts/create', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                Authorization: `Bearer ${accountService.getToken()}`,
-    
+        axios.post('http://localhost:8000/posts/create', formData)
+        .then(res => {
+            console.log(res);
+            if(res.status === 201){
+                setMessageForSave("Votre post a bien été enregistré");
+                setTimeout(() => {
+                  setMessageForSave("");
+                }, 3000);
+            
+            }else{
+                
+                setMessageForSave("Une erreur est survenue");
             }
+
         })
-            .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err);
+        })
+
 
         setPost({
             title: '',
             content: '',
+            selectedFile: null,
         });
 
     }
 
     return (
         <div className='container-page-blog'
-        style={{paddingTop : '5rem', paddingBottom : '15rem', marginBottom : '-10rem'}}>
+            style={{paddingTop : '5rem', paddingBottom : '15rem', marginBottom : '-10rem'}}>
+
+            {messageForSave && <div className="alert alert-success">{messageForSave}</div>}
             {/* Todo : afficher le formulaire uniquement si user connecté */}
+
 
             <form onSubmit={onSubmit} className='form-post-blog'>
                 <input type="text" name="title" onChange={onchange} value={post.title} placeholder='title' className='input-new-post'/>
@@ -81,7 +95,9 @@ const Blog = () => {
                 >poster</Button>
             </form>
 
+
             <CardPost/>
+            <CardPost/>  <CardPost/>
         </div>
     );
 };

@@ -85,6 +85,11 @@ const HeaderPublic = () => {
                 Contact
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/blog" className="nav-link all-nav-link" onClick={closeMenu}>
+                Blog
+              </Link>
+            </li>
             <li className="link-basket">
               <Link to="/basket" className="all-nav-link" onClick={closeMenu}>
                 &nbsp; Panier

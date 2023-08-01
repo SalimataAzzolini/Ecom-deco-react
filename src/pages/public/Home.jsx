@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { productService } from '@/_services';
-import './style/home.css';
+import { Link } from 'react-router-dom';
+
 import Banner1 from '@/assets/img/banner3.png';
 import ImgGrid1 from '@/assets/img/img-grid1-home.png';
 import ImgGrid3 from '@/assets/img/img-grid3-home.png';
@@ -10,7 +10,8 @@ import ImgGridCategoryBed from '@/assets/img/img-grid-category-bed.png';
 import ImgGridCategoryBath from '@/assets/img/img-grid-category-bath.png';
 import ImgHomeLifestyle from '@/assets/img/img-home-lifestyle.png';
 import CardSalonProduct from '../../components/public/CardSalonProduct';
-import { Link } from 'react-router-dom';
+import { productService } from '@/_services';
+import './style/home.css';
 
 
 const Home = () => {

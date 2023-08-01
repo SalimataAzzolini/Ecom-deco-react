@@ -1,12 +1,16 @@
-import React from 'react';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import './style/contact.scss';
 import FlowerContact from '@/assets/img/flower-contact.png';
 
 
+
 const Contact = () => {
     return (
+        <>
         <div className='container-contact'>
-        
             <div className="container-contact-form">
                 <h2 className='title-contact-form'>Contact</h2>
                 <form action="" className="form-group">
@@ -33,6 +37,18 @@ const Contact = () => {
             </div>
             <img src={FlowerContact} alt="" className='img-flower-contact'/>
         </div>
+        <div className="container-contact-infos">
+           <h2 className='title-contact-infos'>Infos : </h2>
+           <div className="block-infos-contact">
+               <p> <LocationOnIcon/> Adresse : 1 Rue Paul Vergan 06300 Nice</p>
+               <p> <PhoneIcon/> Téléphone : 04 00 00 00 00</p>
+               <p> <EmailIcon/> Email : home@decor.fr </p>
+               <p> <AddBusinessIcon/> Horaire d'ouverture : <br/>
+                    Lundi - Samedi  : 10h - 19h <br/>
+                </p>
+           </div>
+        </div>
+         </>    
     );
 };
 

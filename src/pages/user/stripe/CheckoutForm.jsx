@@ -104,7 +104,7 @@ const CheckoutForm = () => {
             console.log(response);
       
             if (response.status === 200) {
-              navigate("/user/profile/orders", { replace: true });
+              navigate("/user/confirmation-order", { replace: true });
             }
       
           } catch (error) {

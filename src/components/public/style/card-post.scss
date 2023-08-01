@@ -42,6 +42,14 @@
     height: 15rem;
     box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;
   }
+
+  .blog-cover-2{
+    background: url("../../../assets/img/img-post-2.png");
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
+    height: 15rem;
+    box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;
+  }
   .blog-author,
   .blog-author--no-cover {
     margin: 0 auto;
