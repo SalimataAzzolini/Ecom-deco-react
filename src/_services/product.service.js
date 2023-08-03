@@ -12,14 +12,14 @@ let getProduct = (pid) => {
 }
 
 /**
- * Ajout d'un products
+ * Ajout d'un product
  */
 let addProduct = (product) => {
     return Axios.post('/products/create/', product)
 }
 
 /**
- * Mise à jour d'un products
+ * Mise à jour d'un product
  */
 let updateProduct = (product) => {
     return Axios.patch('/products/'+product.id+'/edit', product)

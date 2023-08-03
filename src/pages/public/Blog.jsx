@@ -83,6 +83,7 @@ const Blog = () => {
             style={{paddingTop : '5rem', paddingBottom : '15rem', marginBottom : '-10rem'}}>
 
             {messageForSave && <div className="alert alert-success">{messageForSave}</div>}
+            
             {/* Todo : afficher le formulaire uniquement si user connecté */}
 
 

@@ -7,7 +7,7 @@ const UserOrders = () => {
         <div>
             <h4 className='title-user-order'>Mes commandes !</h4>
             <div className="container-user-orders-list"> 
-                <ol role="list ">
+                <ol className="list">
                     <li className="list-user-order">
                         <h3>Commande REF12344</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do </p>
