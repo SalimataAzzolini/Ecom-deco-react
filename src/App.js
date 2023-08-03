@@ -11,34 +11,39 @@ import UserDatasProvider from "./_contexts/userDatasContext";
 
 
 function App() {
-  return (
-    <UserDatasProvider>
-      <BrowserRouter>
-      <Routes>
-          <Route path="/*" element={<PublicRouter />}/>
 
-          <Route path="/admin/*" 
-                 element={ 
-                       <AuthGuardAdmin> 
-                            <AdminRouter /> 
-                       </AuthGuardAdmin> 
-                }
-          />
+      return (
+            <UserDatasProvider>
+                  <BrowserRouter>
+                        <Routes>
+                              <Route path="/*" element={<PublicRouter />}/>
 
-          <Route path="/user/*" 
-                 element={ 
-                       <AuthGuard> 
-                            <UserRouter/>
-                       </AuthGuard> 
-                }
-          />
-          <Route path="/auth/*" element={<AuthRouter/>} />
-          <Route path="/auth/admin/*" element={<AuthAdminRouter/>} />
-         
-        </Routes>
-      </BrowserRouter>
-    </UserDatasProvider>
-  );
+                              <Route path="/admin/*" 
+                                    element={ 
+                                          <AuthGuardAdmin> 
+                                                <AdminRouter /> 
+                                          </AuthGuardAdmin> 
+                                    }
+                              />
+
+                              <Route path="/user/*" 
+                                    element={ 
+                                          <AuthGuard> 
+                                                <UserRouter/>
+                                          </AuthGuard> 
+                                    }
+                              />
+
+                              <Route path="/auth/*" element={<AuthRouter/>} />
+                              <Route path="/auth/admin/*" element={<AuthAdminRouter/>} />
+            
+                        </Routes>
+                  </BrowserRouter>
+            </UserDatasProvider>
+      );
 }
 
 export default App;
+
+
+

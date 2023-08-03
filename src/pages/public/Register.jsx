@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { accountService } from "@/_services/";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './style/register.scss'
 import Logo from "@/assets/img/logo.png";
 
@@ -30,10 +30,14 @@ const Register = () => {
     
       if (!credentials.password) {
         errors.password = "Veuillez entrer votre mot de passe.";
+      } else if (credentials.password.length < 8) {
+        errors.password = "Le mot de passe doit contenir au moins 8 caractères.";
       }
-
+    
       if (!credentials.confirm_password) {
         errors.confirm_password = "Veuillez confirmer votre mot de passe.";
+      } else if (credentials.password !== credentials.confirm_password) {
+        errors.confirm_password = "Les mots de passe ne correspondent pas.";
       }
 
       if (!credentials.firstname) {
@@ -75,12 +79,13 @@ const Register = () => {
         e.preventDefault();
          
         if (!validateForm()) return;
+        console.log(credentials);
         accountService.register(credentials)
         .then(res => {
             console.log(res);
             if(res.status === 200){
                 setMessage("Vous êtes bien enregistré");
-                navigate("/auth/login", { replace: true });
+                navigate("/bienvenue", { replace: true });
             } else {
                 setMessage("Une erreur est survenue");
             }
@@ -117,18 +122,19 @@ const Register = () => {
           <label>PASSWORD</label>
           <input
             type="password"
-            placeholder="Min 6 charaters long"
+            placeholder="Min 8 caractère, majuscule, chiffre, caractère spécial"
             name="password"
             value={credentials.password}
             onChange={onChange}
             className=' all-input-register big-input-register '
           />
+         
           {errors.password && <div className="error-message">{errors.password}</div>}
 
           <label> CONFIRM PASSWORD</label>
           <input
             type="password"
-            placeholder="Min 6 charaters long"
+            placeholder="Ressaisir le même mot de passe"
             name="confirm_password"
             value={credentials.confirm_password}
             onChange={onChange}
@@ -141,7 +147,7 @@ const Register = () => {
                 <label>Firstname</label>
                 <input
                     type="text"
-                    placeholder="Firsname"
+                    placeholder="Prénom"
                     name="firstname"
                     value={credentials.firstname}
                     onChange={onChange}
@@ -154,7 +160,7 @@ const Register = () => {
             <label>Lastname</label>
             <input
                 type="text"
-                placeholder="Lastname"
+                placeholder="Nom"
                 name="lastname"
                 value={credentials.lastname}
                 onChange={onChange}
@@ -169,7 +175,7 @@ const Register = () => {
                 {/* <label>Address</label> */}
                 <input
                 type="text"
-                placeholder="Address"
+                placeholder="Addresse"
                 name="address"
                 value={credentials.address}
                 onChange={onChange}
@@ -181,11 +187,11 @@ const Register = () => {
                 {/* <label>Zipcode</label> */}
                 <input
                 type="text"
-                placeholder="Zipcode"
+                placeholder="Code postale"
                 name="zipcode"
                 value={credentials.zipcode}
                 onChange={onChange}
-                className='all-input-register input-register  '
+                className='all-input-register input-register'
                 />
                 {errors.zipcode && <div className="error-message">{errors.zipcode}</div>}
             </div>
@@ -193,15 +199,13 @@ const Register = () => {
             {/* <label>City</label> */}
             <input
             type="text"
-            placeholder="City"
+            placeholder="Ville"
             name="city"
             value={credentials.city}
             onChange={onChange}
             className='all-input-register big-input-register'
             />
             {errors.city && <div className="error-message">{errors.city}</div>}
-
-
 
           <button type="submit"
           className='btn-register'
@@ -211,10 +215,6 @@ const Register = () => {
       </form>
       </div>
 
-       
-
-
-      
     </div>
     </div>
     );

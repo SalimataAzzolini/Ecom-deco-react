@@ -21,13 +21,14 @@ const OrderList = () => {
     }
 
     const token = localStorage.getItem('token');
+    const csrfToken = localStorage.getItem('csrf_token');
 
     useEffect(() => {
         if(flag.current === false){
 
             const config = {
                 headers: {
-                    Authorization: 'Bearer ' + token
+                    'X-CSRF-TOKEN': csrfToken
                 }
             };
             orderService.getAllOrders(config)
@@ -82,8 +83,6 @@ const OrderList = () => {
             })
             .catch(err => console.log(err))
     }
-
-
 
     return (
         <div className='container-order-list'>

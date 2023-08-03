@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useState} from 'react';
-import { UserDatasContext } from "@/_contexts/userDatasContext";
+import { useState} from 'react';
+// import { UserDatasContext } from "@/_contexts/userDatasContext";
 import { accountService } from "@/_services/";
 import "./style/user-profile-edit.scss";
 
@@ -48,6 +48,9 @@ const UserProfileEdit = () => {
       case "password":
         setPassword(value);
         break;
+      default:
+        break;
+        
     }
   }
 
@@ -62,23 +65,23 @@ const UserProfileEdit = () => {
     userDatasParsed.city = city;
     userDatasParsed.zipCode = zipCode;
 
-    
-    fetch("http://127.0.0.1:8000/profile/edit", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accountService.getToken()}`,
-      },
-      body: JSON.stringify(userDatasParsed),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data);
-      setMessage(data.message);
-    })
-    .catch((error) => console.log(error));
-
+    accountService.userEditProfil(userDatasParsed)
+    .then((res) => {
+      console.log(res);
+      if (res.status === 200) {
+        setMessage("Votre profil a bien été modifié !");
+        setTimeout(() => {
+          setMessage('');
+        }, 3000);
+        localStorage.setItem('userDatas', JSON.stringify(userDatasParsed));
+      } else {
+        setMessage("Une erreur est survenue, veuillez réessayer plus tard.");
+        console.log("erreur...");
+      }
+    }
+    )
   }
+  
 
     return ( 
         

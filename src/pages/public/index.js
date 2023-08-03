@@ -10,4 +10,7 @@ export {default as CartBasket} from './CartBasket'
 export {default as Register} from './Register'
 export {default as Concept} from './Concept';
 export {default as ConfirmEmail} from './ConfirmEmail';
+export {default as LegalMentions} from './LegalMentions';
+export {default as Blog} from './Blog';
+
 

@@ -1,21 +1,14 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import PeopleIcon from '@mui/icons-material/People';
-import { DataGrid } from '@mui/x-data-grid';
+
 import './style/dashboard.scss';
 
-// import Table from "@material-ui/core/Table";
-// import TableBody from "@material-ui/core/TableBody";
-// import TableCell from "@material-ui/core/TableCell";
-// import TableHead from "@material-ui/core/TableHead";
-// import TableRow from "@material-ui/core/TableRow";
-// import Paper from "@material-ui/core/Paper";
 
 const Dashboard = () => {
+    let navigate = useNavigate();
     return (
         <div className="container-dashboard">
         
@@ -33,21 +26,20 @@ const Dashboard = () => {
         </h2>
 
         <div className="container-cards-admin">
-            <div className="card-admin card-admin1">
+            <div className="card-admin card-admin1" onClick={() => navigate("/admin/product/list")}>
                 <LocalOfferIcon className='icon-card-admin'/>
                 <h3 className='subtitle-card-admin'> produits</h3>
-                <h1 className='title-card-admin'>1300</h1>
-        
+                <h1 className='title-card-admin'>430</h1>
             </div>
-            <div className="card-admin card-admin2">
+            <div className="card-admin card-admin2" onClick={() => navigate("/admin/user/list")}>
             <PeopleIcon className='icon-card-admin'/>
                 <h3 className='subtitle-card-admin'> clients</h3>
                 <h1 className='title-card-admin'>709</h1>
             </div>
-            <div className="card-admin card-admin3">
+            <div className="card-admin card-admin3" onClick={() => navigate("/admin/order/list")}>
                 <ShoppingCartCheckoutIcon  className='icon-card-admin'/>
                 <h3 style={{ marginTop: '-40px', }}> Commandes</h3>
-                <h1 className='title-card-admin'>506</h1>
+                <h1 className='title-card-admin'>1300</h1>
             </div>
         </div>
      </div>

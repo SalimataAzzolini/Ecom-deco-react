@@ -32,7 +32,7 @@ const UserFavoris = () => {
             <div className="container-cards-favoris">
                 {favorites.length === 0 && <p> Aucun coup de coeur pour le moment</p>}
                 {favorites && favorites.map((favorite, index) => (
-                    <div className='block-cards-favoris'>
+                    <div className='block-cards-favoris' key={index}>
                     <ul>
                       <li>
                         <a className="card-favoris">

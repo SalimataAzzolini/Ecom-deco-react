@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import { useNavigate, Link } from "react-router-dom";
 import {productService} from "@/_services";
@@ -40,6 +41,10 @@ const ProductList = () => {
     return (
         <div className="container-product-list">
             <h1 className="title-product-list" style={{marginBottom : "20px", textAlign : "center", fontFamily :  "Great Vibes"}}>Liste des produits</h1>
+            <Button variant="outlined" style={{color : '#A26A48', borderColor : '#A26A48', marginBottom : '1rem'}}
+            onClick={() => navigate("/admin/product/add")}
+            >Ajouter des produits</Button>
+
             <TableContainer component={Paper} className="table-product-admin">
                 <Table sx={{ minWidth: 900 }} aria-label="simple table">
                     <TableHead>

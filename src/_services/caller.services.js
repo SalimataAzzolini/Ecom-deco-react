@@ -6,16 +6,17 @@ const Axios = axios.create({
     baseURL: "http://127.0.0.1:8000",
 });
 
-//Intercepteur pour la mise en place du token dans la requête
+//Intercepteur pour la mise en place du token et du X-csrf dans la requête
 Axios.interceptors.request.use((request) => {
     if (accountService.isLogged()) {
         request.headers.Authorization = "Bearer " + accountService.getToken();
+        request.headers["X-CSRF-Token"] = accountService.getCsrfToken();
   }
   return request;
 });
 
 // Intercepteur de réponse API pour vérification de la session si expirée ou pas
-Axios.interceptors.response.use(
+Axios.interceptors.response.use(//ici je déclare une fonction qui va prendre en parametre la réponse de l'api et je la retourne
   (response) => {
       return response;
   },  (error) => {

@@ -1,20 +1,20 @@
-import {useContext, useEffect} from 'react';
+import { useEffect, useState} from 'react';
 import axios from 'axios';
 import { CardElement, useStripe,useElements  } from '@stripe/react-stripe-js';
 import { useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
-
-
-
-import { UserDatasContext } from "@/_contexts/userDatasContext";
+import { Button, TextField, InputLabel } from '@mui/material';
+import ImgCoverPayment from '@/assets/img/cover-payment.png';
 import { accountService } from '@/_services/account.service';
+import '../style/checkout-form.scss'
 
 
 const CheckoutForm = () => {
 
     let navigate = useNavigate();
-    const { userDatas, setUserDatas } = useContext(UserDatasContext);
+    //const { userDatas, setUserDatas } = useContext(UserDatasContext);
+    const [cardholderName, setCardholderName] = useState('');
+
 
 
     const generateOrderReference = () => {
@@ -25,7 +25,6 @@ const CheckoutForm = () => {
     }
     const reference = generateOrderReference();
     let user = "";
-    let userName = "";
     let userAddress = "";
     let userZipCode = "";
     let userCity = "";
@@ -33,7 +32,6 @@ const CheckoutForm = () => {
     if(localStorage.getItem('userDatas') !== null){
         const userDatas = localStorage.getItem('userDatas');
         user = JSON.parse(userDatas).email;
-        userName = JSON.parse(userDatas).firstname;
         userAddress = JSON.parse(userDatas).address;
         userZipCode = JSON.parse(userDatas).zipcode;
         userCity = JSON.parse(userDatas).city;
@@ -58,7 +56,7 @@ const CheckoutForm = () => {
         if (!accountService.isLogged) {
             navigate('/auth/login');
         }
-    }, [userDatas, navigate]);
+    }, [ navigate]);
 
     //Creation d'une commande
        const order = {
@@ -76,7 +74,7 @@ const CheckoutForm = () => {
           type: 'card',
           card: elements.getElement(CardElement),
           billing_details: {
-            name: userName,
+            name: cardholderName,
             address: {
               line1: userAddress,
               postal_code: userZipCode,
@@ -89,10 +87,7 @@ const CheckoutForm = () => {
           try {
             console.log("Token generated!", paymentMethod);
             const { id } = paymentMethod;
-            const payload = JSON.stringify({ amount: amount, id: id, user: user, order: order });
-            const secretKey = 'whsec_z4dKyAmrG3JuAFwr8GBpax4PKsELbZh3'; // Remplacez par votre clé secrète du webhook Stripe
-            //const signature = await stripe.createSignature(payload, secretKey);
-      
+  
             const response = await axios.post('http://localhost:8000/payment/checkout', {
               amount: amount,
               id: id,
@@ -102,13 +97,14 @@ const CheckoutForm = () => {
             {
               headers: {
                 Authorization: `Bearer ${accountService.getToken()}`,
+    
               }
             });
       
             console.log(response);
       
             if (response.status === 200) {
-              navigate("/user/profile/orders", { replace: true });
+              navigate("/user/confirmation-order", { replace: true });
             }
       
           } catch (error) {
@@ -120,34 +116,45 @@ const CheckoutForm = () => {
       };
       
     return (
-        <div>
-            <form onSubmit={handleSubmit}
-            style={{
-                maxWidth: 500,
-                margin: '3rem auto',
-                padding: '1rem',
-                border: '1px solid #ccc',
-                borderRadius: '5px'
-            }}
-            
-            >
-                <CardElement
-                    options={{
-                        hidePostalCode: true,
-                    }}
+        <div className='container-cover-form-payment'>
+          <div className='container-img-cover-payment'>
+          <img src={ImgCoverPayment} alt="cover payment" className='img-cover-payment'/>
+          </div>
+          <div className="container-form-checkout"> 
+            <form onSubmit={handleSubmit} className='form-checkout'>
+                <h6
+                style={{textAlign: 'center', marginBottom: '1rem'}}
+                > - Paiement par carte -</h6>
+                <div>
+                <InputLabel htmlFor="cardholder-name">Informations de la carte</InputLabel>
+                  <CardElement
+                      options={{
+                          hidePostalCode: true,
+                      }}
+                  />
+                </div>
+                <div
+                style={{marginTop: '2rem'}} >
+                    <InputLabel htmlFor="cardholder-name">Nom du titulaire de la carte</InputLabel>
+                    <TextField
+                      id="cardholder-name"
+                      value={cardholderName}
+                      onChange={(e) => setCardholderName(e.target.value)}
+                      style={{width: '100%', marginBottom: '1rem', height: '2rem'}}
+                    />
+                </div>
+                  <Button 
+                  type="submit"
+                  variant="contained"
+                  color="success"
+                  disabled={!stripe}
+                  style={{margin: '1rem auto ', width: '100%',}}
 
-                />
-                <Button 
-                type="submit"
-                variant="contained"
-                color="success"
-                disabled={!stripe}
-                style={{margin: '1rem auto ',}}
-
-                >
-                    Payer
-                </Button>
+                  >
+                      Payer
+                  </Button>
             </form>
+          </div>
             
         </div>
     );

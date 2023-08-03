@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Input from '@mui/joy/Input';
-/* import { Link } from 'react-router-dom'; */
+import LogoutIcon from '@mui/icons-material/Logout';
 import './style/header-admin.scss';
 import { accountService } from '@/_services/account.service';
 
@@ -27,7 +26,7 @@ const Header = () => {
                     className="search-input-admin"
                 />
         </div>
-         
+        
        
     </div>
  

@@ -2,7 +2,7 @@
 
 .container-contact{
     background-image: url('../../../assets/img/cover-contact.png');
-    padding: 12rem 10rem 18rem;
+    padding: 4rem 10rem 18rem;
 }
 
 .container-contact-form{
@@ -38,7 +38,7 @@
 
 .input-contact{
     font-size: 1.2rem;
-    width: 460px;
+    width: 390px;
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
@@ -77,11 +77,28 @@
     // width: 60rem;
     // height: 40rem;
 }
+.container-contact-infos{
+    margin-top: 3rem;
+}
+.title-contact-infos{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+margin-left:  5rem;
+}
+.block-infos-contact{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
 
 //Media Queries
 @media screen and (max-width: 1024px){
     .container-contact{
-        padding: 5rem 0rem;
+        padding: 5rem 1rem;
+    }
+    .container-contact-infos{
+        margin-left: 1rem;
     }
     .container-contact-form{
         padding: 4rem 2rem 12rem;
@@ -117,6 +134,15 @@
     .img-flower-contact{
         width: 18rem;
         height: 20rem;
+    }
+    .title-contact-infos{
+        font-size: 1.5rem;
+        margin-left:  1rem;
+    }
+    .block-infos-contact{
+        flex-direction: column;
+        margin-left: 1rem;
+    
     }
  
 }

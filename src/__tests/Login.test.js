@@ -1,14 +1,42 @@
-const {Login} = require('../pages/auth/Login');
-const {render} = require('@testing-library/react');
+import { validateFormLogin } from "../pages/auth/Login";
 
-test('Test sur la page de connexion', () => {
-    const {getByTestId} = render(<Login/>);//render permet de rendre le composant
-    const email = getByTestId('email');
-    const password = getByTestId('password');
-    const submit = getByTestId('submit');
-    expect(email).toBeTruthy();
-    expect(password).toBeTruthy();
-    expect(submit).toBeTruthy();
-}
-);
+describe('validateFormLogin', () => {
+  it('Retourne true quand le formulaire est valide', () => {
+    const credentials = {
+      email: 'test@example.com',
+      password: 'password123',
+    };
+
+    const isValid = validateFormLogin(credentials);
+
+    expect(isValid).toBe(true);
+  });
+
+  it('Retourne false quand le formulaire est invalide', () => {
+    const credentials = {
+      email: '',
+      password: '',
+    };
+
+    const isValid = validateFormLogin(credentials);
+
+    expect(isValid).toBe(false);
+  });
+
+  it('Définit les erreurs appropriées quand le formulaire est invalide', () => {
+    const credentials = {
+      email: '',
+      password: '',
+    };
+
+    validateFormLogin(credentials);
+
+    // Vérifier que les erreurs sont correctement définies
+    expect(credentials.errors).toEqual({
+      email: "Veuillez entrer votre adresse e-mail.",
+      password: "Veuillez entrer votre mot de passe.",
+    });
+  });
+});
+
 

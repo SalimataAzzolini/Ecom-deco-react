@@ -14,7 +14,7 @@
 #login-form .container-form-login {
   /* margin: auto; */
   border-radius: 20px;
-  padding: 5% 10% 5% 5%;
+  padding: 5% 7% 5% 5%;
   box-sizing: border-box;
   background: #ffffff;
   box-shadow: 14px 14px 20px #dcd7d5, -14px -14px 30px #FFF7F4;
@@ -45,12 +45,6 @@
   letter-spacing: 1px;
 }
 
-#login-form .inputs-login-form {
-  text-align: left;
-  margin-top: 30px;
-  padding: 5px 2rem;
-
-}
 
 #login-form label, .input-login-form, .btn-login-form {
   display: block;
@@ -74,10 +68,17 @@
 
 #login-form .input-login-form {
   background: #ecf0f3;
-  padding: 5% 30%;
+  padding: 5% 35%;
   font-size: 14px;
   border-radius: 50px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+#login-form .inputs-login-form {
+  text-align: left;
+  margin-top: 30px;
+  padding: 5px 2rem;
+
 }
 
 #login-form .btn-login-form {
@@ -133,18 +134,18 @@
     padding: 2% 7%;
   }
   #login-form .container-form-login {
-    padding: 5% 8% 5% 13%;
+    padding: 5% 8% 5% 3%;
   }
   #login-form .brand-title{
     font-size: 1.5rem;
   }
 
   #login-form .input-login-form{
-    padding: 4% 15%;
+    padding: 4% 25%;
     font-size: 12px;
   }
   #login-form .btn-login-form{
-    padding: 2% 35%;
+    padding: 4% 38%;
     font-size: 12px;
   }
   .container-form-login a{

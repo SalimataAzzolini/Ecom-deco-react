@@ -4,6 +4,7 @@ import { accountService } from "@/_services/";
 import HeaderPublic from "@/components/public/HeaderPublic";
 import FooterHome from "@/components/public/FooterHome";
 import Logo from "@/assets/img/logo.png";
+import './login-admin.scss'
 
 const LoginAdmin = () => {
 
@@ -28,6 +29,8 @@ const LoginAdmin = () => {
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
+          const csrfToken = res.data.csrf;
+          localStorage.setItem("csrfToken", csrfToken);
           accountService.saveToken(res.data.token); 
           navigate("/admin/dashboard", { replace: true });
         } else {
@@ -41,73 +44,47 @@ const LoginAdmin = () => {
     return (
       <div> 
       <HeaderPublic />
-    <div className="login">
-    <div id="login-form"> 
-    <form className="container-form-login" onSubmit={onSubmit}>
-    <div className="brand-logo">
-      <img src={Logo} alt="logo" />
-    </div>
-    <div className="brand-title">LOGIN</div>
+      <div className="login">
+            <div id="login-form"> 
+            <form className="container-form-login form-login-admin" onSubmit={onSubmit}>
+            <div className="brand-logo">
+              <img src={Logo} alt="logo" />
+            </div>
+            <div className="brand-title">LOGIN ADMIN</div>
 
-    <div className="inputs-login-form">
-      <label className="label-login-form">EMAIL</label>
-      <input
-        type="email"
-        placeholder="example@test.com"
-        name="email"
-        value={credentials.email}
-        onChange={onChange}
-        className="input-login-form"
-      />
-      <label className="label-login-form">PASSWORD</label>
-      <input
-        type="password"
-        placeholder="Min 6 charaters long"
-        name="password"
-        value={credentials.password}
-        onChange={onChange}
-        className="input-login-form"
-      />
-      <button type="submit" className="btn-login-form">
-        LOGIN
-      </button>
+            <div className="inputs-login-form">
+              <label className="label-login-form">EMAIL</label>
+              <input
+                type="email"
+                placeholder="example@test.com"
+                name="email"
+                value={credentials.email}
+                onChange={onChange}
+                className="input-login-form input-log-admin"
+              />
+              <label className="label-login-form">PASSWORD</label>
+              <input
+                type="password"
+                placeholder="Minimum 8 caractère"
+                name="password"
+                value={credentials.password}
+                onChange={onChange}
+                className="input-login-form input-log-admin"
+              />
+              <button type="submit" className="btn-login-form btn-login-admin">
+                Connexion
+              </button>
 
-      {/* <a href="http://127.0.0.1:8000/reset-password/reset-password" className="link-password-forget"> Mot de passe oublié ?
-      </a> */}
-    </div>
+              {/* <a href="http://127.0.0.1:8000/reset-password/reset-password" className="link-password-forget"> Mot de passe oublié ?
+              </a> */}
+            </div>
 
-  </form>
+          </form>
+            </div>
+      </div>
+      <FooterHome />
   </div>
-  <FooterHome />
-  </div>
-  </div>
-      //   <div id="login-form"> 
-      //   <form className="container-form " onSubmit={onSubmit}>
-      //   <div className="brand-logo"></div>
-      //   <div className="brand-title">LOGIN ADMIN</div>
-    
-      //   <div className="inputs">
-      //     <label>EMAIL</label>
-      //     <input
-      //       type="email"
-      //       placeholder="example@test.com"
-      //       name="email"
-      //       value={credentials.email}
-      //       onChange={onChange}
-      //     />
-      //     <label>PASSWORD</label>
-      //     <input
-      //       type="password"
-      //       placeholder="Min 6 charaters long"
-      //       name="password"
-      //       value={credentials.password}
-      //       onChange={onChange}
-      //     />
-      //     <button type="submit">LOGIN</button>
-      //   </div>
-    
-      // </form>
-      // </div>
+     
     );
 };
 
