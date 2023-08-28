@@ -74,9 +74,6 @@ const LoginAdmin = () => {
               <button type="submit" className="btn-login-form btn-login-admin">
                 Connexion
               </button>
-
-              {/* <a href="http://127.0.0.1:8000/reset-password/reset-password" className="link-password-forget"> Mot de passe oublié ?
-              </a> */}
             </div>
 
           </form>

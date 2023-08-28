@@ -12,7 +12,6 @@ import '../style/checkout-form.scss'
 const CheckoutForm = () => {
 
     let navigate = useNavigate();
-    //const { userDatas, setUserDatas } = useContext(UserDatasContext);
     const [cardholderName, setCardholderName] = useState('');
 
 

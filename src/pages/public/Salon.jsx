@@ -1,4 +1,4 @@
-import { useSelector} from 'react-redux';
+
 import { useEffect, useRef, useState } from 'react';
 import CardSalonProduct from '@/components/public/CardSalonProduct';
 import { productService } from '@/_services';

@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Input from '@mui/joy/Input';
-import { Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { addToCart, removeFromCart } from '@/_features/cartSlice';
@@ -10,11 +9,6 @@ import './style/cart-basket.scss';
 import { Link } from 'react-router-dom';
 
 const CartBasket = () => {
-
-    // let cartItems = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartItems : null;
-    // cartItems = cartItems ? JSON.parse(cartItems) : null;
-    // let cartTotalAmount = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartTotalAmount : null;
-    // let cartTotalQuantity = localStorage.getItem('persist:root') ? JSON.parse(localStorage.getItem('persist:root')).cartTotalQuantity : null;
 
     let cartItems = useSelector(state => state.cart.cartItems);
     let cartTotalAmount = useSelector(state => state.cart.cartTotalAmount);

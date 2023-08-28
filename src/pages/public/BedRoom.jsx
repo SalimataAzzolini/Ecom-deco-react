@@ -14,7 +14,6 @@ const BedRoom = () => {
         if(!flag.current){
             productService.getAllProducts()
             .then(res => {
-                // console.log(res.data);
                 setProducts(res.data);
 
             })

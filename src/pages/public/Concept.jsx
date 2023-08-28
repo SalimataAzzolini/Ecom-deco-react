@@ -10,7 +10,7 @@ const Concept = () => {
                 <div className="block-concept section-concept1-left ">
                     <span className='rond-concept1'> </span>
                     <span className='rond-concept2'> </span>
-                    <img src={ImgConceptLeft} className='img-concept'/>
+                    <img src={ImgConceptLeft} className='img-concept' alt='img'/>
                 </div>
                 <div className="block-concept section-concept1-right">
                     <h1> Le concept </h1>
@@ -47,7 +47,7 @@ const Concept = () => {
 
             {/* SECTION  3 */}
             <div className="section-concept3">
-                <img src={ImgConceptLast} className='img-fluid img-concept-last'/>
+                <img src={ImgConceptLast} className='img-fluid img-concept-last' alt='img'/>
             </div>
         </div>
     );

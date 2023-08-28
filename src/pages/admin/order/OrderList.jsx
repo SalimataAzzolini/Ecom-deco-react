@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import {orderService} from "@/_services";
 import './style/order-list.scss';
 
@@ -14,13 +12,12 @@ const OrderList = () => {
     function formaterDate(date) {
         const dateObj = new Date(date);
         const jour = String(dateObj.getDate()).padStart(2, '0');
-        const mois = String(dateObj.getMonth() + 1).padStart(2, '0'); // Les mois sont indexés à partir de zéro
+        const mois = String(dateObj.getMonth() + 1).padStart(2, '0');
         const annee = dateObj.getFullYear();
       
         return `${jour}/${mois}/${annee}`;
     }
 
-    const token = localStorage.getItem('token');
     const csrfToken = localStorage.getItem('csrf_token');
 
     useEffect(() => {
@@ -41,23 +38,8 @@ const OrderList = () => {
         
         return () => flag.current = true
 
-    }, [])
+    }, [csrfToken])
 
-    // const onStatusChange = (e, orderId) => {
-    //     const status = e.target.value;
-    //     setOrders(orders.map(order => order.id === orderId ? 
-    //         {...order, status: status} : order))
-    // }
-
-    // const onSubmitStatus = () => {
-    // orders.map((order) => (
-    //     orderService.updateOrderStatus(order.id, order.status)
-    //         .then(res => {
-    //             console.log(res.data);
-    //         })
-    //         .catch(err => console.log(err))
-    // ))
-    // }
 
     const onUpdateOrderStatus = (orderId, status) => {
         orderService.updateOrderStatus(orderId, status)
