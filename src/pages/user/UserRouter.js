@@ -22,9 +22,6 @@ const UserRouter = () => {
                 <Route path="/confirmation-order" element={<ConfirmationOrder/>}/>
             </Routes>
 
-          
-                  
-
         </div>
     );
 };

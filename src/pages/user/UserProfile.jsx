@@ -8,7 +8,6 @@ import ImgPostUser from '@/assets/img/img-post-user.jpg';
 import ImgShoppingUser from '@/assets/img/img-shopping-user.png';
 import ImgProfilUser from '@/assets/img/img-profil-user.png';
 import ImgFavorisUser from '@/assets/img/img-favoris-user.png';
-//import { UserDatasContext } from "@/_contexts/userDatasContext";
 import './style/user-profil.scss';
 
 
@@ -16,10 +15,10 @@ const UserProfile = () => {
 
     let userDatas = "";
     if (localStorage.getItem("userDatas")) {
-        userDatas = JSON.parse(localStorage.getItem("userDatas")); //Convertion des données au format JSON
+        userDatas = JSON.parse(localStorage.getItem("userDatas"));
     }
 
-    //Récupérer le nom de l'utilisateur
+
     let userName = "";
     if (userDatas !== "") {
         userName = userDatas.firstname;

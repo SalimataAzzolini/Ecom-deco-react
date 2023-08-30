@@ -60,7 +60,6 @@ const CardPost = () => {
             </div>
             <div className="blog-tags">
             <ul>
-                {/* <li><a href="#">salon</a></li> */}
         
             </ul>
             </div>

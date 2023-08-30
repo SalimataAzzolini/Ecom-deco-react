@@ -7,7 +7,7 @@ import FooterHome from '@/components/public/FooterHome';
 
 
 const PUBLIC_KEY  = 'pk_test_51MyWilCyckqRdrUGOaV0ERZ6HB0PtnSt0cdfJiD8uI4S7ltJfNo2FY1Mk9EgpEttt9aEKcUOGExHCNLRdaGbnWj700AVx6Qk0V';
-const stripeTestPromise = loadStripe(PUBLIC_KEY); //Initialisation de Stripe
+const stripeTestPromise = loadStripe(PUBLIC_KEY); 
 
 const StripeContainer = () => {
     return (

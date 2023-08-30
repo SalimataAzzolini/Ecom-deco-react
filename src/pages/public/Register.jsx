@@ -172,7 +172,6 @@ const Register = () => {
         </div>
         <div className='div-inputs-register'>
             <div>
-                {/* <label>Address</label> */}
                 <input
                 type="text"
                 placeholder="Addresse"
@@ -184,7 +183,7 @@ const Register = () => {
                 {errors.address && <div className="error-message">{errors.address}</div>}
             </div>
             <div>
-                {/* <label>Zipcode</label> */}
+  
                 <input
                 type="text"
                 placeholder="Code postale"
@@ -196,7 +195,7 @@ const Register = () => {
                 {errors.zipcode && <div className="error-message">{errors.zipcode}</div>}
             </div>
         </div>
-            {/* <label>City</label> */}
+      
             <input
             type="text"
             placeholder="Ville"

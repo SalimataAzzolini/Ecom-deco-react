@@ -15,7 +15,7 @@ const CardSalonProduct = ({ product }) => {
             .map((image, index) => (
               <img src={image.link} alt="product" key={index} />
             ))}
-        {/* <img src={product.images.link} alt="" /> */}
+  
       </div>
       {/* <!-- 	product Information--> */}
       <div className="info">

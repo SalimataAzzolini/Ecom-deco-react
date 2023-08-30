@@ -61,70 +61,15 @@ const CardProduct = () => {
               <Link to={''}> 
                 <button className="btn">
                   <span className="price"> 16$</span>
-    
-                {/*   <span className="shopping-cart">
-                  <FontAwesomeIcon icon="fa-solid fa-tag" />   
-                  </span> */}
-    
+  
                   <span className="buy">Voir plus</span>
                 </button>
                 </Link>
               </div>
             </div>
     
-            
           </div>
     
-          {/*       <Card
-            variant="outlined"
-            sx={{
-              display: "flex",
-              p: 3,
-              flexDirection: {
-                xs: "column", // mobile
-                sm: "row", // tablet and up
-              },
-            }}
-          >
-            <CardMedia
-              component="img"
-              width="100"
-              height="100"
-              alt="123 Main St, Phoenix, AZ cover"
-              src={product.image}
-              sx={{
-                borderRadius: 0.5,
-                width: { xs: "100%", sm: 100 },
-                mr: { sm: 1.5 },
-                mb: { xs: 1.5, sm: 0 },
-              }}
-            />
-            <Box sx={{ alignSelf: "center", ml: 2 }}>
-              <Typography variant="body2" color="text.secondary">
-                {product.title}
-              </Typography>
-              <Typography component="div" fontWeight="bold">
-                {product.price}
-              </Typography>
-              <Box
-                sx={{
-                  ml: -1,
-                  mt: 0.75,
-                  px: 1,
-                  py: 0.5,
-                  borderRadius: 1,
-                  display: "flex",
-                  typography: "caption",
-                  bgcolor: (theme) =>
-                    theme.palette.mode === "dark" ? "primary.900" : "primary.50",
-                  color: (theme) =>
-                    theme.palette.mode === "dark" ? "#fff" : "primary.700",
-                }}
-              >
-                Confidence score of 85%
-              </Box>
-            </Box>
-          </Card> */}
         </div>
      
       );

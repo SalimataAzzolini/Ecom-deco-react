@@ -5,9 +5,7 @@ import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
 import {
     FaTh,
     FaBars,
-    FaUserAlt,
     FaRegChartBar,
-    FaCommentAlt,
     FaShoppingBag,
     FaThList,
     FaShoppingCart,
@@ -85,7 +83,6 @@ const SideMenu = () => {
                     style={{marginTop : isOpen ? "-10px" : "10px",
                     fontSize:  "25px",
                     marginLeft: isOpen ? "10px" : "0px",
-                    marginTop : "15px"
                     }}
                     className='icon-bars-admin'
                     />
@@ -101,7 +98,7 @@ const SideMenu = () => {
                 ))
             }
 
-            <button onClick={logout} className="button-logout-side-admin" role="button"
+            <button onClick={logout} className="button-logout-side-admin"
                 style={{marginLeft : '3rem', position : 'fixed', bottom : '3rem', left : '-2.4rem', padding : '5px 10px', backgroundColor : 'white', border : 'solid .5px white', display : 'flex'}}> 
                  <LogoutIcon style={{marginRight : '.5rem'}}/> 
                  <span style={{display: isOpen ? "block" : "none"}}> Déconnexion</span>

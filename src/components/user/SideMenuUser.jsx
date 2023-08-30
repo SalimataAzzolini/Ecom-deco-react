@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { FaUserAlt, FaShoppingBag, FaBars, FaTextWidth, FaUserEdit, FaSignOutAlt,  FaThList } from 'react-icons/fa';
-// import {FaTh, FaRegChartBar, FaCommentAlt, FaThList,FaShoppingCart }from "react-icons/fa";
+import { FaUserAlt, FaShoppingBag, FaBars, FaUserEdit, FaSignOutAlt,  FaThList } from 'react-icons/fa';
 import {BsSuitHeartFill} from 'react-icons/bs';
 import "./style/side-menu-user.scss";
 import LogoUser from '@/assets/img/logo.png';
@@ -66,9 +65,7 @@ const SideMenuUser = () => {
                     <FaBars onClick={toggle}
                     style={{marginTop : isOpen ? "-10px" : "10px",
                     fontSize:  "25px",
-                    marginLeft: isOpen ? "10px" : "0px",
-                    marginTop : "15px"
-                    }}
+                    marginLeft: isOpen ? "10px" : "0px" }}
                     className='icon-bars-admin'
                     />
 
