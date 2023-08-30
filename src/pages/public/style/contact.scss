@@ -23,22 +23,24 @@
 
 .label-input-contact{
     display: flex;
-    gap: 4rem;
+    gap: 10%;
+    width: 100%;
 }
 
 .label-input-name-contact{
     display: flex;
     flex-direction: column;
+    width: 45%;
 }
 
 .label-input-email-contact{
     display: flex;
     flex-direction: column;
+    width: 45%;
 }
 
 .input-contact{
     font-size: 1.2rem;
-    width: 390px;
     padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
@@ -111,9 +113,7 @@ margin-left:  5rem;
         flex-direction: column;
         gap: 0;
     }
-    // .label-input-name-contact{
 
-    // }
     .input-contact{
         width: 100%;
         padding: .5rem;
