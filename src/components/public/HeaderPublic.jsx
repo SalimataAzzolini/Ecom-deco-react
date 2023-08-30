@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import "./style/header-public.scss";
@@ -9,7 +8,6 @@ import Logo from "@/assets/img/logo.png";
 
 const HeaderPublic = () => {
 
-  let navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

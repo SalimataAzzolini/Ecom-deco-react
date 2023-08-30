@@ -1,5 +1,4 @@
 import { useState} from 'react';
-// import { UserDatasContext } from "@/_contexts/userDatasContext";
 import { accountService } from "@/_services/";
 import "./style/user-profile-edit.scss";
 
@@ -22,7 +21,6 @@ const UserProfileEdit = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // console.log(userDatas);
 
   const onChange = (e) => {
     const { name, value } = e.target;

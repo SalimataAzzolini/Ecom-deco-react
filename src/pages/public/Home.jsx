@@ -132,8 +132,6 @@ const Home = () => {
                         <form action="#"  className="card-newsletter">
                             <div className="">
                                 <div  className="image">
-                                   {/* <BsFillEnvelopePaperHeartFill/> */}
-                                    {/* <i  className="fas fa-envelope"></i> */}
                                 </div>
                                 <h4>Suscrire</h4>
                                 <p>Inscrivez-vous à notre newsletter et restez connecté.</p>
