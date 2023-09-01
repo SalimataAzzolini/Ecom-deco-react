@@ -20,10 +20,13 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), //fix for absolute path
+    },
     fallback: {
       "crypto": require.resolve("crypto-browserify"),
-      "stream": require.resolve("stream-browserify")
-    }
+      "stream": require.resolve("stream-browserify"),
+    },
   },
   plugins: [
     new webpack.ProvidePlugin({
